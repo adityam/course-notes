@@ -25,6 +25,8 @@ book:
       chapters:
         - notes/mdps/intro.qmd
         - notes/mdps/gambling.qmd
+        - notes/mdps/monotone-mdps.qmd
+        - notes/mdps/power-delay-tradeoff.qmd
     - notes/references.qmd
     - part: "506 Assignments"
       chapters:

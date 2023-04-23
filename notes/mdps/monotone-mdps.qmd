@@ -1,0 +1,12 @@
+---
+title: Monotonicity of value function and optimal policies
+date: last-modified
+keywords:
+   - MDPs
+   - stochastic monotonicity
+   - structural results
+execute:
+  echo: false
+---
+
+

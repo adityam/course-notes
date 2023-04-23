@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/stochastic-optimization/intro.html</loc>
-    <lastmod>2023-04-23T05:50:31.385Z</lastmod>
+    <lastmod>2023-04-23T06:36:41.637Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/stochastic-optimization/newsvendor.html</loc>
@@ -22,10 +22,18 @@
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/mdps/intro.html</loc>
-    <lastmod>2023-04-23T03:37:31.919Z</lastmod>
+    <lastmod>2023-04-23T06:28:29.055Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/mdps/gambling.html</loc>
-    <lastmod>2023-04-23T05:48:09.208Z</lastmod>
+    <lastmod>2023-04-23T06:32:33.325Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/notes/mdps/power-delay-tradeoff.html</loc>
+    <lastmod>2023-04-23T06:32:58.522Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/notes/mdps/monotone-mdps.html</loc>
+    <lastmod>2023-04-23T06:32:40.968Z</lastmod>
   </url>
 </urlset>

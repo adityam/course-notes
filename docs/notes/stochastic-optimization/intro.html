@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Stochastic Control and Decision Theory - 1&nbsp; Introduction</title>
+<title>Single- and Multi-Agent Decision Theory - 1&nbsp; Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ window.MathJax = {
 
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,7 +137,7 @@ window.MathJax = {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Stochastic Control and Decision Theory</a> 
+      <a href="../../">Single- and Multi-Agent Decision Theory</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -177,6 +177,21 @@ window.MathJax = {
   <a href="../../notes/references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">506 Assignments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../506/01.html" class="sidebar-item-text sidebar-link">Assignment 1</a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -195,7 +210,7 @@ window.MathJax = {
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -327,7 +342,7 @@ Proof
 </div>
 </div>
 </section>
-<section id="blackwells-principle-of-irrelevant-information" class="level2 page-columns page-full" data-number="1.3">
+<section id="blackwells-principle-of-irrelevant-information" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="blackwells-principle-of-irrelevant-information"><span class="header-section-number">1.3</span> Blackwell’s principle of irrelevant information</h2>
 <p>In many scenarios, the decision maker may observe data which is irrelevant for evaluating performance. In such instances, the decision maker may ignore such information without affecting performance. Formally, we have the following result, which is known as <strong>Blackwell’s principle of irrelevant information</strong>.</p>
 <div id="thm-blackwell" class="theorem">
@@ -356,11 +371,11 @@ Proof
 </div>
 </div>
 <p>The above proof doesn’t work for general Borel spaces because <span class="math inline">\(π^*\)</span> defined above may not exist (inf vs min) or may not be measurable. See <span class="citation" data-cites="Blackwell1964">Blackwell (<a href="../references.html#ref-Blackwell1964" role="doc-biblioref">1964</a>)</span> for a formal proof.</p>
-<div class="no-row-height column-margin column-container"></div></section>
+</section>
 <section id="exercises" class="level1 unnumbered">
 <h1 class="unnumbered">Exercises</h1>
-<ol type="1">
-<li><p>Suppose <span class="math inline">\(\ALPHABET S = \{1, 2 \}\)</span>, <span class="math inline">\(\ALPHABET A = \{1, 2, 3\}\)</span>, and <span class="math inline">\(\ALPHABET W = \{1, 2, 3\}\)</span>. Let <span class="math inline">\((S,W)\)</span> be random variables taking values in <span class="math inline">\(\ALPHABET S × \ALPHABET W\)</span> with joint distribution <span class="math inline">\(P\)</span> shown below.</p>
+<div id="exr-stoc-optim-computing" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.1 (Computing optimal policies) </strong></span>Suppose <span class="math inline">\(\ALPHABET S = \{1, 2 \}\)</span>, <span class="math inline">\(\ALPHABET A = \{1, 2, 3\}\)</span>, and <span class="math inline">\(\ALPHABET W = \{1, 2, 3\}\)</span>. Let <span class="math inline">\((S,W)\)</span> be random variables taking values in <span class="math inline">\(\ALPHABET S × \ALPHABET W\)</span> with joint distribution <span class="math inline">\(P\)</span> shown below.</p>
 <p><span class="math display">\[ P = \MATRIX{ 0.25 &amp; 0.15 &amp; 0.05  \\ 0.30 &amp; 0.10 &amp; 0.15 } \]</span></p>
 <p>Here the row corresponds to the value of <span class="math inline">\(s\)</span> and the column corresponds to the value of <span class="math inline">\(w\)</span>. For example <span class="math inline">\(\PR(S=2, W=1) = P_{21} = 0.30\)</span>.</p>
 <p>The cost function <span class="math inline">\(c \colon \ALPHABET S \times \ALPHABET A \times \ALPHABET W \to \reals\)</span> is shown below</p>
@@ -370,8 +385,10 @@ c(\cdot,\cdot,2) = \MATRIX{4 &amp; 3 &amp; 1 \\ 1 &amp; 2 &amp; 8 }, \quad
 c(\cdot,\cdot,3) = \MATRIX{1 &amp; 2 &amp; 2 \\ 4 &amp; 1 &amp; 3 }.
 \]</span></p>
 <p>Here the row corresponds to the value of <span class="math inline">\(s\)</span> and the column corresponds to the value of <span class="math inline">\(a\)</span>. For example <span class="math inline">\(c(s=1,a=2,w=1) = 5\)</span>.</p>
-<p>Find the policy <span class="math inline">\(π \colon \ALPHABET S \to \ALPHABET A\)</span> that minimizes <span class="math inline">\(\EXP[ c(S, π(S), W) ]\)</span>.</p></li>
-<li><p>Suppose <span class="math inline">\(\ALPHABET S = \{1, 2\}\)</span>, <span class="math inline">\(\ALPHABET Y = \{1, 2\}\)</span>, <span class="math inline">\(\ALPHABET A = \{1, 2, 3\}\)</span>, and <span class="math inline">\(\ALPHABET W = \{1, 2, 3\}\)</span>. Let <span class="math inline">\((S,Y,W)\)</span> be random variables taking values in <span class="math inline">\(\ALPHABET S × \ALPHABET Y × \ALPHABET W\)</span>, with joint distribution <span class="math inline">\(Q\)</span> shown below. <span class="math display">\[
+<p>Find the policy <span class="math inline">\(π \colon \ALPHABET S \to \ALPHABET A\)</span> that minimizes <span class="math inline">\(\EXP[ c(S, π(S), W) ]\)</span>.</p>
+</div>
+<div id="exr-stoc-optim-blackwell" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.2 (Blackwell’s principle) </strong></span>Suppose <span class="math inline">\(\ALPHABET S = \{1, 2\}\)</span>, <span class="math inline">\(\ALPHABET Y = \{1, 2\}\)</span>, <span class="math inline">\(\ALPHABET A = \{1, 2, 3\}\)</span>, and <span class="math inline">\(\ALPHABET W = \{1, 2, 3\}\)</span>. Let <span class="math inline">\((S,Y,W)\)</span> be random variables taking values in <span class="math inline">\(\ALPHABET S × \ALPHABET Y × \ALPHABET W\)</span>, with joint distribution <span class="math inline">\(Q\)</span> shown below. <span class="math display">\[
 Q_{Y = 1} = \MATRIX{0.15 &amp; 0.10 &amp; 0.00 \\ 0.15 &amp; 0.05 &amp; 0.10}
 \qquad
 Q_{Y = 2} = \MATRIX{0.10 &amp; 0.05 &amp; 0.05 \\ 0.15 &amp; 0.05 &amp; 0.05}
@@ -380,29 +397,33 @@ Q_{Y = 2} = \MATRIX{0.10 &amp; 0.05 &amp; 0.05 \\ 0.15 &amp; 0.05 &amp; 0.05}
 <ol type="a">
 <li><p>Find the policy <span class="math inline">\(π \colon \ALPHABET S × \ALPHABET Y \to \ALPHABET A\)</span> that minimizes <span class="math inline">\(\EXP[c(S, π(S,Y), W)]\)</span>.</p></li>
 <li><p>Compare the solution with the solution of the previous exercise in view of Blackwell’s principle of irrelevant information. Clearly explain your observations.</p></li>
-</ol></li>
 </ol>
+</div>
 <!-- From page 172 of Whittle, Optimal Control: Basics and Beyond -->
-<ol start="3" type="1">
-<li><p>Consider the problem of monitoring the pollution level of a river. The river can have a high pollution level if there is a catastrophic failure of a factory upstream. There are then two “pollution states” indicating whether such a failure has not occured. We denote them by <span class="math inline">\(S = 0\)</span> (indicating no failure) and <span class="math inline">\(S = 1\)</span> (indicating catastrophic failure). Let <span class="math inline">\([p, 1-p]\)</span> denote the prior probability mass function of <span class="math inline">\(S\)</span>.</p>
+<div id="exr-stoc-optim-pollution-monitoring" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.3 (Pollution monitoring) </strong></span>Consider the problem of monitoring the pollution level of a river. The river can have a high pollution level if there is a catastrophic failure of a factory upstream. There are then two “pollution states” indicating whether such a failure has not occured. We denote them by <span class="math inline">\(S = 0\)</span> (indicating no failure) and <span class="math inline">\(S = 1\)</span> (indicating catastrophic failure). Let <span class="math inline">\([p, 1-p]\)</span> denote the prior probability mass function of <span class="math inline">\(S\)</span>.</p>
 <p>The pollution monitoring system has a sensor which takes a measurement <span class="math inline">\(y\)</span> of the pollution level. Let <span class="math inline">\(f_s(y)\)</span> denote the probabiity density of the observation <span class="math inline">\(y\)</span> conditional on the value of <span class="math inline">\(s\)</span>, <span class="math inline">\(s \in \{0, 1\}\)</span>. Two actions are available at the monitoring system: raise an alarm or not raise an alarm. The cost of raising the alarm is <span class="math inline">\(C_0\)</span> if the state <span class="math inline">\(S\)</span> is <span class="math inline">\(0\)</span> or zero if the state <span class="math inline">\(S\)</span> is <span class="math inline">\(1\)</span>; the cost of not raising the alarm is zero if the state <span class="math inline">\(S\)</span> is <span class="math inline">\(0\)</span> or <span class="math inline">\(C_1\)</span> if the state <span class="math inline">\(S\)</span> is <span class="math inline">\(1\)</span>.</p>
-<p>Show that it is optimal to raise the alarm if <span class="math display">\[ p f_0(y) C_0 &lt; (1 - p) f_1(y) C_1. \]</span> That is, it is optimal to raise the alarm if the <em>likelihood ratio</em> <span class="math inline">\(f_1(y)/f_0(y)\)</span> exceeds the threshold value <span class="math inline">\(p C_0/(1-p) C_1\)</span>.</p></li>
-</ol>
+<p>Show that it is optimal to raise the alarm if <span class="math display">\[ p f_0(y) C_0 &lt; (1 - p) f_1(y) C_1. \]</span> That is, it is optimal to raise the alarm if the <em>likelihood ratio</em> <span class="math inline">\(f_1(y)/f_0(y)\)</span> exceeds the threshold value <span class="math inline">\(p C_0/(1-p) C_1\)</span>.</p>
+</div>
 </section>
-<section id="notes" class="level1 unnumbered page-columns page-full">
+<section id="notes" class="level1 unnumbered">
 <h1 class="unnumbered">Notes</h1>
 <p><a href="#thm-blackwell">Theorem&nbsp;<span>1.3</span></a> is due to <span class="citation" data-cites="Blackwell1964">Blackwell (<a href="../references.html#ref-Blackwell1964" role="doc-biblioref">1964</a>)</span> in a short 2.5 page paper. A similar result was used by <span class="citation" data-cites="Witsenhausen1979">Witsenhausen (<a href="../references.html#ref-Witsenhausen1979" role="doc-biblioref">1979</a>)</span> to show the structure of optimal coding strategies in real-time communication. Also see the <a href="https://infostructuralist.wordpress.com/2010/11/08/deadly-ninja-weapons-blackwells-principle-of-irrelevant-information/">blog post</a> by Maxim Ragisnsky.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-Blackwell1964" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Blackwell, D.</span> 1964. Memoryless strategies in finite-stage dynamic programming. <em>The Annals of Mathematical Statistics</em> <em>35</em>, 2, 863–865. DOI: <a href="https://doi.org/10.1214/aoms/1177703586">10.1214/aoms/1177703586</a>.
-</div><div id="ref-Witsenhausen1979" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Witsenhausen, H.S.</span> 1979. On the structure of real-time source coders. <em>Bell System Technical Journal</em> <em>58</em>, 6, 1437–1451.
-</div><div id="ref-Whittle1996" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Whittle, P.</span> 1996. <em>Optimal control: Basics and beyond</em>. Wiley.
-</div></div><p>Exercise 3 is adaptive from <span class="citation" data-cites="Whittle1996">Whittle (<a href="../references.html#ref-Whittle1996" role="doc-biblioref">1996</a>)</span>. It is a special instance of Bayesian hypothesis testing problem. We will study a generalization of this model later in <a href="../../pomdp/sequential-hypothesis">sequential hypothesis testing</a></p>
+<p><a href="#exr-stoc-optim-pollution-monitoring">Exercise&nbsp;<span>1.3</span></a> is adaptive from <span class="citation" data-cites="Whittle1996">Whittle (<a href="../references.html#ref-Whittle1996" role="doc-biblioref">1996</a>)</span>. It is a special instance of Bayesian hypothesis testing problem. We will study a generalization of this model later in <a href="../../pomdp/sequential-hypothesis">sequential hypothesis testing</a></p>
 <hr>
 
 
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Blackwell1964" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Blackwell, D.</span> 1964. Memoryless strategies in finite-stage dynamic programming. <em>The Annals of Mathematical Statistics</em> <em>35</em>, 2, 863–865. DOI: <a href="https://doi.org/10.1214/aoms/1177703586">10.1214/aoms/1177703586</a>.
+</div>
+<div id="ref-Whittle1996" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Whittle, P.</span> 1996. <em>Optimal control: Basics and beyond</em>. Wiley.
+</div>
+<div id="ref-Witsenhausen1979" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Witsenhausen, H.S.</span> 1979. On the structure of real-time source coders. <em>Bell System Technical Journal</em> <em>58</em>, 6, 1437–1451.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

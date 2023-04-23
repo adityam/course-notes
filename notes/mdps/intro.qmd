@@ -1,0 +1,7 @@
+---
+title: Finite horizon MDPs
+date: last-modified
+keywords:
+   - MDPs
+   - Dynamic programming
+---

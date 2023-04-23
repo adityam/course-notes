@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-04-22">
+<meta name="dcterms.date" content="2023-04-23">
 <meta name="keywords" content="stochastic optimization, newsvendor problem">
-<meta name="description" content="Course notes on Markov decision processes (MDPs), Partially observable Markov decision processes (POMDPs), and Game Theory">
+<meta name="description" content="Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)">
 
 <title>Single- and Multi-Agent Decision Theory - 2&nbsp; The newsvendor problem</title>
 <style>
@@ -114,7 +114,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../notes/references.html" rel="next">
+<link href="../../notes/mdps/intro.html" rel="next">
 <link href="../../notes/stochastic-optimization/intro.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -217,7 +217,7 @@ window.MathJax = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">Outline</a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -240,6 +240,26 @@ window.MathJax = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Markov decision processes</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/mdps/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/mdps/gambling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimal gambling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../notes/references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -247,12 +267,12 @@ window.MathJax = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">506 Assignments</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">506 Assignments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../506/01.html" class="sidebar-item-text sidebar-link">Assignment 1</a>
@@ -292,7 +312,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2023</p>
+      <p class="date">April 23, 2023</p>
     </div>
   </div>
   
@@ -826,8 +846,8 @@ Remark
 </div>
 </div>
 </section>
-<section id="exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Exercises</h1>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <div id="exr-newsvendor-qualitative" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.1 (Qualitative properties of optimal solution) </strong></span>Intuitively, we expect that if the purchase price of the newspaper increases but the selling price remains the same, then the newsvendor should buy less newspapers. Formally prove this statement.</p>
 <p><em>Hint</em>: The CDF of a distribution is a weakly increasing function.</p>
@@ -845,10 +865,11 @@ Remark
 <p>Find the value of commitment <span class="math inline">\(a\)</span> that maximizes the expected reward.</p>
 </div>
 </section>
-<section id="notes" class="level1 unnumbered">
-<h1 class="unnumbered">Notes</h1>
+<section id="notes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
 <p>Perhaps the earliest model of the newsvendor problem appeared in <span class="citation" data-cites="Edgeworth1888">Edgeworth (<a href="../references.html#ref-Edgeworth1888" role="doc-biblioref">1888</a>)</span> in the context of a bank setting the level of cash reserves to cover demands from its customers. The solution to the basic model presented above and some of its variants was provided in <span class="citation" data-cites="Morse1951">Morse and Kimball (<a href="../references.html#ref-Morse1951" role="doc-biblioref">1951</a>)</span>; <span class="citation" data-cites="Arrow1951">Arrow et al. (<a href="../references.html#ref-Arrow1951" role="doc-biblioref">1952</a>)</span>; <span class="citation" data-cites="Whitin1953">Whitin (<a href="../references.html#ref-Whitin1953" role="doc-biblioref">1953</a>)</span>. See <span class="citation" data-cites="Porteus2008">Porteus (<a href="../references.html#ref-Porteus2008" role="doc-biblioref">2008</a>)</span> for an accessible introduction.</p>
 <p>The property <span class="math inline">\(F_1(w) \le F_2(w)\)</span> used in Exercise&nbsp;2 is called <a href="../../mdp/stochastic-dominance">stochastic dominance</a>. Later in the course, we will study how stochastic dominance is useful to establish <a href="../../mdp/monotonicity">monotonicity properties of general MDPs</a>.</p>
+<!--FIXME-->
 <p>The example of selling random wind in <a href="#exr-newsvendor-wind">Exercise&nbsp;<span>2.3</span></a> is taken from <span class="citation" data-cites="Bitar2012">Bitar et al. (<a href="../references.html#ref-Bitar2012" role="doc-biblioref">2012</a>)</span>.</p>
 
 
@@ -1032,8 +1053,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../notes/references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../notes/mdps/intro.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

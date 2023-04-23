@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-04-22">
+<meta name="dcterms.date" content="2023-04-23">
 <meta name="keywords" content="stochastic optimization, principle of irrelevant information">
-<meta name="description" content="Course notes on Markov decision processes (MDPs), Partially observable Markov decision processes (POMDPs), and Game Theory">
+<meta name="description" content="Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)">
 
 <title>Single- and Multi-Agent Decision Theory - 1&nbsp; Introduction</title>
 <style>
@@ -152,7 +152,7 @@ window.MathJax = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">Outline</a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -175,6 +175,26 @@ window.MathJax = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Markov decision processes</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/mdps/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/mdps/gambling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimal gambling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../notes/references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -182,12 +202,12 @@ window.MathJax = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">506 Assignments</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">506 Assignments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../506/01.html" class="sidebar-item-text sidebar-link">Assignment 1</a>
@@ -228,7 +248,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2023</p>
+      <p class="date">April 23, 2023</p>
     </div>
   </div>
   
@@ -381,8 +401,8 @@ Proof
 </div>
 <p>The above proof doesn’t work for general Borel spaces because <span class="math inline">\(π^*\)</span> defined above may not exist (inf vs min) or may not be measurable. See <span class="citation" data-cites="Blackwell1964">Blackwell (<a href="../references.html#ref-Blackwell1964" role="doc-biblioref">1964</a>)</span> for a formal proof.</p>
 </section>
-<section id="exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Exercises</h1>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <div id="exr-stoc-optim-computing" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.1 (Computing optimal policies) </strong></span>Suppose <span class="math inline">\(\ALPHABET S = \{1, 2 \}\)</span>, <span class="math inline">\(\ALPHABET A = \{1, 2, 3\}\)</span>, and <span class="math inline">\(\ALPHABET W = \{1, 2, 3\}\)</span>. Let <span class="math inline">\((S,W)\)</span> be random variables taking values in <span class="math inline">\(\ALPHABET S × \ALPHABET W\)</span> with joint distribution <span class="math inline">\(P\)</span> shown below.</p>
 <p><span class="math display">\[ P = \MATRIX{ 0.25 &amp; 0.15 &amp; 0.05  \\ 0.30 &amp; 0.10 &amp; 0.15 } \]</span></p>
@@ -415,8 +435,8 @@ Q_{Y = 2} = \MATRIX{0.10 &amp; 0.05 &amp; 0.05 \\ 0.15 &amp; 0.05 &amp; 0.05}
 <p>Show that it is optimal to raise the alarm if <span class="math display">\[ p f_0(y) C_0 &lt; (1 - p) f_1(y) C_1. \]</span> That is, it is optimal to raise the alarm if the <em>likelihood ratio</em> <span class="math inline">\(f_1(y)/f_0(y)\)</span> exceeds the threshold value <span class="math inline">\(p C_0/(1-p) C_1\)</span>.</p>
 </div>
 </section>
-<section id="notes" class="level1 unnumbered">
-<h1 class="unnumbered">Notes</h1>
+<section id="notes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
 <p><a href="#thm-blackwell">Theorem&nbsp;<span>1.3</span></a> is due to <span class="citation" data-cites="Blackwell1964">Blackwell (<a href="../references.html#ref-Blackwell1964" role="doc-biblioref">1964</a>)</span> in a short 2.5 page paper. A similar result was used by <span class="citation" data-cites="Witsenhausen1979">Witsenhausen (<a href="../references.html#ref-Witsenhausen1979" role="doc-biblioref">1979</a>)</span> to show the structure of optimal coding strategies in real-time communication. Also see the <a href="https://infostructuralist.wordpress.com/2010/11/08/deadly-ninja-weapons-blackwells-principle-of-irrelevant-information/">blog post</a> by Maxim Ragisnsky.</p>
 <p><a href="#exr-stoc-optim-pollution-monitoring">Exercise&nbsp;<span>1.3</span></a> is adaptive from <span class="citation" data-cites="Whittle1996">Whittle (<a href="../references.html#ref-Whittle1996" role="doc-biblioref">1996</a>)</span>. It is a special instance of Bayesian hypothesis testing problem. We will study a generalization of this model later in <a href="../../pomdp/sequential-hypothesis">sequential hypothesis testing</a></p>
 <hr>
@@ -572,7 +592,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Outline</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

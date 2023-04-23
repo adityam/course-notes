@@ -1,4 +1,2 @@
-# Outline {.unnumbered}
-
-This website contains the course notes for two graduate courses that I teach: ECSE 506 (Stochastic Control and Decision Theory) and ECSE 508 (Multi-agent systems). 
+# Preface {.unnumbered}
 

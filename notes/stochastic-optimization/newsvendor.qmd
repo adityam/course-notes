@@ -383,7 +383,7 @@ Note that the structure of the optimal solution is the same for continuous and
 discrete demand distributions. 
 :::
 
-# Exercises {-}
+## Exercises {-}
 
 ::: {#exr-newsvendor-qualitative}
 
@@ -420,7 +420,7 @@ Find the value of commitment $a$ that maximizes the expected reward.
 
 :::
 
-# Notes {-}
+## Notes {-}
 
 Perhaps the earliest model of the newsvendor problem appeared in
 @Edgeworth1888 in the context of a bank setting the level of cash reserves to
@@ -433,6 +433,7 @@ Later in the course, we
 will study how stochastic dominance is useful to establish [monotonicity
 properties of general MDPs][monotonicity].
 
+<!--FIXME-->
 [stochastic dominance]: ../../mdp/stochastic-dominance
 [monotonicity]: ../../mdp/monotonicity
 

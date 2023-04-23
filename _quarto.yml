@@ -10,7 +10,7 @@ book:
       affiliation: "McGill University"
       affiliation-url: "https://www.mcgill.ca/ece"
   date: today
-  description: "Course notes on Markov decision processes (MDPs), Partially observable Markov decision processes (POMDPs), and Game Theory"
+  description: "Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)"
   site-url: "https://adityam.github.io/course-notes/"
   sidebar:
     collapse-level: 2
@@ -21,6 +21,10 @@ book:
       chapters:
         - notes/stochastic-optimization/intro.qmd
         - notes/stochastic-optimization/newsvendor.qmd
+    - part: "Markov decision processes"
+      chapters:
+        - notes/mdps/intro.qmd
+        - notes/mdps/gambling.qmd
     - notes/references.qmd
     - part: "506 Assignments"
       chapters:

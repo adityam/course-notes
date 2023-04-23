@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adityam.github.io/course-notes/index.html</loc>
-    <lastmod>2023-04-23T03:07:02.833Z</lastmod>
+    <lastmod>2023-04-23T03:33:49.687Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/stochastic-optimization/intro.html</loc>
-    <lastmod>2023-04-23T03:06:22.193Z</lastmod>
+    <lastmod>2023-04-23T04:55:12.479Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/stochastic-optimization/newsvendor.html</loc>
-    <lastmod>2023-04-23T03:07:25.556Z</lastmod>
+    <lastmod>2023-04-23T04:54:53.439Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/notes/references.html</loc>
@@ -19,5 +19,13 @@
   <url>
     <loc>https://adityam.github.io/course-notes/506/01.html</loc>
     <lastmod>2023-04-23T03:06:22.203Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/notes/mdps/intro.html</loc>
+    <lastmod>2023-04-23T03:37:31.919Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/notes/mdps/gambling.html</loc>
+    <lastmod>2023-04-23T05:43:38.262Z</lastmod>
   </url>
 </urlset>

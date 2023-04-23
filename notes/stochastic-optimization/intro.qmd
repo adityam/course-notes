@@ -1,5 +1,9 @@
 ---
 title: Introduction
+date: last-modified
+keywords:
+   - stochastic optimization
+   - principle of irrelevant information
 ---
 
 Let's start with the simplest optimization problem. A decision maker has to
@@ -119,7 +123,7 @@ The decision rule $π^∘$ defined in \\eqref{eq:cond} is optimal for Problem \\
 
 # Remark
 
-We restricted the proof finite $\ALPHABET S$, $\ALPHABET A$,
+We restricted the proof to finite $\ALPHABET S$, $\ALPHABET A$,
 $\ALPHABET W$. This is to avoid any measurability issues. If
 $\ALPHABET S$ and $\ALPHABET A$ are continuous sets, we need to restrict to
 _measurable_ $π$ in Problem \\ref{eq:basic} (otherwise the expectation is not

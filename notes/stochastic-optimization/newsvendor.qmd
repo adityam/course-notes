@@ -1,5 +1,9 @@
 ---
 title: The newsvendor problem
+date: last-modified
+keywords:
+   - stochastic optimization
+   - newsvendor problem
 execute:
   echo: false
 ---

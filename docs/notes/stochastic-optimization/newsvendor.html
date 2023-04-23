@@ -125,6 +125,7 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.0/nutshell.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -349,7 +350,7 @@ Summary
 <p>The problem above has discrete action and discrete demand. To build intuition, we first consider the case where both the actions and demand are continuous. Let <span class="math inline">\(f(w)\)</span> denote the probability density of the demand and <span class="math inline">\(F(w)\)</span> denote the cumulative probability density. Then, the expected reward is <span class="math display">\[ \begin{equation} \label{eq:J}
 J(a) = \int_{0}^a [ q w - p a ] f(w) dw + \int_{a}^\infty [ q a - p a ] f(w) dw.
 \end{equation}\]</span></p>
-<p>To fix ideas, we consider an example where <span class="math inline">\(p = 0.5\)</span>, <span class="math inline">\(q = 1\)</span>, and the demand is a <a href="https://en.wikipedia.org/wiki/Kumaraswamy_distribution">Kumaraswamy distribution</a> with parameters <span class="math inline">\((a,b) = (2,5)\)</span> and support <span class="math inline">\([0,100]\)</span>. The performance of a function of action is shown below.</p>
+<p>To fix ideas, we consider an example where <span class="math inline">\(p = 0.5\)</span>, <span class="math inline">\(q = 1\)</span>, and the demand is a <a href="https://en.wikipedia.org/wiki/Kumaraswamy_distribution">:Kumaraswamy distribution</a> with parameters <span class="math inline">\((a,b) = (2,5)\)</span> and support <span class="math inline">\([0,100]\)</span>. The performance of a function of action is shown below.</p>
 <div class="cell">
 <div class="sourceCode cell-code hidden" id="cb1" data-startfrom="55" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 54;"><span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="dv">1</span></span>

@@ -47,9 +47,9 @@ $$ \begin{equation} \label{eq:J}
 J(a) = \int_{0}^a [ q w - p a ] f(w) dw + \int_{a}^\infty [ q a - p a ] f(w) dw. 
 \end{equation}$$
 
-To fix ideas, we consider an example where $p = 0.5$, $q = 1$, and the demand is a [Kumaraswamy distribution] with parameters $(a,b) = (2,5)$ and support $[0,100]$. The performance of a function of action is shown below. 
+To fix ideas, we consider an example where $p = 0.5$, $q = 1$, and the demand is a [:Kumaraswamy distribution] with parameters $(a,b) = (2,5)$ and support $[0,100]$. The performance of a function of action is shown below. 
 
-[Kumaraswamy distribution]: https://en.wikipedia.org/wiki/Kumaraswamy_distribution
+[:Kumaraswamy distribution]: https://en.wikipedia.org/wiki/Kumaraswamy_distribution
 
 ```{ojs}
 p = 0.5

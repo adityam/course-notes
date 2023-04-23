@@ -41,6 +41,8 @@ format:
     include-in-header: static/html/mathjax.html
     reference-location: margin
       #    citation-location: margin
+    filters:
+      - nutshell
 
 
 

@@ -40,7 +40,9 @@ format:
     theme: 
       - yeti
       - static/css/style.scss
-    include-in-header: static/html/mathjax.html
+    include-in-header: 
+      - static/html/mathjax.html
+      - static/html/clicky.html
     reference-location: margin
       #    citation-location: margin
     filters:

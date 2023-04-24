@@ -8,7 +8,7 @@
 
 <meta name="description" content="Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)">
 
-<title>Single- and Multi-Agent Decision Theory - References</title>
+<title>Single- and Multi-Agent Decision Theory - 13&nbsp; Singular value decomposition</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,8 +49,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../506/01.html" rel="next">
-<link href="../linear-algebra/svd.html" rel="prev">
+<link href="../notes/references.html" rel="next">
+<link href="../notes/mdps/lipschitz-mdps.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -118,6 +118,7 @@ window.MathJax = {
 </script>
 <script async="" data-id="101261731" src="//static.getclicky.com/js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -127,7 +128,7 @@ window.MathJax = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">References</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -261,22 +262,22 @@ window.MathJax = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">Linear Algebra Appendix</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">Linear Algebra Appendix</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../linear-algebra/svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></a>
+  <a href="../linear-algebra/svd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/references.html" class="sidebar-item-text sidebar-link active">References</a>
+  <a href="../notes/references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -299,14 +300,27 @@ window.MathJax = {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#singular-values" id="toc-singular-values" class="nav-link active" data-scroll-target="#singular-values"><span class="toc-section-number">13.1</span>  Singular values</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-singular-values" id="toc-properties-of-singular-values" class="nav-link" data-scroll-target="#properties-of-singular-values">Properties of singular values</a></li>
+  </ul></li>
+  <li><a href="#best-rank-k-approximations" id="toc-best-rank-k-approximations" class="nav-link" data-scroll-target="#best-rank-k-approximations"><span class="toc-section-number">14</span>  Best rank-<span class="math inline">\(k\)</span> approximations</a>
+  <ul class="collapse">
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">References</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></h1>
 </div>
 
 
@@ -321,128 +335,107 @@ window.MathJax = {
 
 </header>
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-Arrow1951" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Arrow, K.J., Harris, T., and Marschak, J.</span>
-1952. Optimal inventory policy. <em>Econometrica</em> <em>20</em>, 1,
-250–272. DOI: <a href="https://doi.org/10.2307/1907830">10.2307/1907830</a>.
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-Berry2000" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Berry, R.A.</span> 2000. Power and delay
-trade-offs in fading channels. Available at: <a href="https://dspace.mit.edu/handle/1721.1/9290">https://dspace.mit.edu/handle/1721.1/9290</a>.
+<div class="callout-caption-container flex-fill">
+Eigendecomposition of a matrix
 </div>
-<div id="ref-Berry2013" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Berry, R.A.</span> 2013. Optimal power-delay
-tradeoffs in fading channels—small-delay asymptotics. <em>IEEE
-Transactions on Information Theory</em> <em>59</em>, 6, 3939–3952. DOI:
-<a href="https://doi.org/10.1109/TIT.2013.2253194">10.1109/TIT.2013.2253194</a>.
 </div>
-<div id="ref-Berry2002" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Berry, R.A. and Gallager, R.G.</span> 2002.
-Communication over fading channels with delay constraints.
-<em><span>IEEE</span> Transactions on Information Theory</em>
-<em>48</em>, 5, 1135–1149. DOI: <a href="https://doi.org/10.1109/18.995554">10.1109/18.995554</a>.
+<div class="callout-body-container callout-body">
+<p>A symmetric <span class="math inline">\(n × n\)</span> matrix has real eigenvlaues. When the eigenvalues are distinct, then the eigenvectors are linearly independent. Let <span class="math inline">\(λ_1, \dots, λ_n\)</span> denote the eigenvalues and let <span class="math inline">\(v_1, \dots, v_n\)</span> be the corresponding eigenvectors. Define <span class="math inline">\(V = [ v_1, \dots, v_n ]\)</span> and <span class="math inline">\(D = \diag(λ_1, \dots, λ_n)\)</span>. Then, <span class="math display">\[
+  A = V D V^{-1}.
+\]</span></p>
 </div>
-<div id="ref-Berry2012" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Berry, R., Modiano, E., and Zafer, M.</span>
-2012. Energy-efficient scheduling under delay constraints for wireless
-networks. <em>Synthesis Lectures on Communication Networks</em>
-<em>5</em>, 2, 1–96. DOI: <a href="https://doi.org/10.2200/S00443ED1V01Y201208CNT011">10.2200/S00443ED1V01Y201208CNT011</a>.
 </div>
-<div id="ref-Bitar2012" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Bitar, E., Poolla, K., Khargonekar, P.,
-Rajagopal, R., Varaiya, P., and Wu, F.</span> 2012. Selling random wind.
-<em>2012 45th hawaii international conference on system sciences</em>,
-IEEE, 1931–1937.
+<p>If we choose the eigenvectors to be orthonormal, then <span class="math inline">\(V^\TRANS V = I\)</span>, so we can alternatively write the eigendecomposition of <span class="math inline">\(A\)</span> as <span class="math display">\[
+  A = V D V^\TRANS.
+\]</span></p>
+<p>The <strong>singular value decomposition (SVD)</strong> is a generalization of this where <span class="math inline">\(A\)</span> is a <span class="math inline">\(n × d\)</span> matrix.</p>
+<section id="singular-values" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="singular-values"><span class="header-section-number">13.1</span> Singular values</h2>
+<p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(n × d\)</span> matrix. Then, the matrix <span class="math inline">\(A^\TRANS A\)</span> is a symmetric <span class="math inline">\(d × d\)</span> matrix, so its eigenvalues are real. Moreover, <span class="math inline">\(A^\TRANS A\)</span> is positive semi-definite, so the eigen values are non-negative. Let <span class="math inline">\(\{ λ_1, \dots, λ_d \}\)</span> denote the eigenvalues of <span class="math inline">\(A^\TRANS A\)</span>, with repetitions. Order then so that <span class="math inline">\(λ_1 \ge λ_2 \ge \dots \ge λ_d \ge 0\)</span>. Let <span class="math inline">\(σ_i = \sqrt{λ_i}\)</span>, so that <span class="math inline">\(σ_1 \ge σ_2 \ge \dots σ_d \ge 0\)</span>. These numbers are called the <strong>singular values</strong> of <span class="math inline">\(A\)</span>.</p>
+<section id="properties-of-singular-values" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="properties-of-singular-values">Properties of singular values</h3>
+<ol type="1">
+<li><p>The number of non-zero singular values of <span class="math inline">\(A\)</span> equals to the rank of <span class="math inline">\(A\)</span>. In particular, if <span class="math inline">\(A\)</span> is <span class="math inline">\(n × d\)</span> where <span class="math inline">\(n &lt; d\)</span>, then <span class="math inline">\(A\)</span> has at most <span class="math inline">\(n\)</span> nonzero singular values.</p></li>
+<li><p>It can be shown that</p>
+<p><span class="math display">\[ σ_1 = \max_{\|x\| = 1}  \| A x \| . \]</span></p>
+<p>Let <span class="math inline">\(v_1\)</span> denote the arg-max of the above optimization. <span class="math inline">\(v_1\)</span> is called the first singular vector of <span class="math inline">\(A\)</span>. Then,</p>
+<p><span class="math display">\[ σ_2 = \max_{ x \perp v_1, \|x \| = 1}  \| A x\|. \]</span></p>
+<p>Let <span class="math inline">\(v_2\)</span> denote the arg-max of the above optimization. <span class="math inline">\(v_2\)</span> is called the second singular vector of <span class="math inline">\(A\)</span>, and so on.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(n × d\)</span> matrix and <span class="math inline">\(v_1, \dots, v_r\)</span> be the singular vectors, where <span class="math inline">\(r = \text{rank}(A)\)</span>. Then for any <span class="math inline">\(k \in \{1, \dots, r\}\)</span>, let <span class="math inline">\(V_k\)</span> be the subspace spanned by <span class="math inline">\(\{v_1, \dots, v_k\}\)</span>. Then, <span class="math inline">\(V_k\)</span> is the best <span class="math inline">\(k\)</span>-dimensional subspace for <span class="math inline">\(A\)</span>.</p></li>
+<li><p>For any matrix <span class="math inline">\(A\)</span>, <span class="math display">\[ \sum_{i =1}^r σ_i^2(A) = \| A \|_{F}^2
+   := \sum_{j,k} a_{jk}^2. \]</span></p></li>
+<li><p>Any vector <span class="math inline">\(v\)</span> can be written as a linear combination of <span class="math inline">\(v_1, \dots, v_r\)</span> and a vector perpendicular to <span class="math inline">\(V_r\)</span> (defined above). Now, <span class="math inline">\(Av\)</span> can be written as the same linear combination of <span class="math inline">\(Av_1, Av_2, \dots, Av_r\)</span>. So, <span class="math inline">\(Av_1, \dots, Av_r\)</span> form a fundamental set of vectors associated with <span class="math inline">\(A\)</span>. We normalize them to length one by <span class="math display">\[ u_i = \frac{1}{σ_i(A)} A v_i. \]</span> The vectors <span class="math inline">\(u_1, \dots, u_r\)</span> are called the <em>left singular vectors</em> of <span class="math inline">\(A\)</span>. The <span class="math inline">\(v_i\)</span> are called the <em>right singular vectors</em>.</p></li>
+<li><p>Both the left and the right singular vectors are orthogonal.</p></li>
+</ol>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-Blackwell1964" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Blackwell, D.</span> 1964. Memoryless strategies
-in finite-stage dynamic programming. <em>The Annals of Mathematical
-Statistics</em> <em>35</em>, 2, 863–865. DOI: <a href="https://doi.org/10.1214/aoms/1177703586">10.1214/aoms/1177703586</a>.
+<div class="callout-caption-container flex-fill">
+Singular value decomposition
 </div>
-<div id="ref-Ding2016" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Ding, N., Sadeghi, P., and Kennedy, R.A.</span>
-2016. On monotonicity of the optimal transmission policy in cross-layer
-adaptive <span class="math inline"><em>m</em></span> -QAM modulation.
-<em>IEEE Transactions on Communications</em> <em>64</em>, 9, 3771–3785.
-DOI: <a href="https://doi.org/10.1109/TCOMM.2016.2590427">10.1109/TCOMM.2016.2590427</a>.
 </div>
-<div id="ref-Edgeworth1888" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Edgeworth, F.Y.</span> 1888. The mathematical
-theory of banking. <em>Journal of the Royal Statistical Society</em>
-<em>51</em>, 1, 113–127. Available at: <a href="https://www.jstor.org/stable/2979084">https://www.jstor.org/stable/2979084</a>.
+<div class="callout-body-container callout-body">
+<p>For any matrix <span class="math inline">\(A\)</span>, <span class="math display">\[ A = \sum_{i=1}^r σ_i u_i v_i^\TRANS \]</span> where <span class="math inline">\(u_i\)</span> and <span class="math inline">\(v_i\)</span> are the left and right singular vectors, and <span class="math inline">\(σ_i\)</span> are the singular values.</p>
+<p>Equivalently, in matrix notation: <span class="math display">\[ A = U D V^\TRANS \]</span> where the columns of <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> consist of the left and right singular vectors, respectively, and <span class="math inline">\(D\)</span> is a diagonal matrix whose diagonal entries are the singular values of <span class="math inline">\(A\)</span>.</p>
 </div>
-<div id="ref-Fergurson2004" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Ferguson, T.S. and Gilstein, C.Z.</span> 2004.
-Optimal investment policies for the horse race model". Available at: <a href="https://www.math.ucla.edu/~tom/papers/unpublished/Zach2.pdf">https://www.math.ucla.edu/~tom/papers/unpublished/Zach2.pdf</a>.
 </div>
+<p>If <span class="math inline">\(A\)</span> is a positive definite square matrix, then the SVD and the eigen-decomposition coincide.</p>
+</section>
+</section>
+<section id="best-rank-k-approximations" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Best rank-<span class="math inline">\(k\)</span> approximations</h1>
+<p>There are two important matrix norms, the Frobenius norm which is defined as <span class="math display">\[
+  \| A \|_{F} = \sqrt{ \sum_{i,j} a_{ij}^2 }
+\]</span> and the induced norm which is defined as <span class="math display">\[
+  \| A \|_2 = \max_{\|x \| = 1} \| A x \|.
+\]</span></p>
+<p>Note that the Frobenius norm is equal to the square root of the sum of squares of the singular values and the <span class="math inline">\(2\)</span>-norm is the largest singular value.</p>
+<p>Let <span class="math inline">\(A\)</span> be an <span class="math inline">\(n × d\)</span> matrix and think of <span class="math inline">\(A\)</span> as the <span class="math inline">\(n\)</span> points in <span class="math inline">\(d\)</span>-dimensional space. The Frobenius norm of <span class="math inline">\(A\)</span> is the square root of the sum of squared distance of the points to the origin. The induced norm is the square root of the sum of squared distances to the origin along the direction that maximizes this quantity.</p>
+<div id="prp-svd" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.1 (Best rank-<span class="math inline">\(k\)</span> approximation) </strong></span>Let <span class="math display">\[ A = \sum_{i = 1}^r σ_i u_i v_i^\TRANS \]</span> be the SVD of <span class="math inline">\(A\)</span>. For <span class="math inline">\(k \in \{1, \dots, r\}\)</span>, let <span class="math display">\[ A_k = \sum_{i=1}^k σ_i u_i v_i^\TRANS \]</span> be the sum truncated after <span class="math inline">\(k\)</span> terms.</p>
+<p>Then, <span class="math inline">\(A_k\)</span> is the best rank <span class="math inline">\(k\)</span> approximation to <span class="math inline">\(A\)</span>, when the error is measured in either the induced norm or the Frobenius norm.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof outline
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>This result is established by showing the following properties:</p>
+<ol type="1">
+<li><p>The rows of <span class="math inline">\(A_k\)</span> are the projections of the rows of <span class="math inline">\(A\)</span> onto the subspace <span class="math inline">\(V_k\)</span> spanned by the first <span class="math inline">\(k\)</span> right singular vectors of <span class="math inline">\(A\)</span>.</p></li>
+<li><p>For any matrix <span class="math inline">\(B\)</span> of rank at most <span class="math inline">\(k\)</span> <span class="math display">\[ \| A - A_k \|_{F} \le \|A - B \|_{F}. \]</span></p></li>
+<li><p><span class="math inline">\(\| A - A_k\|_2^2 = σ_{k+1}^2.\)</span></p></li>
+<li><p>For any matrix <span class="math inline">\(B\)</span> of rank at most <span class="math inline">\(k\)</span> <span class="math display">\[ \| A - A_k \|_{2} \le \|A - B \|_{2}. \]</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<section id="notes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
+<p>These <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf">chapter on SVD</a> in <span class="citation" data-cites="Hopcroft2012">Hopcroft and Kannan (<a href="../notes/references.html#ref-Hopcroft2012" role="doc-biblioref">2012</a>)</span> contains a nice intuitive explanation of SVD.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-Hopcroft2012" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Hopcroft, J. and Kannan, R.</span> 2012.
-Computer science theory for the information age. Available at: <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf">https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf</a>.
-</div>
-<div id="ref-Kelly1956" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Kelly, J.L., Jr.</span> 1956. A new
-interpretation of information rate. <em>Bell System Technical
-Journal</em> <em>35</em>, 4, 917–926. DOI: <a href="https://doi.org/10.1002/j.1538-7305.1956.tb03809.x">10.1002/j.1538-7305.1956.tb03809.x</a>.
-</div>
-<div id="ref-Koole2006" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Koole, G.</span> 2006. Monotonicity in markov
-reward and decision chains: Theory and applications. <em>Foundations and
-Trends<span></span> in Stochastic Systems</em> <em>1</em>, 1, 1–76. DOI:
-<a href="https://doi.org/10.1561/0900000002">10.1561/0900000002</a>.
-</div>
-<div id="ref-Morse1951" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Morse, P. and Kimball, G.</span> 1951.
-<em>Methods of operations research</em>. Technology Press of MIT.
-</div>
-<div id="ref-Porteus2008" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Porteus, E.L.</span> 2008. Building intuition:
-Insights from basic operations management models and principles. In: D.
-Chhajed and T.J. Lowe, eds., Springer, 115–134. DOI: <a href="https://doi.org/10.1007/978-0-387-73699-0">10.1007/978-0-387-73699-0</a>.
-</div>
-<div id="ref-Ross1974" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Ross, S.M.</span> 1974. Dynamic programming and
-gambling models. <em>Advances in Applied Probability</em> <em>6</em>, 3,
-593–606. DOI: <a href="https://doi.org/10.2307/1426236">10.2307/1426236</a>.
-</div>
-<div id="ref-Sayedana2020a" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Sayedana, B. and Mahajan, A.</span> 2020.
-Counterexamples on the monotonicity of delay optimal strategies for
-energy harvesting transmitters. <em><span>IEEE</span> Wireless
-Communications Letters</em>, 1–1. DOI: <a href="https://doi.org/10.1109/lwc.2020.2981066">10.1109/lwc.2020.2981066</a>.
-</div>
-<div id="ref-Sayedana2020" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Sayedana, B., Mahajan, A., and Yeh, E.</span>
-2020. Cross-layer communication over fading channels with adaptive
-decision feedback. <em>International symposium on modeling and
-optimization in mobile, ad hoc, and wireless networks (WiOPT)</em>, 1–8.
-</div>
-<div id="ref-Topkis1998" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Topkis, D.M.</span> 1998. <em>Supermodularity
-and complementarity</em>. Princeton University Press.
-</div>
-<div id="ref-Whitin1953" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Whitin, S.</span> 1953. <em>The theory of
-inventory management</em>. Princeton University Press.
-</div>
-<div id="ref-Whittle1996" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Whittle, P.</span> 1996. <em>Optimal control:
-Basics and beyond</em>. Wiley.
-</div>
-<div id="ref-Witsenhausen1979" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Witsenhausen, H.S.</span> 1979. On the structure
-of real-time source coders. <em>Bell System Technical Journal</em>
-<em>58</em>, 6, 1437–1451.
-</div>
-<div id="ref-Yeh2012" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Yeh, E.M.</span> 2012. Fundamental performance
-limits in cross-layer wireless optimization: Throughput, delay, and
-energy. <em>Foundations and Trends in Communications and Information
-Theory</em> <em>9</em>, 1, 1–112. DOI: <a href="https://doi.org/10.1561/0100000014">10.1561/0100000014</a>.
+<span class="smallcaps">Hopcroft, J. and Kannan, R.</span> 2012. Computer science theory for the information age. Available at: <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf">https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf</a>.
 </div>
 </div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -580,13 +573,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../linear-algebra/svd.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></span>
+      <a href="../notes/mdps/lipschitz-mdps.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lipschitz MDPs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../506/01.html" class="pagination-link">
-        <span class="nav-page-text">Assignment 1</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

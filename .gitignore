@@ -1,1 +1,3 @@
 /.quarto/
+*.bib.bak
+*.bib.sav*

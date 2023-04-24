@@ -44,6 +44,7 @@ book:
     - part: "Linear Algebra Appendix"
       chapters:
         - linear-algebra/svd.qmd
+        - linear-algebra/rkhs.qmd
     - notes/references.qmd
     - part: "506 Assignments"
       chapters:

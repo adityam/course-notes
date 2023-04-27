@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: ../docs/stochastic-control
+
+book:
+  title: Course Notes
+  author: 
+    - name: Aditya Mahajan
+      url: "https://cim.mcgill.ca/~adityam"
+      affiliation: McGill University
+      affiliation-url: "https://www.mcgill.ca/ece"
+  date: today
+  description: "Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)"
+  site-url: "https://adityam.github.io/course-notes/"
+  navbar:
+    background: primary
+    pinned: false
+    left:
+    - href: ../index.qmd
+      text: Home
+    - href: ../stochastic-control/index.html
+      text: Stochastic Control
+    - href: ../stochastic-control/index.html
+      text: Multi-Agent Systems
+  sidebar:
+    collapse-level: 2
+    pinned: true
+  chapters:
+    - index.qmd
+    - part: "Strategic Games"
+      chapters:
+        - static-games/strategic-games.qmd
+    - part: "Dynamic Games"
+    - references.qmd
+    - part: "Assignments"
+
+bibliography: ../references.bib
+csl: ../_extensions/csl/acm-siggraph.csl
+
+format:
+  html:
+    theme: 
+      - yeti
+      - ../static/css/style.scss
+    include-in-header: 
+      - ../static/html/mathjax.html
+      - ../static/html/clicky.html
+    reference-location: margin
+      #    citation-location: margin
+    filters:
+      - ../_extensions/schochastics/nutshell/nutshell.lua
+
+
+

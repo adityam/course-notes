@@ -10,13 +10,13 @@ book:
       affiliation: McGill University
       affiliation-url: "https://www.mcgill.ca/ece"
   date: today
-  description: "Course notes on ECES 506 (Stochastic Control and Decision Theory} and ECSE 508 (Multi-agent systems)"
+  description: "ECSE 508 (Multi-agent systems)"
   site-url: "https://adityam.github.io/course-notes/"
   navbar:
     background: primary
     pinned: false
     left:
-    - href: ../index.qmd
+    - href: ../index.html
       text: Home
     - href: ../stochastic-control/index.html
       text: Stochastic Control

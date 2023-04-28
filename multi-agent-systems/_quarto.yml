@@ -20,7 +20,7 @@ book:
       text: Home
     - href: ../stochastic-control/index.html
       text: Stochastic Control
-    - href: ../stochastic-control/index.html
+    - href: ../multi-agent-systems/index.html
       text: Multi-Agent Systems
   sidebar:
     collapse-level: 2

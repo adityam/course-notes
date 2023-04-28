@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../docs/stochastic-control
+  output-dir: ../docs/multi-agent-systems
 
 book:
   title: Course Notes

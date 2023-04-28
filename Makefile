@@ -1,15 +1,11 @@
 stochastic-control: 
-	quarto render
 	quarto render stochastic-control
 
 multi-agent-systems: 
-	quarto render
 	quarto render multi-agent-systems
 
-website: 
+website: multi-agent-systems stochastic-control
 	quarto render
-	quarto render multi-agent-systems
-	quarto render stochastic-control
 
 pub: website
 	git add --update

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-04-24">
+<meta name="dcterms.date" content="2023-04-29">
 <meta name="keywords" content="MDPs, stochastic monotonicity, structural results">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
@@ -23,10 +23,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -43,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/nutshell-1.0.0/nutshell.min.js"></script>
+<script src="../site_libs/quarto-contrib/nutshell-1.0.6/nutshell.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,10 +121,11 @@ window.MathJax = {
 </script>
 <script async="" data-id="101261731" src="//static.getclicky.com/js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -149,7 +170,7 @@ window.MathJax = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -164,12 +185,12 @@ window.MathJax = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Static Stochastic Optimization</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Static Stochastic Optimization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../stochastic-optimization/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
@@ -262,12 +283,12 @@ window.MathJax = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">Linear Algebra Appendix</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">Linear Algebra Appendix</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../linear-algebra/svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></a>
@@ -287,12 +308,12 @@ window.MathJax = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">Assignments</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">Assignments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../assignments/01.html" class="sidebar-item-text sidebar-link">Assignment 1</a>
@@ -305,10 +326,25 @@ window.MathJax = {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#stochastic-dominance" id="toc-stochastic-dominance" class="nav-link active" data-scroll-target="#stochastic-dominance"><span class="toc-section-number">6.1</span>  Stochastic dominance</a></li>
+  <li><a href="#stochastic-monotonicity" id="toc-stochastic-monotonicity" class="nav-link" data-scroll-target="#stochastic-monotonicity"><span class="toc-section-number">6.2</span>  Stochastic monotonicity</a></li>
+  <li><a href="#monotonicity-of-value-functions" id="toc-monotonicity-of-value-functions" class="nav-link" data-scroll-target="#monotonicity-of-value-functions"><span class="toc-section-number">6.3</span>  Monotonicity of value functions</a></li>
+  <li><a href="#submodularity" id="toc-submodularity" class="nav-link" data-scroll-target="#submodularity"><span class="toc-section-number">6.4</span>  Submodularity</a></li>
+  <li><a href="#monotonicity-of-optimal-policy" id="toc-monotonicity-of-optimal-policy" class="nav-link" data-scroll-target="#monotonicity-of-optimal-policy"><span class="toc-section-number">6.5</span>  Monotonicity of optimal policy</a></li>
+  <li><a href="#constraints-on-actions" id="toc-constraints-on-actions" class="nav-link" data-scroll-target="#constraints-on-actions"><span class="toc-section-number">6.6</span>  Constraints on actions</a></li>
+  <li><a href="#monotone-dynamic-programming" id="toc-monotone-dynamic-programming" class="nav-link" data-scroll-target="#monotone-dynamic-programming"><span class="toc-section-number">6.7</span>  Monotone dynamic programming</a></li>
+  <li><a href="#example-a-machine-replacement-model" id="toc-example-a-machine-replacement-model" class="nav-link" data-scroll-target="#example-a-machine-replacement-model"><span class="toc-section-number">6.8</span>  Example: A machine replacement model</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -323,7 +359,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 24, 2023</p>
+      <p class="date">April 29, 2023</p>
     </div>
   </div>
   
@@ -333,8 +369,526 @@ window.MathJax = {
 
 </header>
 
+<div class="alert alert-secondary">
+<h4 class="alert-secondary anchored">
+Summary
+</h4>
+<p>In many applications, it is useful to know if the value function and the optimal policy is weakly increasing (or weakly decreasing) in state. Sufficient conditions are presented under which such monotonicity properties hold. These properties are useful because they makes it easy to search and implement the optimal policy.</p>
+</div>
+<!-- Maybe start with an example -->
+<section id="stochastic-dominance" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="stochastic-dominance"><span class="header-section-number">6.1</span> Stochastic dominance</h2>
+<div class="page-columns page-full"><p> Let <span class="math inline">\(\ALPHABET S\)</span> be a totally ordered finite set, say <span class="math inline">\(\{1, \dots, n\}\)</span>.</p><div class="no-row-height column-margin column-container"><span class="">Stochastic dominance is a partial order on random variables defined on totally ordered sets</span></div></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+(First order) stochastic dominance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(S^1\)</span> and <span class="math inline">\(S^2\)</span> are <span class="math inline">\(\ALPHABET S\)</span> valued random variables where <span class="math inline">\(S^1 \sim \mu^1\)</span> and <span class="math inline">\(S^2 \sim \mu^2\)</span>. We say <span class="math inline">\(S^1\)</span> <em>stochastically dominates</em> <span class="math inline">\(S^2\)</span> if for any <span class="math inline">\(s \in \ALPHABET S\)</span>, <span class="math display">\[\begin{equation}\label{eq:inc-prob}
+  \PR(S^1 \ge s) \ge \PR(S^2 \ge s).
+\end{equation}\]</span></p>
+<p>Stochastic domination is denoted by <span class="math inline">\(S^1 \succeq_s S^2\)</span> or <span class="math inline">\(\mu^1 \succeq_s \mu^2\)</span>.</p>
+</div>
+</div>
+<p>Let <span class="math inline">\({\rm M}^1\)</span> and <span class="math inline">\({\rm M}^2\)</span> denote the CDF of <span class="math inline">\(\mu^1\)</span> and <span class="math inline">\(\mu^2\)</span>. Then \eqref{eq:inc-prob} is equivalent to the following: <span class="math display">\[\begin{equation}\label{eq:cdf}
+  {\rm M}^1_s \le {\rm M}^2_s, \quad \forall s \in \ALPHABET S.
+\end{equation}\]</span> Thus, visually, <span class="math inline">\(S^1 \succeq_s S^2\)</span> means that the CDF of <span class="math inline">\(S^1\)</span> <em>lies below</em> the CDF of <span class="math inline">\(S^2\)</span>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\left[0, \frac 14, \frac 14, \frac 12\right] \succeq_s \left[\frac 14, 0, \frac 14, \frac 12 \right] \succeq_s \left[\frac 14, \frac 14, \frac 14, \frac 14 \right].\)</span></p>
+</div>
+</div>
+<p>Stochastic dominance is important due to the following property.</p>
+<div id="thm-stochastic-dominance" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.1 </strong></span>Let <span class="math inline">\(f \colon \ALPHABET S \to \reals\)</span> be a (weakly) increasing function and <span class="math inline">\(S^1 \sim \mu^1\)</span> and <span class="math inline">\(S^2 \sim \mu^2\)</span> are random variables defined on <span class="math inline">\(\ALPHABET S\)</span>. Then <span class="math inline">\(S^1 \succeq_s S^2\)</span> if and only if <span class="math display">\[\begin{equation}\label{eq:inc-fun}
+  \EXP[f(S^1)] \ge \EXP[f(S^2)].
+\end{equation}\]</span></p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof (stochastic dominance implies monotone expectations)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the ease of notation, let <span class="math inline">\(f_i\)</span> to denote <span class="math inline">\(f(i)\)</span> and define <span class="math inline">\({\rm M}^1_0 = {\rm M}^2_0 = 0\)</span>. Consider the following: <span class="math display">\[\begin{align*}
+    \sum_{i=1}^n f_i \mu^1_i
+    &amp;= \sum_{i=1}^n f_i ({\rm M}^1_i - {\rm M}^1_{i-1})
+    \\
+    &amp;= \sum_{i=1}^n {\rm M}^1_{i-1} (f_{i-1} - f_{i}) + f_n {\rm M}^1_n
+    \\
+    &amp;\stackrel{(a)}{\ge}
+    \sum_{i=1}^n {\rm M}^2_{i-1} (f_{i-1} - f_{i}) + f_n {\rm M}^2_n
+    \\
+    &amp;= \sum_{i=1}^n f_i ({\rm M}^2_i - {\rm M}^2_{i-1})
+    \\
+    &amp;= \sum_{i=1}^n f_i \mu_i,
+\end{align*}\]</span> which completes the proof. In the above equations, <span class="math inline">\((a)\)</span> uses the following facts:</p>
+<ol type="1">
+<li>For any <span class="math inline">\(i\)</span>, <span class="math inline">\({\rm M}^1_{i-1} \le {\rm M}^2_{i-1}\)</span> (because of \eqref{eq:cdf}) and <span class="math inline">\(f_{i-1} - f_{i} &lt; 0\)</span> (because <span class="math inline">\(f\)</span> is increasing function). Thus, <span class="math display">\[{\rm M}^1_{i-1}(f_{i-1} - f_i) \ge {\rm M}^2_{i-1}(f_{i-1} - f_i). \]</span></li>
+<li><span class="math inline">\({\rm M}^1_n = {\rm M}^2_n = 1\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof (monotone expectations implies stochastic monotonicity)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose for any increasing function <span class="math inline">\(f\)</span>, \eqref{eq:inc-fun} holds. Given any <span class="math inline">\(i \in \{1, \dots, n\}\)</span>, define the function <span class="math inline">\(f_i(k) = \IND\{k &gt; i\}\)</span>, which is an increasing function of <span class="math inline">\(k\)</span>. Then, <span class="math display">\[ \EXP[f_i(S)] = \sum_{k=1}^n f_i(k) \mu^1_k = \sum_{k &gt; i} \mu^1_k = 1 - {\rm M}^1_i.
+\]</span> By a similar argument, we have <span class="math display">\[ \EXP[f_i(S^2)] = 1 - {\rm M}^2_i. \]</span> Since <span class="math inline">\(\EXP[f_i(S)] \ge \EXP[f_i(S^2)]\)</span>, we have that <span class="math inline">\({\rm M}^1_i \le {\rm M}^2_i\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="stochastic-monotonicity" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="stochastic-monotonicity"><span class="header-section-number">6.2</span> Stochastic monotonicity</h2>
+<p>Stochastic monotonicity extends the notion of stochastic dominance to Markov chains. Suppose <span class="math inline">\(\ALPHABET S\)</span> is a totally ordered set and <span class="math inline">\(\{S_t\}_{t \ge 1}\)</span> is a time-homogeneous Markov chain on <span class="math inline">\(\ALPHABET S\)</span> with transition probability matrix <span class="math inline">\(P\)</span>. Let <span class="math inline">\(P_i\)</span> denote the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(P\)</span>. Note that <span class="math inline">\(P_i\)</span> is a PMF.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Stochastic monotonicity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Markov chain with transition matrix <span class="math inline">\(P\)</span> is stochastically monotone if <span class="math display">\[ P_i \succeq_s P_j, \quad \forall i &gt; j. \]</span></p>
+</div>
+</div>
+<p>An immediate implication is the following.</p>
+<div id="thm-stochastic-monotonicity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.2 </strong></span>Let <span class="math inline">\(\{S_t\}_{t \ge 1}\)</span> be a Markov chain with transition matrix <span class="math inline">\(P\)</span> and <span class="math inline">\(f \colon \ALPHABET S \to \reals\)</span> is a weakly increasing function. Then, for any <span class="math inline">\(s^1, s^2 \in \ALPHABET S\)</span> such that <span class="math inline">\(s^1 &gt; s^2\)</span>, <span class="math display">\[ \EXP[f(S_{t+1}) | S_t = s^1] \ge \EXP[ f(S_{t+1}) | S_t = s^2], \]</span> if and only if <span class="math inline">\(P\)</span> is stochatically monotone.</p>
+</div>
+</section>
+<section id="monotonicity-of-value-functions" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="monotonicity-of-value-functions"><span class="header-section-number">6.3</span> Monotonicity of value functions</h2>
+<div id="thm-monotone-value" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.3 </strong></span>Consider an MDP where the state space <span class="math inline">\(\ALPHABET S\)</span> is totally ordered. Suppose the following conditions are satisfied.</p>
+<p>C1. For every <span class="math inline">\(a \in \ALPHABET A\)</span>, the per-step cost <span class="math inline">\(c_t(s,a)\)</span> is weakly inceasing in <span class="math inline">\(s\)</span>.</p>
+<p>C2. For every <span class="math inline">\(a \in \ALPHABET A\)</span>, the transition matrix <span class="math inline">\(P(a)\)</span> is stochastically monotone.</p>
+<p>Then, the value function <span class="math inline">\(V_t(s)\)</span> is weakly increasing in <span class="math inline">\(s\)</span>.</p>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The result above also applies to models with continuous (and totally ordered) state space provided the measurable selection conditions hold so that the arg min at each step of the dynamic program is attained.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We proceed by backward induction. By definition, <span class="math inline">\(V_{T+1}(s) = 0\)</span>, which is weakly increasing. This forms the basis of induction. Assume that <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Now consider, <span class="math display">\[Q_t(s,a) = c_t(s,a) + \EXP[V_{t+1}(S_{t+1}) | S_t = s, A_t = a].\]</span> For any <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(Q_t(s,a)\)</span> is a sum of two weakly increasing functions in <span class="math inline">\(s\)</span>; hence <span class="math inline">\(Q_t(s,a)\)</span> is weakly increasing in <span class="math inline">\(s\)</span>.</p>
+<p>Now consider <span class="math inline">\(s_1, s_2 \in \ALPHABET S\)</span> such that <span class="math inline">\(s_1 &gt; s_2\)</span>. Suppose <span class="math inline">\(a_1^*\)</span> is the optimal action at state <span class="math inline">\(s_1\)</span>. Then <span class="math display">\[
+  V_t(s^1) = Q_t(s^1, a_1^*) \stackrel{(a)}\ge Q_t(s^2,a_1^*) \stackrel{(b)}\ge V_t(s_2),
+\]</span> where <span class="math inline">\((a)\)</span> follows because <span class="math inline">\(Q_t(\cdot, u^*)\)</span> is weakly increasing and <span class="math inline">\((b)\)</span> follows from the definition of the value function.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="submodularity" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="submodularity"><span class="header-section-number">6.4</span> Submodularity</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Submodularity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\ALPHABET X\)</span> and <span class="math inline">\(\ALPHABET Y\)</span> be partially ordered sets. A function <span class="math inline">\(f \colon \ALPHABET X \times \ALPHABET Y \to \reals\)</span> is called <em>submodular</em> if for any <span class="math inline">\(x^+ \ge x^-\)</span> and <span class="math inline">\(y^+ \ge y^-\)</span>, we have <span class="math display">\[\begin{equation}\label{eq:submodular}
+  f(x^+, y^+) + f(x^-, y^-) \le f(x^+, y^-) + f(x^-, y^+).
+\end{equation}\]</span></p>
+<p>The function is called <em>supermodular</em> if the inequality in \eqref{eq:submodular} is reversed.</p>
+</div>
+</div>
+<p>A continuous and differentiable function on <span class="math inline">\(\reals^2\)</span> is submodular iff <span class="math display">\[ \frac{ \partial^2 f(x,y) }{ \partial x \partial y } \le 0,
+  \quad \forall x,y.
+\]</span> If the inequality is reversed, then the function is supermodular.</p>
+<p>Submodularity is a useful property because it implies monotonicity of the arg min.</p>
+<div id="thm-submodular" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.4 </strong></span>Let <span class="math inline">\(\ALPHABET X\)</span> be a partially ordered set, <span class="math inline">\(\ALPHABET Y\)</span> be a totally ordered set, and <span class="math inline">\(f \colon \ALPHABET X \times \ALPHABET Y \to \reals\)</span> be a <em>submodular</em> function. Suppose that for all <span class="math inline">\(x\)</span>, <span class="math inline">\(\arg \min_{y \in \ALPHABET Y} f(x,y)\)</span> exists. Then, <span class="math display">\[
+  π(x) := \max \{ y^* \in \arg \min_{y \in \ALPHABET Y} f(x,y) \}
+\]</span> is weakly <em>increasing</em> in <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider <span class="math inline">\(x^+, x^- \in \ALPHABET X\)</span> such that <span class="math inline">\(x^+ \ge x^-\)</span>. Since <span class="math inline">\(f\)</span> is submodular, for any <span class="math inline">\(y \le π(x^-)\)</span>, we have <span class="math display">\[\begin{equation}\label{eq:1}
+  f(x^+, π(x^-)) - f(x^+, y) \le f(x^-, π(x^-)) - f(x^-, y) \le 0,
+\end{equation}\]</span> where the last inequality follows because <span class="math inline">\(π(x^-)\)</span> is the arg min of <span class="math inline">\(f(x^-, y)\)</span>. Eq. \eqref{eq:1} implies that for all <span class="math inline">\(y \le π(x^-)\)</span>, <span class="math display">\[
+  f(x^+, π(x^-)) \le f(x^+, y).
+\]</span> Thus, <span class="math inline">\(π(x^+) \ge π(x^-)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The analogue of <a href="#thm-submodular">Theorem&nbsp;<span>6.4</span></a> for supermodular functions is as follows.</p>
+<div id="thm-supermodular" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.5 </strong></span>Let <span class="math inline">\(\ALPHABET X\)</span> be a partially ordered set, <span class="math inline">\(\ALPHABET Y\)</span> be a totally ordered set, and <span class="math inline">\(f \colon \ALPHABET X \times \ALPHABET Y \to \reals\)</span> be a <em>supermodular</em> function. Suppose that for all <span class="math inline">\(x\)</span>, <span class="math inline">\(\arg \min_{y \in \ALPHABET Y} f(x,y)\)</span> exists. Then, <span class="math display">\[
+  π(x) := \min \{ y^* \in \arg \min_{y \in \ALPHABET Y} f(x,y) \}
+\]</span> is weakly <em>decreasing</em> in <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The proof is similar to <a href="#thm-submodular">Theorem&nbsp;<span>6.4</span></a>.</p>
+<p>Consider <span class="math inline">\(x^+, x^- \in \ALPHABET X\)</span> such that <span class="math inline">\(x^+ \ge x^-\)</span>. Since <span class="math inline">\(f\)</span> is supermodular, for any <span class="math inline">\(y \ge π(x^-)\)</span>, we have <span class="math display">\[\begin{equation}\label{eq:2}
+  f(x^+, y) - f(x^+, π(x^-)) \ge f(x^-, y) - f(x^-, π(x^-)) \ge 0,
+\end{equation}\]</span> where the last inequality follows because <span class="math inline">\(π(x^-)\)</span> is the arg min of <span class="math inline">\(f(x^-, y)\)</span>. Eq. \eqref{eq:2} implies that for all <span class="math inline">\(y \ge π(x^-)\)</span>, <span class="math display">\[
+  f(x^+, y) \ge f(x^+, π(x^-)).
+\]</span> Thus, <span class="math inline">\(π(x^+) \le π(x^-)\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="monotonicity-of-optimal-policy" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="monotonicity-of-optimal-policy"><span class="header-section-number">6.5</span> Monotonicity of optimal policy</h2>
+<div id="thm-increasing-policy" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.6 </strong></span>Consider an MDP where the state space <span class="math inline">\(\ALPHABET S\)</span> and the action space <span class="math inline">\(\ALPHABET A\)</span> are totally ordered. Suppose that, in addition to (C1) and (C2), the following condition is satisfied.</p>
+<p>C3. For any weakly increasing function <span class="math inline">\(v\)</span>, <span class="math display">\[ c_t(s,a) + \EXP[ v(S_{t+1}) | S_t = s, A_t = a]\]</span> is submodular in <span class="math inline">\((s,a)\)</span>.</p>
+<p>Let <span class="math inline">\(π^*_t(s) = \max\{ a^* \in \arg \min_{a \in \ALPHABET A} Q_t(s,a) \}\)</span>. Then, <span class="math inline">\(π^*(s)\)</span> is weakly increasing in <span class="math inline">\(s\)</span>.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Conditions (C1) and (C2) imply that the value function <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Therefore, condition (C3) implies that <span class="math inline">\(Q_t(s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>. Therefore, the arg min is weakly increasing in <span class="math inline">\(x\)</span></p>
+</div>
+</div>
+</div>
+<p>It is difficult to verify condition (C3). The following conditions are sufficient for (C3).</p>
+<div id="lem-sufficient-C3" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 6.1 </strong></span>Consider an MDP with totally ordered state and action spaces. Suppose</p>
+<ol type="a">
+<li><span class="math inline">\(c_t(s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</li>
+<li>For all <span class="math inline">\(s' \in \ALPHABET S\)</span>, <span class="math inline">\(H(s' | s,a) = 1 - \sum_{z \le s'} P_{sz}(a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</li>
+</ol>
+<p>The condition (C3) of the previous theorem holds.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider <span class="math inline">\(s^+, s^- \in \ALPHABET S\)</span> and <span class="math inline">\(a^+, a^- \in \ALPHABET A\)</span> such that <span class="math inline">\(s^+ &gt; s^-\)</span> and <span class="math inline">\(a^+ &gt; a^-\)</span>. Define</p>
+<p><span class="math display">\[\begin{align*}
+  μ_1(s) &amp;= \tfrac 12 P_{s^- s}(a^-) + \tfrac 12 P_{s^+ s}(a^+), \\
+  μ_2(s) &amp;= \tfrac 12 P_{s^- s}(a^+) + \tfrac 12 P_{s^+ s}(a^-).
+\end{align*}\]</span> Since <span class="math inline">\(H(s' | s,a)\)</span> is submodular, we have <span class="math display">\[ H(s' | s^+, a^+) + H(s' | s^-, a^-) \le H(s' | s^+, a^-) + H(s' | s^-, a^+) \]</span> or equivalently, <span class="math display">\[\sum_{z \le s'} \big[ P_{s^+ z}(a^+) + P_{s^- z}(a^-) \big]
+  \ge
+  \sum_{z \le s'} \big[ P_{s^+ z}(a^-) + P_{s^- z}(a^+) \big]. \]</span> which implies <span class="math display">\[ M_1(s') \ge M_2(s')\]</span> where <span class="math inline">\(M_1\)</span> and <span class="math inline">\(M_2\)</span> are the CDFs of <span class="math inline">\(μ_1\)</span> and <span class="math inline">\(μ_2\)</span>. Thus, <span class="math inline">\(μ_1 \preceq_s μ_2\)</span>.</p>
+<p>Hence, for any weakly increasing function <span class="math inline">\(v \colon \ALPHABET S \to \reals\)</span>, <span class="math display">\[ \sum_{s' \in \ALPHABET S} μ_1(s') v(s') \le
+   \sum_{s' \in \ALPHABET S} μ_2(s') v(s').\]</span> Or, equivalently, <span class="math display">\[H(s^+, a^+) + H(s^-, a^-) \le H(s^-, a^+) + H(s^+, a^-)\]</span> where <span class="math inline">\(H(s,a) = \EXP[ v(X_{t+1}) | X_t = s, U_t = a]\)</span>.</p>
+<p>Therefore, <span class="math inline">\(c_t(s,a) + H_t(s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The analogue of <a href="#thm-increasing-policy">Theorem&nbsp;<span>6.6</span></a> for supermodular functions is as follows.</p>
+<div id="thm-decreasing-policy" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.7 </strong></span>Consider an MDP where the state space <span class="math inline">\(\ALPHABET S\)</span> and the action space <span class="math inline">\(\ALPHABET A\)</span> are totally ordered. Suppose that, in addition to (C1) and (C2), the following condition is satisfied.</p>
+<p>C4. For any weakly increasing function <span class="math inline">\(v\)</span>, <span class="math display">\[ c_t(s,a) + \EXP[ v(S_{t+1}) | S_t = s, A_t = a]\]</span> is supermodular in <span class="math inline">\((s,a)\)</span>.</p>
+<p>Let <span class="math inline">\(π^*_t(s) = \min\{ a^* \in \arg \min_{a \in \ALPHABET S} Q_t(s,a) \}\)</span>. Then, <span class="math inline">\(π^*(s)\)</span> is weakly decreasing in <span class="math inline">\(s\)</span>.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Conditions (C1) and (C2) imply that the value function <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Therefore, condition (C4) implies that <span class="math inline">\(Q_t(s,a)\)</span> is supermodular in <span class="math inline">\((s,a)\)</span>. Therefore, the arg min is decreasing in <span class="math inline">\(s\)</span></p>
+</div>
+</div>
+</div>
+<p>It is difficult to verify condition (C4). The following conditions are sufficient for (C4).</p>
+<div id="lem-sufficient-C4" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 6.2 </strong></span>Consider an MDP with totally ordered state and action spaces. Suppose</p>
+<ol type="a">
+<li><span class="math inline">\(c_t(s,a)\)</span> is supermodular in <span class="math inline">\((s,a)\)</span>.</li>
+<li>For all <span class="math inline">\(s' \in \ALPHABET S\)</span>, <span class="math inline">\(H(s' | s,a) = 1 - \sum_{z \le s'} P_{sz}(a)\)</span> is supermodular in <span class="math inline">\((s,a)\)</span>.</li>
+</ol>
+<p>The condition (C4) of the previous theorem holds.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider <span class="math inline">\(s^+, s^- \in \ALPHABET S\)</span> and <span class="math inline">\(a^+, a^- \in \ALPHABET A\)</span> such that <span class="math inline">\(s^+ &gt; s^-\)</span> and <span class="math inline">\(a^+ &gt; a^-\)</span>. Define</p>
+<p><span class="math display">\[\begin{align*}
+  μ_1(s) &amp;= \tfrac 12 P_{s^- s}(a^-) + \tfrac 12 P_{s^+ s}(a^+), \\
+  μ_2(s) &amp;= \tfrac 12 P_{s^- s}(a^+) + \tfrac 12 P_{s^+ s}(a^-).
+\end{align*}\]</span> Since <span class="math inline">\(H(s' | s,a)\)</span> is supermodular, we have <span class="math display">\[ H(s' | s^+, a^+) + H(s' | s^-, a^-) \ge H(s' | s^+, a^-) + H(s' | s^-, a^+) \]</span> or equivalently, <span class="math display">\[\sum_{s' \le s'} \big[ P_{s^+ s'}(a^+) + P_{s^- s'}(a^-) \big]
+  \le
+  \sum_{s' \le s'} \big[ P_{s^+ s'}(a^-) + P_{s^- s'}(a^+) \big]. \]</span> which implies <span class="math display">\[ M_1(s') \le M_2(s')\]</span> where <span class="math inline">\(M_1\)</span> and <span class="math inline">\(M_2\)</span> are the CDFs of <span class="math inline">\(μ_1\)</span> and <span class="math inline">\(μ_2\)</span>. Thus, <span class="math inline">\(μ_1 \succeq_s μ_2\)</span>.</p>
+<p>Hence, for any weakly increasing function <span class="math inline">\(v \colon \ALPHABET S \to \reals\)</span>, <span class="math display">\[ \sum_{s' \in \ALPHABET S} μ_1(s') v(s') \ge
+   \sum_{s' \in \ALPHABET S} μ_2(s') v(s').\]</span> Or, equivalently, <span class="math display">\[H(s^+, a^+) + H(s^-, a^-) \ge H(s^-, a^+) + H(s^+, a^-)\]</span> where <span class="math inline">\(H(s,a) = \EXP[ v(X_{t+1}) | X_t = s, U_t = a]\)</span>.</p>
+<p>Therefore, <span class="math inline">\(c_t(s,a) + H_t(s,a)\)</span> is supermodular in <span class="math inline">\((s,a)\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="constraints-on-actions" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="constraints-on-actions"><span class="header-section-number">6.6</span> Constraints on actions</h2>
+<p>In the results above, we have assumed that the action set <span class="math inline">\(\ALPHABET A\)</span> is the same for all states. The results also extend to the case when the action at state <span class="math inline">\(s\)</span> must belong to some set <span class="math inline">\(\ALPHABET A(s)\)</span> provided the following conditions are satisfied:</p>
+<ol type="1">
+<li>For any <span class="math inline">\(s \ge s'\)</span>, <span class="math inline">\(\ALPHABET A(s) \supseteq \ALPHABET A(s')\)</span></li>
+<li>For any <span class="math inline">\(s \in \ALPHABET S\)</span> and <span class="math inline">\(a \in \ALPHABET A(s)\)</span>, <span class="math inline">\(a' &lt; a\)</span> implies that <span class="math inline">\(a' \in \ALPHABET A(s)\)</span>.</li>
+</ol>
+</section>
+<section id="monotone-dynamic-programming" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="monotone-dynamic-programming"><span class="header-section-number">6.7</span> Monotone dynamic programming</h2>
+<p>If we can establish that the optimal policy is monontone, then we can use this structure to implement the dynamic program more efficient. Suppose <span class="math inline">\(\ALPHABET S = \{1, \dots, n\}\)</span> and <span class="math inline">\(\ALPHABET A = \{1, \dots. m\}\)</span>. The main idea is as follows. Suppose <span class="math inline">\(V_{t+1}(\cdot)\)</span> has been caclulated. Insead of computing <span class="math inline">\(Q_t(s,a)\)</span> and <span class="math inline">\(V_t(s)\)</span>, proceed as follows:</p>
+<ol type="1">
+<li><p>Set <span class="math inline">\(s = 1\)</span> and <span class="math inline">\(α = 1\)</span>.</p></li>
+<li><p>For all <span class="math inline">\(u \in \{α, \dots, m\}\)</span>, compute <span class="math inline">\(Q_t(s,a)\)</span> as usual.</p></li>
+<li><p>Compute</p>
+<p><span class="math display">\[V_t(s) = \min_{ α \le a \le m } Q_t(s,a)\]</span></p>
+<p>and set</p>
+<p><span class="math display">\[π_t^*(s) = \max \{ a \in \{α, \dots, m\} : V_t(s) = Q_t(s,a) \}.\]</span></p></li>
+<li><p>If <span class="math inline">\(s = n\)</span>, then stop. Otherwise, set <span class="math inline">\(α = π_t^*(s)\)</span> and <span class="math inline">\(s = s+1\)</span> and go to step&nbsp;2.</p></li>
+</ol>
+</section>
+<section id="example-a-machine-replacement-model" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="example-a-machine-replacement-model"><span class="header-section-number">6.8</span> Example: A machine replacement model</h2>
+<p>In this section, we use <a href="#thm-increasing-policy">Theorem&nbsp;<span>6.6</span></a> to establish the structure of the optimal policy in a model of machine replacement.</p>
+<p>Consider a manufacturing process, where the machine used for manufacturing deteriorates over time. Let <span class="math inline">\(\ALPHABET S = \{0, 1, \dots \}\)</span> represent the condition of the machine. The higher the value of <span class="math inline">\(s\)</span>, the worse the condition of the equipment. Note that, for simplicity, we have assumed that the state space is countable.</p>
+<p>At each decision epoch, the decision maker can choose actions from the set <span class="math inline">\(\ALPHABET A = \{0,1\}\)</span>. Action <span class="math inline">\(0\)</span> corresponds to operating the equipment as is for an additional period, while action 1 corresponds to scrapping the equipment and replacing it with a new and identical piece of equipment. We assume that there is a PMF <span class="math inline">\(μ\)</span> on <span class="math inline">\(\ALPHABET S\)</span> such that <span class="math display">\[ P_{sz}(0) = \begin{cases}
+  0, &amp; z &lt; s \\
+  μ_{z - s}, &amp; z \ge s
+\end{cases}
+\quad\text{and}\quad
+P_sz(1) = μ_z.
+\]</span> The transition matrix <span class="math inline">\(P(0)\)</span> states that the equipment detiorates from <span class="math inline">\(s\)</span> to <span class="math inline">\(s + k\)</span>, with probability <span class="math inline">\(μ_k\)</span> for all states <span class="math inline">\(s\)</span>.</p>
+<p>We assume that running the machine in state&nbsp;<span class="math inline">\(s\)</span> costs <span class="math inline">\(h(s)\)</span>, where <span class="math inline">\(h(\cdot)\)</span> is a weakly increasing function. Replacing the machine costs a constant amount~<span class="math inline">\(K\)</span>.</p>
+<p>We now verify the conditions (C1)–(C4) for the model.</p>
+<p>C1. For <span class="math inline">\(a = 0\)</span>, <span class="math inline">\(c(s,0) = h(s)\)</span>, which is weakly increasing by assumption. For <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(c(s,1) = K\)</span>, which is trivially weakly increasing.</p>
+<p>C2. For <span class="math inline">\(a = 0\)</span>, <span class="math inline">\(P(0)\)</span> is stochastically monotone (because the CDF of <span class="math inline">\(P(\cdot | s, 0)\)</span> lies above the CDF of <span class="math inline">\(P(\cdot | s+1, 0)\)</span>). For <span class="math inline">\(a = 1\)</span>, all rows of <span class="math inline">\(P(1)\)</span> are the same; therefore <span class="math inline">\(P(1)\)</span> is stochastically monotone.</p>
+<p>Since (C1) and (C2) are satisfied, by <a href="#thm-monotone-value">Theorem&nbsp;<span>6.3</span></a>, we can assert that the value function is weakly increasing.</p>
+<p>C3. <span class="math inline">\(c(s,1) - c(s,0) = K - h(s)\)</span>, which is weakly decreasing in <span class="math inline">\(s\)</span>. Therefore, <span class="math inline">\(c(s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</p>
+<p>C4. Recall that <span class="math inline">\(H(s'|s,a) = 1 - \sum_{z \le s'} P_{sz}(a).\)</span> Therefore,</p>
+<p><span class="math display">\[H(s'|s,0) = 1 - \sum_{z = s}^{s'} μ_{z -s} = 1 - \sum_{k = 0}^{s' - s} μ_k
+= 1 - M_{s' - s},\]</span> where <span class="math inline">\(M\)</span> is the CMF of <span class="math inline">\(μ\)</span>, and <span class="math display">\[H(s'|s,1) = 1 - \sum_{z \le s'} μ_z = 1 - M_{s'},\]</span></p>
+<p>Therefore, <span class="math inline">\(H(s'|s,1) - H(s'|s,0) = M_{s'-s} - M_{s'}\)</span>. For any fixed <span class="math inline">\(s'\)</span>, <span class="math inline">\(H(s'|s,1) - H(s'|s,0)\)</span> is weakly decreasing in <span class="math inline">\(s\)</span>. There <span class="math inline">\(H(s'|s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</p>
+<p>Since (C1)–(C4) are satisfied, the optimal policy is weakly increasing in~<span class="math inline">\(s\)</span>. Since there are only two actions, it means that for every time, there exists a state <span class="math inline">\(s^*_t\)</span> with the property that if <span class="math inline">\(s\)</span> exceeds <span class="math inline">\(s^*_t\)</span>, the optimal decision is to replace the machine; and if <span class="math inline">\(s \le s^*_t\)</span>, then the optimal decision is to operate the machine for another period.</p>
+<hr>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<div id="exr-sd-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.1 </strong></span>Let <span class="math inline">\(T\)</span> denote a upper triangular matrix with 1’s on or below the diagonal and 0’s above the diagonal. Then <span class="math display">\[ T^{-1}_{ij} = \begin{cases}
+  1, &amp; \text{if } i = j, \\
+-1, &amp; \text{if } i = j + 1, \\
+  0, &amp; \text{otherwise}.
+\end{cases}\]</span></p>
+<p>For example, for a <span class="math inline">\(4 \times 4\)</span> matrix <span class="math display">\[
+  T = \MATRIX{1 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 1},
+  \quad
+  T^{-1} = \MATRIX{1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; -1 \\
+  0 &amp; 0 &amp; 0 &amp; 1 }.
+\]</span></p>
+<p>Show the following:</p>
+<ol type="a">
+<li>For any two PMFs <span class="math inline">\(μ^1\)</span> and <span class="math inline">\(μ^2\)</span>, <span class="math inline">\(\mu^1 \succeq_s \mu^2\)</span> iff <span class="math inline">\(\mu^1 T \ge \mu^2 T\)</span>.</li>
+<li>A Markov transition matrix <span class="math inline">\(P\)</span> is stochastic monotone iff <span class="math inline">\(T^{-1} P T \ge 0\)</span>.</li>
+</ol>
+</div>
+<div id="exr-sd-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.2 </strong></span>Show that the following are equivalent:</p>
+<ol type="a">
+<li>A transition matrix <span class="math inline">\(P\)</span> is stochastically monotone</li>
+<li>For any two PMFs <span class="math inline">\(μ^1\)</span> and <span class="math inline">\(μ^2\)</span>, if <span class="math inline">\(\mu^1 \succeq_s \mu^2\)</span> then <span class="math inline">\(\mu^1P \succeq_s \mu^2P\)</span>.</li>
+</ol>
+</div>
+<div id="exr-sd-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.3 </strong></span>Show that if two transition matrices <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> have the same dimensions and are stochastically monotone, then so are:</p>
+<ol type="a">
+<li><span class="math inline">\(\lambda P + (1 - \lambda) Q\)</span>, where <span class="math inline">\(\lambda \in (0,1)\)</span>.</li>
+<li><span class="math inline">\(P Q\)</span></li>
+<li><span class="math inline">\(P^k\)</span>, for <span class="math inline">\(k \in \integers_{&gt; 0}\)</span>.</li>
+</ol>
+</div>
+<div id="exr-sd-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.4 </strong></span>Let <span class="math inline">\(\mu_t\)</span> denote the distribution of a Markov chain at time <span class="math inline">\(t\)</span>. Suppose <span class="math inline">\(\mu_0 \succeq_s \mu_1\)</span>. Then <span class="math inline">\(\mu_t \succeq_s \mu_{t+1}\)</span>.</p>
+</div>
+<!--FIXME-->
+<div id="exr-monotone-machine-repair" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.5 </strong></span>Consider the example of machine repair presented in notes on <a href="../mdp-matrix#an-example-machine-repair">matrix formulation of MDPs</a>. Prove that the optimal policy for that model is weakly increasing.</p>
+</div>
+<div id="exr-folded-monotonicity" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.6 </strong></span>Suppose the state space <span class="math inline">\(\ALPHABET S\)</span> is a symmetric subset of integers of the form <span class="math inline">\(\{-L, -L + 1, \dots, L-1, L\}\)</span> and the action space <span class="math inline">\(\ALPHABET A\)</span> is discrete. Let <span class="math inline">\(\ALPHABET X_{\ge 0}\)</span> denote the set <span class="math inline">\(\{0, \dots, L\}\)</span>.</p>
+<p>Let <span class="math inline">\(P(a)\)</span> denote the controlled transition matrix and <span class="math inline">\(c_t(s,a)\)</span> denote the per-step cost. To avoid ambiguity, we define the optimal policy as <span class="math display">\[
+π^*_t(s) = \begin{cases}
+    \max\bigl\{ a' \in \arg\min_{a \in \ALPHABET A} Q_t(s,a) \bigr\},
+    &amp; \text{if } s \ge 0 \\
+    \min\bigl\{ a' \in \arg\min_{a \in \ALPHABET A} Q_t(s,a) \bigr\},
+    &amp; \text{if } s &lt; 0
+\end{cases}\]</span> The purpose of this exercise is to identify conditions under which the value function and the optimal policy are even and <a href="https://en.wikipedia.org/wiki/Quasiconvex_function">:quasi-convex</a>. We do so using the following steps.</p>
+<ol type="a">
+<li>We say that the transition probability matrix <span class="math inline">\(P(a)\)</span> is even if for all <span class="math inline">\(s, s' \in \ALPHABET S\)</span>, <span class="math inline">\(P(s'|s,a) = P(-s'|-s,a)\)</span>. Prove the following result.</li>
+</ol>
+<div id="prp-even-value" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.1 </strong></span>Suppose the MDP satisfies the following properties:</p>
+<p>(A1) For every <span class="math inline">\(t\)</span> and <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(c_t(s,a)\)</span> is even function of <span class="math inline">\(s\)</span>.</p>
+<p>(A2) For every <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(P(a)\)</span> is even.</p>
+<p>Then, for all <span class="math inline">\(t\)</span>, <span class="math inline">\(V_t\)</span> and <span class="math inline">\(π_t\)</span> are even functions.</p>
+</div>
+<ol start="2" type="a">
+<li>Given any probability mass function <span class="math inline">\(μ\)</span> on <span class="math inline">\(\ALPHABET S\)</span>, define the <em>folded</em> probability mass function <span class="math inline">\(\tilde μ\)</span> on <span class="math inline">\(\ALPHABET X_{\ge 0}\)</span> as follows: <span class="math display">\[ \tilde μ(s) = \begin{cases}
+   μ(0), &amp; \text{if } s = 0 \\
+   μ(s) + μ(-s), &amp; \text{if } s &gt; 0.
+\end{cases} \]</span></li>
+</ol>
+<p>For ease of notation, we use <span class="math inline">\(\tilde μ = \mathcal F μ\)</span> to denote this folding operation. Note that an immediate consequence of the definition is the following (you don’t have to prove this).</p>
+<div id="lem-folded-sum" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 6.3 </strong></span>If <span class="math inline">\(f \colon \ALPHABET S \to \reals\)</span> is even, then for any probability mass function <span class="math inline">\(μ\)</span> on <span class="math inline">\(\ALPHABET S\)</span> and <span class="math inline">\(\tilde μ = \mathcal F μ\)</span>, we have <span class="math display">\[
+  \sum_{s \in \ALPHABET S} f(s) μ(s) =
+  \sum_{s \in \ALPHABET X_{\ge 0}} f(s) \tilde μ(s). \]</span></p>
+</div>
+<p>Thus, the expectation of the function <span class="math inline">\(f \colon \ALPHABET S \to \reals\)</span> with respect to the PMF <span class="math inline">\(μ\)</span> is equal to the expectation of the function <span class="math inline">\(f \colon \ALPHABET X_{\ge 0} \to \reals\)</span> with respect to the PMF <span class="math inline">\(\tilde μ = \mathcal F μ\)</span>.</p>
+<p>Now given any probability transition matrix <span class="math inline">\(P\)</span> on <span class="math inline">\(\ALPHABET S\)</span>, we can define a probability transition matrix <span class="math inline">\(\tilde P\)</span> on <span class="math inline">\(\ALPHABET X_{\ge 0}\)</span> as follows: for any <span class="math inline">\(s \in \ALPHABET S\)</span>, <span class="math inline">\(\tilde P_s = \mathcal F P_s\)</span>, where <span class="math inline">\(P_s\)</span> denotes the <span class="math inline">\(s\)</span>-th row of <span class="math inline">\(P\)</span>. For ease of notation, we use <span class="math inline">\(\tilde P = \mathcal F P\)</span> to denote this relationship.</p>
+<p>Now prove the following:</p>
+<div id="prp-folded-monotonicity" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.2 </strong></span>Given the MDP <span class="math inline">\((\ALPHABET S, \ALPHABET A, P, \{c_t\})\)</span>, define the <em>folded</em> MDP as <span class="math inline">\((\ALPHABET S_{\ge 0}, \ALPHABET A, \tilde P, \{c_t\})\)</span>, where <span class="math inline">\(\tilde P(a) = \mathcal F P(a)\)</span> for all <span class="math inline">\(a \in \ALPHABET A\)</span>. Let <span class="math inline">\(\tilde Q_t \colon \ALPHABET S_{\ge 0} \times \ALPHABET A \to \reals\)</span>, <span class="math inline">\(\tilde V_t \colon \ALPHABET S_{\ge 0} \to \reals\)</span> and <span class="math inline">\(\tilde π_t^* \colon \ALPHABET S_{\ge 0} \to \ALPHABET A\)</span> denote the action-value function, value function and the policy of the folded MDP. Then, if the original MDP satisfies conditions (A1) and (A2) then, for any <span class="math inline">\(s \in \ALPHABET S\)</span> and <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math display">\[ Q_t(s,a) = \tilde Q_t(|s|, a),
+\quad
+  V_t(s) = \tilde V_t(|s|),
+\quad
+  π_t^*(s) = \tilde π_t^*(|s|).
+\]</span></p>
+</div>
+<ol start="3" type="a">
+<li><p>The result of the previous part implies that if the value function <span class="math inline">\(\tilde V_t\)</span> and the policy <span class="math inline">\(\tilde π^*_t\)</span> are monotone increasing, then the value function <span class="math inline">\(V_t\)</span> and the policy <span class="math inline">\(π^*_t\)</span> are even and quasi-convex. This gives us a method to verify if the value function and optimal policy are even and quasi-convex.</p>
+<p>Now, recall the model of the Internet of Things presented in Q2 of <a href="../../assignments/03">Assignment 3</a>. The numerical experiments that you did in Assignment 3 suggest that the value function and the optimal policy are even and quasi-convex. Prove that this is indeed the case.</p></li>
+<li><p>Now suppose the distribution of <span class="math inline">\(W_t\)</span> is not Gaussian but is some general probability density <span class="math inline">\(\varphi(\cdot)\)</span> and the cost function is <span class="math display">\[ c(e,a) = \lambda a + (1 - a) d(e). \]</span> Find conditions on <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(d\)</span> such that the value function and optimal policy are even and quasi-convex.</p></li>
+</ol>
+</div>
+</section>
+<section id="notes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
+<p>Stochastic dominance has been employed in various areas of economics, finance, and statistics since the 1930s. See <span class="citation" data-cites="Levy1992">Levy (<a href="../references.html#ref-Levy1992" role="doc-biblioref">1992</a>)</span> and <span class="citation" data-cites="Levy2015">Levy (<a href="../references.html#ref-Levy2015" role="doc-biblioref">2015</a>)</span> for detailed overviews. The notion of stochastic monotonicity for Markov chains is due to <span class="citation" data-cites="Daley1968">Daley (<a href="../references.html#ref-Daley1968" role="doc-biblioref">1968</a>)</span>. For a generalization of stochastic monotonicity to continuous state spaces, see <span class="citation" data-cites="Serfozo1976">Serfozo (<a href="../references.html#ref-Serfozo1976" role="doc-biblioref">1976</a>)</span>. The characterization of stochastic monotonicity in <a href="#exr-sd-1">Exercise&nbsp;<span>6.1</span></a>–<a href="#exr-sd-4">Exercise&nbsp;<span>6.4</span></a> are due to <span class="citation" data-cites="Keilson1977">Keilson and Kester (<a href="../references.html#ref-Keilson1977" role="doc-biblioref">1977</a>)</span>.</p>
+<p><span class="citation" data-cites="Ross1974">Ross (<a href="../references.html#ref-Ross1974" role="doc-biblioref">1974</a>)</span> has an early treatment of monotonicity of optimal policies. The general theory was developed by <span class="citation" data-cites="Topkis1998">Topkis (<a href="../references.html#ref-Topkis1998" role="doc-biblioref">1998</a>)</span>. The presentation here follows <span class="citation" data-cites="Puterman2014">Puterman (<a href="../references.html#ref-Puterman2014" role="doc-biblioref">2014</a>)</span>. <a href="#exr-folded-monotonicity">Exercise&nbsp;<span>6.6</span></a> is from <span class="citation" data-cites="Chakravorty2018">Chakravorty and Mahajan (<a href="../references.html#ref-Chakravorty2018" role="doc-biblioref">2018</a>)</span>.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Chakravorty2018" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Chakravorty, J. and Mahajan, A.</span> 2018. Sufficient conditions for the value function and optimal strategy to be even and quasi-convex. <em>IEEE Transactions on Automatic Control</em> <em>63</em>, 11, 3858–3864. DOI: <a href="https://doi.org/10.1109/TAC.2018.2800796">10.1109/TAC.2018.2800796</a>.
+</div>
+<div id="ref-Daley1968" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Daley, D.J.</span> 1968. Stochastically monotone markov chains. <em>Zeitschrift f<span>ü</span>r Wahrscheinlichkeitstheorie und verwandte Gebiete</em> <em>10</em>, 4, 305–317. DOI: <a href="https://doi.org/10.1007/BF00531852">10.1007/BF00531852</a>.
+</div>
+<div id="ref-Keilson1977" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Keilson, J. and Kester, A.</span> 1977. Monotone matrices and monotone markov processes. <em>Stochastic Processes and their Applications</em> <em>5</em>, 3, 231–241.
+</div>
+<div id="ref-Levy1992" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Levy, H.</span> 1992. Stochastic dominance and expected utility: Survey and analysis. <em>Management Science</em> <em>38</em>, 4, 555–593. DOI: <a href="https://doi.org/10.1287/mnsc.38.4.555">10.1287/mnsc.38.4.555</a>.
+</div>
+<div id="ref-Levy2015" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Levy, H.</span> 2015. <em>Stochastic dominance: Investment decision making under uncertainty</em>. Springer. DOI: <a href="https://doi.org/10.1007/978-3-319-21708-6">10.1007/978-3-319-21708-6</a>.
+</div>
+<div id="ref-Puterman2014" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Puterman, M.L.</span> 2014. <em>Markov decision processes: Discrete stochastic dynamic programming</em>. John Wiley &amp; Sons. DOI: <a href="https://doi.org/10.1002/9780470316887">10.1002/9780470316887</a>.
+</div>
+<div id="ref-Ross1974" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Ross, S.M.</span> 1974. Dynamic programming and gambling models. <em>Advances in Applied Probability</em> <em>6</em>, 3, 593–606. DOI: <a href="https://doi.org/10.2307/1426236">10.2307/1426236</a>.
+</div>
+<div id="ref-Serfozo1976" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Serfozo, R.F.</span> 1976. Monotone optimal policies for markov decision processes. In: <em>Mathematical programming studies</em>. Springer Berlin Heidelberg, 202–215. DOI: <a href="https://doi.org/10.1007/bfb0120752">10.1007/bfb0120752</a>.
+</div>
+<div id="ref-Topkis1998" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Topkis, D.M.</span> 1998. <em>Supermodularity and complementarity</em>. Princeton University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

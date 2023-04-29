@@ -13,7 +13,7 @@ book:
   description: "ECSE 508 (Multi-agent systems)"
   site-url: "https://adityam.github.io/course-notes/"
   navbar:
-    background: primary
+    background: dark
     pinned: false
     left:
     - href: ../index.html
@@ -22,9 +22,13 @@ book:
       text: Stochastic Control
     - href: ../multi-agent-systems/index.html
       text: Multi-Agent Systems
+
   sidebar:
+    background: light
     collapse-level: 2
-    pinned: true
+    pinned: false
+    style : docked
+
   chapters:
     - index.qmd
     - part: "Strategic Games"

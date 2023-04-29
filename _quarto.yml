@@ -7,7 +7,7 @@ project:
 website:
   title: Course Notes
   navbar:
-    background: primary
+    background: dark
     pinned: false
     left:
     - href: index.html

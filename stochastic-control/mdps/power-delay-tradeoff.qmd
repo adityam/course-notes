@@ -9,10 +9,10 @@ execute:
   echo: false
 ---
 
-<div class="alert alert-secondary">
-<h4 class="alert-secondary">Summary</h4>
+:::{.callout-note icon=false appearance="simple"}
+# <i class="bi bi-journal-text text-primary"></i> Summary
 In this section, a stylized example of power-delay trade-off in wireless communications is presented. The results illustrate that the dynamic programming formulation can be used to identify qualitative properties of the value function and optimal policies.
-</div>
+:::
 
 In a cell phone, higher layer applications such as voicecall, email, browsers,
 etc. generate data packets. These packets are buffered in a queue and the
@@ -263,7 +263,7 @@ Thus, $H_t(y,s)$ is supermodular in $(y,s)$.
   
 
 
-::: {.callout-important collapse="true"}
+::: {.callout-important }
 # Even under @asm-power-delay-density, we cannot establish the monotonicity of $π^*_t(x,s)$ is $s$.
 
 Note that we have established that $H_t(y,s)$ is supermodular in $(y,s)$. Thus,

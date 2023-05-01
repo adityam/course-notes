@@ -17,14 +17,14 @@ execute:
 must" 
 :::
 
-<div class="alert alert-secondary">
-<h4 class="alert-secondary">Summary</h4>
+:::{.callout-note icon=false appearance="simple"}
+# <i class="bi bi-journal-text text-primary"></i> Summary
 This stylized model of optimal gambling was introduced by @Kelly1956
 to highlight a relationship between channel capacity (which had been proposed
 recently by Shannon), and gambling. Our motivation for studying this model is
 to use it as an illustrative example to show that sometimes it is possible to
 identify the optimal strategy and value function of MDPs in closed form.
-</div>
+:::
 
 Imagine  a gambler who goes to a casino with an initial fortune of $s_1$
 dollars and places bets over time and must leave after $T$ bets. Let $S_t$

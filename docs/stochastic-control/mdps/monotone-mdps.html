@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-04-29">
+<meta name="dcterms.date" content="2023-05-01">
 <meta name="keywords" content="MDPs, stochastic monotonicity, structural results">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -120,6 +183,8 @@ window.MathJax = {
 };
 </script>
 <script async="" data-id="101261731" src="//static.getclicky.com/js"></script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -131,20 +196,11 @@ window.MathJax = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Course Notes</span>
-    </a>
-  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../stochastic-control/index.html">
  <span class="menu-text">Stochastic Control</span></a>
@@ -359,7 +415,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 29, 2023</p>
+      <p class="date">May 1, 2023</p>
     </div>
   </div>
   
@@ -369,13 +425,239 @@ window.MathJax = {
 
 </header>
 
-<div class="alert alert-secondary">
-<h4 class="alert-secondary anchored">
-Summary
-</h4>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="bi bi-journal-text text-primary"></i> Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>In many applications, it is useful to know if the value function and the optimal policy is weakly increasing (or weakly decreasing) in state. Sufficient conditions are presented under which such monotonicity properties hold. These properties are useful because they makes it easy to search and implement the optimal policy.</p>
 </div>
-<!-- Maybe start with an example -->
+</div>
+<p>Consider a manufacturing process, where the machine used for manufacturing deteriorates over time. Let <span class="math inline">\(\ALPHABET S = \{0, 1, \dots n \}\)</span> represent the condition of the machine. The higher the value of <span class="math inline">\(s\)</span>, the worse the condition of the equipment.</p>
+<p>A decision maker observes the state of the machine and has two options: continue operating the machine or replace it with a a new and identical piece of equipment. Operating the machine is state <span class="math inline">\(s\)</span> costs <span class="math inline">\(h(s)\)</span>, where <span class="math inline">\(h(⋅)\)</span> is a weakly increasing function; replace the machine costs a constant amount <span class="math inline">\(K\)</span>.</p>
+<p>When the machine is operated, it’s state deteriorates according to <span class="math display">\[
+  S_{t+1} = \min( S_t + W_t , n)
+\]</span> where <span class="math inline">\(\{W_t\}_{t \ge 1}\)</span> is an i.i.d.&nbsp;process with PMF <span class="math inline">\(μ\)</span>.</p>
+<p>We model the above model as an MDP with state space <span class="math inline">\(\ALPHABET S\)</span> and action space <span class="math inline">\(\ALPHABET A = \{0, 1\}\)</span> where <span class="math inline">\(0\)</span> means operating the machine and <span class="math inline">\(1\)</span> means replacing the machine.</p>
+<p>We compute the optimal policy for this model when <span class="math inline">\(W \sim \text{Binom}(n,p)\)</span> when <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(T = 20\)</span>, <span class="math inline">\(h(s) = 2s\)</span>, and <span class="math inline">\(K=20\)</span> for different values of <span class="math inline">\(p\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="32" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="kw">function</span>(s) { <span class="cf">return</span> c<span class="op">*</span>s }</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Pw <span class="op">=</span> {</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> points <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cumulative <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> probability <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="kw">var</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;=</span> n<span class="op">;</span> k<span class="op">++</span>) {</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    probability <span class="op">=</span> <span class="fu">binomial</span>(n<span class="op">,</span>k<span class="op">,</span>p)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    cumulative <span class="op">+=</span> probability</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    points[k] <span class="op">=</span> { <span class="dt">probability</span><span class="op">:</span> probability<span class="op">,</span> <span class="dt">cumulative</span><span class="op">:</span> cumulative }</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> points</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>binomial <span class="op">=</span> {</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="co">// From https://stackoverflow.com/a/37715980/193149</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> logf <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fl">0.6931471805599453</span><span class="op">,</span> <span class="fl">1.791759469228055</span><span class="op">,</span> <span class="fl">3.1780538303479458</span><span class="op">,</span> <span class="fl">4.787491742782046</span><span class="op">,</span> <span class="fl">6.579251212010101</span><span class="op">,</span> <span class="fl">8.525161361065415</span><span class="op">,</span> <span class="fl">10.60460290274525</span><span class="op">,</span> <span class="fl">12.801827480081469</span><span class="op">,</span> <span class="fl">15.104412573075516</span><span class="op">,</span> <span class="fl">17.502307845873887</span><span class="op">,</span> <span class="fl">19.987214495661885</span><span class="op">,</span> <span class="fl">22.552163853123425</span><span class="op">,</span> <span class="fl">25.19122118273868</span><span class="op">,</span> <span class="fl">27.89927138384089</span><span class="op">,</span> <span class="fl">30.671860106080672</span><span class="op">,</span> <span class="fl">33.50507345013689</span><span class="op">,</span> <span class="fl">36.39544520803305</span><span class="op">,</span> <span class="fl">39.339884187199495</span><span class="op">,</span> <span class="fl">42.335616460753485</span><span class="op">,</span> <span class="fl">45.38013889847691</span><span class="op">,</span> <span class="fl">48.47118135183523</span><span class="op">,</span> <span class="fl">51.60667556776438</span><span class="op">,</span> <span class="fl">54.78472939811232</span><span class="op">,</span> <span class="fl">58.00360522298052</span><span class="op">,</span> <span class="fl">61.261701761002</span><span class="op">,</span> <span class="fl">64.55753862700634</span><span class="op">,</span> <span class="fl">67.88974313718154</span><span class="op">,</span> <span class="fl">71.25703896716801</span><span class="op">,</span> <span class="fl">74.65823634883016</span><span class="op">,</span> <span class="fl">78.0922235533153</span><span class="op">,</span> <span class="fl">81.55795945611504</span><span class="op">,</span> <span class="fl">85.05446701758152</span><span class="op">,</span> <span class="fl">88.58082754219768</span><span class="op">,</span> <span class="fl">92.1361756036871</span><span class="op">,</span> <span class="fl">95.7196945421432</span><span class="op">,</span> <span class="fl">99.33061245478743</span><span class="op">,</span> <span class="fl">102.96819861451381</span><span class="op">,</span> <span class="fl">106.63176026064346</span><span class="op">,</span> <span class="fl">110.32063971475739</span><span class="op">,</span> <span class="fl">114.0342117814617</span><span class="op">,</span> <span class="fl">117.77188139974507</span><span class="op">,</span> <span class="fl">121.53308151543864</span><span class="op">,</span> <span class="fl">125.3172711493569</span><span class="op">,</span> <span class="fl">129.12393363912722</span><span class="op">,</span> <span class="fl">132.95257503561632</span><span class="op">,</span> <span class="fl">136.80272263732635</span><span class="op">,</span> <span class="fl">140.67392364823425</span><span class="op">,</span> <span class="fl">144.5657439463449</span><span class="op">,</span> <span class="fl">148.47776695177302</span><span class="op">,</span> <span class="fl">152.40959258449735</span><span class="op">,</span> <span class="fl">156.3608363030788</span><span class="op">,</span> <span class="fl">160.3311282166309</span><span class="op">,</span> <span class="fl">164.32011226319517</span><span class="op">,</span> <span class="fl">168.32744544842765</span><span class="op">,</span>  <span class="fl">172.3527971391628</span><span class="op">,</span> <span class="fl">176.39584840699735</span><span class="op">,</span> <span class="fl">180.45629141754378</span><span class="op">,</span> <span class="fl">184.53382886144948</span><span class="op">,</span> <span class="fl">188.6281734236716</span><span class="op">,</span> <span class="fl">192.7390472878449</span><span class="op">,</span> <span class="fl">196.86618167289</span><span class="op">,</span> <span class="fl">201.00931639928152</span><span class="op">,</span> <span class="fl">205.1681994826412</span><span class="op">,</span> <span class="fl">209.34258675253685</span><span class="op">,</span> <span class="fl">213.53224149456327</span><span class="op">,</span> <span class="fl">217.73693411395422</span><span class="op">,</span> <span class="fl">221.95644181913033</span><span class="op">,</span> <span class="fl">226.1905483237276</span><span class="op">,</span> <span class="fl">230.43904356577696</span><span class="op">,</span> <span class="fl">234.70172344281826</span><span class="op">,</span> <span class="fl">238.97838956183432</span><span class="op">,</span> <span class="fl">243.2688490029827</span><span class="op">,</span> <span class="fl">247.57291409618688</span><span class="op">,</span> <span class="fl">251.8904022097232</span><span class="op">,</span> <span class="fl">256.22113555000954</span><span class="op">,</span> <span class="fl">260.5649409718632</span><span class="op">,</span> <span class="fl">264.9216497985528</span><span class="op">,</span> <span class="fl">269.2910976510198</span><span class="op">,</span> <span class="fl">273.6731242856937</span><span class="op">,</span> <span class="fl">278.0675734403661</span><span class="op">,</span> <span class="fl">282.4742926876304</span><span class="op">,</span> <span class="fl">286.893133295427</span><span class="op">,</span> <span class="fl">291.3239500942703</span><span class="op">,</span> <span class="fl">295.76660135076065</span><span class="op">,</span> <span class="fl">300.22094864701415</span><span class="op">,</span> <span class="fl">304.6868567656687</span><span class="op">,</span> <span class="fl">309.1641935801469</span><span class="op">,</span> <span class="fl">313.65282994987905</span><span class="op">,</span> <span class="fl">318.1526396202093</span><span class="op">,</span> <span class="fl">322.66349912672615</span><span class="op">,</span> <span class="fl">327.1852877037752</span><span class="op">,</span> <span class="fl">331.7178871969285</span><span class="op">,</span> <span class="fl">336.26118197919845</span><span class="op">,</span> <span class="fl">340.815058870799</span><span class="op">,</span> <span class="fl">345.37940706226686</span><span class="op">,</span> <span class="fl">349.95411804077025</span><span class="op">,</span> <span class="fl">354.5390855194408</span><span class="op">,</span> <span class="fl">359.1342053695754</span><span class="op">,</span> <span class="fl">363.73937555556347</span>]</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">function</span>(n<span class="op">,</span> k<span class="op">,</span> p) {</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(logf[n] <span class="op">-</span> logf[n<span class="op">-</span>k] <span class="op">-</span> logf[k]) <span class="op">*</span> p<span class="op">**</span>k <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>p)<span class="op">**</span>(n<span class="op">-</span>k)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>DP <span class="op">=</span> {</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> DP <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>()</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> V <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> Q0 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> Q1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> val <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Initialize the terminal value function</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">var</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> s <span class="op">&lt;=</span> n<span class="op">;</span> s<span class="op">++</span>) {</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    V[<span class="dv">1</span><span class="op">+</span>s] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Dynamic Programming</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">var</span> t <span class="op">=</span> T<span class="op">;</span> t <span class="op">&gt;=</span> <span class="dv">1</span><span class="op">;</span> t<span class="op">--</span>) {</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Q0[s] = h[s] + E[ V(s+W) ]</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Q1[s] = K + E[ V(W) ]</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">var</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> s <span class="op">&lt;=</span> n<span class="op">;</span> s<span class="op">++</span>) {</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>      Q0[<span class="dv">1</span><span class="op">+</span>s] <span class="op">=</span> <span class="fu">h</span>(s)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>      Q1[<span class="dv">1</span><span class="op">+</span>s] <span class="op">=</span> K</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">var</span> w<span class="op">=</span><span class="dv">0</span><span class="op">;</span> w <span class="op">&lt;=</span> n<span class="op">;</span> w<span class="op">++</span>) {</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> s_next <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(s<span class="op">+</span>w<span class="op">,</span> n)</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>        Q0[<span class="dv">1</span><span class="op">+</span>s] <span class="op">+=</span> V[ <span class="dv">1</span> <span class="op">+</span> s_next ]<span class="op">*</span>Pw[w]<span class="op">.</span><span class="at">probability</span> </span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>        Q1[<span class="dv">1</span><span class="op">+</span>s] <span class="op">+=</span> V[ <span class="dv">1</span> <span class="op">+</span> w ]<span class="op">*</span>Pw[w]<span class="op">.</span><span class="at">probability</span> </span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">var</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> s <span class="op">&lt;=</span> n<span class="op">;</span> s<span class="op">++</span>) {</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (Q0[<span class="dv">1</span><span class="op">+</span>s] <span class="op">&lt;=</span> Q1[<span class="dv">1</span><span class="op">+</span>s]) {</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>         a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>         val <span class="op">=</span> Q0[<span class="dv">1</span><span class="op">+</span>s]</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>         a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>         val <span class="op">=</span> Q1[<span class="dv">1</span><span class="op">+</span>s]</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>      DP[idx<span class="op">++</span>] <span class="op">=</span> { <span class="dt">time</span><span class="op">:</span> t<span class="op">,</span> <span class="dt">state</span><span class="op">:</span> s<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> val<span class="op">,</span> <span class="dt">action</span><span class="op">:</span> a }</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>      V[<span class="dv">1</span><span class="op">+</span>s] <span class="op">=</span> val</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> DP<span class="op">;</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="110" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 109;"><span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>viewof p <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.1</span><span class="op">,</span> <span class="fl">0.95</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span>})</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="122" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 121;"><span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>value_plot <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Axes</span></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Plot.ruleY([0]),</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Data</span></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(DP<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time</span> <span class="op">==</span> time)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span><span class="st">"state"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span><span class="st">"value"</span><span class="op">,</span> <span class="dt">curve</span><span class="op">:</span><span class="st">"step-after"</span>})</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>action_plot <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span> <span class="op">:</span> {<span class="dt">ticks</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Axes</span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Data</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(DP<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time</span> <span class="op">==</span> time)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"state"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"action"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(DP<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time</span> <span class="op">==</span> time)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"state"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"action"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span>})</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-machine-replacement" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="fig-machine-replacement-1" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="figure">
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+<p></p><figcaption class="figure-caption">(a) Value function</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-machine-replacement-2" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="figure">
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+<p></p><figcaption class="figure-caption">(b) Optimal policy</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Solution of the machine repair problem</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="bi bi-patch-question text-warning"></i> Qualitative property of optimal policy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the machine replacement problem shown in <a href="#fig-machine-replacement">Figure&nbsp;<span>6.1</span></a>, the optimal policy satisfies a qualitative property: <em>the optimal policy is monotone</em>, that is if <span class="math inline">\(s &lt; s'\)</span> then <span class="math inline">\(π_t(s) &lt; π_t(s')\)</span>. Intuitively, it makes sense. But how can we establish that this is the case for other choices of problem parameters as well?</p>
+</div>
+</div>
 <section id="stochastic-dominance" class="level2 page-columns page-full" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="stochastic-dominance"><span class="header-section-number">6.1</span> Stochastic dominance</h2>
 <div class="page-columns page-full"><p> Let <span class="math inline">\(\ALPHABET S\)</span> be a totally ordered finite set, say <span class="math inline">\(\{1, \dots, n\}\)</span>.</p><div class="no-row-height column-margin column-container"><span class="">Stochastic dominance is a partial order on random variables defined on totally ordered sets</span></div></div>
@@ -418,7 +700,7 @@ Example
 \end{equation}\]</span></p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -427,7 +709,7 @@ Proof (stochastic dominance implies monotone expectations)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For the ease of notation, let <span class="math inline">\(f_i\)</span> to denote <span class="math inline">\(f(i)\)</span> and define <span class="math inline">\({\rm M}^1_0 = {\rm M}^2_0 = 0\)</span>. Consider the following: <span class="math display">\[\begin{align*}
     \sum_{i=1}^n f_i \mu^1_i
@@ -450,7 +732,7 @@ Proof (stochastic dominance implies monotone expectations)
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -459,7 +741,7 @@ Proof (monotone expectations implies stochastic monotonicity)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Suppose for any increasing function <span class="math inline">\(f\)</span>, \eqref{eq:inc-fun} holds. Given any <span class="math inline">\(i \in \{1, \dots, n\}\)</span>, define the function <span class="math inline">\(f_i(k) = \IND\{k &gt; i\}\)</span>, which is an increasing function of <span class="math inline">\(k\)</span>. Then, <span class="math display">\[ \EXP[f_i(S)] = \sum_{k=1}^n f_i(k) \mu^1_k = \sum_{k &gt; i} \mu^1_k = 1 - {\rm M}^1_i.
 \]</span> By a similar argument, we have <span class="math display">\[ \EXP[f_i(S^2)] = 1 - {\rm M}^2_i. \]</span> Since <span class="math inline">\(\EXP[f_i(S)] \ge \EXP[f_i(S^2)]\)</span>, we have that <span class="math inline">\({\rm M}^1_i \le {\rm M}^2_i\)</span>.</p>
@@ -510,7 +792,7 @@ Note
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -519,7 +801,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We proceed by backward induction. By definition, <span class="math inline">\(V_{T+1}(s) = 0\)</span>, which is weakly increasing. This forms the basis of induction. Assume that <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Now consider, <span class="math display">\[Q_t(s,a) = c_t(s,a) + \EXP[V_{t+1}(S_{t+1}) | S_t = s, A_t = a].\]</span> For any <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(Q_t(s,a)\)</span> is a sum of two weakly increasing functions in <span class="math inline">\(s\)</span>; hence <span class="math inline">\(Q_t(s,a)\)</span> is weakly increasing in <span class="math inline">\(s\)</span>.</p>
 <p>Now consider <span class="math inline">\(s_1, s_2 \in \ALPHABET S\)</span> such that <span class="math inline">\(s_1 &gt; s_2\)</span>. Suppose <span class="math inline">\(a_1^*\)</span> is the optimal action at state <span class="math inline">\(s_1\)</span>. Then <span class="math display">\[
@@ -557,7 +839,7 @@ Submodularity
 \]</span> is weakly <em>increasing</em> in <span class="math inline">\(x\)</span>.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -566,7 +848,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider <span class="math inline">\(x^+, x^- \in \ALPHABET X\)</span> such that <span class="math inline">\(x^+ \ge x^-\)</span>. Since <span class="math inline">\(f\)</span> is submodular, for any <span class="math inline">\(y \le π(x^-)\)</span>, we have <span class="math display">\[\begin{equation}\label{eq:1}
   f(x^+, π(x^-)) - f(x^+, y) \le f(x^-, π(x^-)) - f(x^-, y) \le 0,
@@ -583,7 +865,7 @@ Proof
 \]</span> is weakly <em>decreasing</em> in <span class="math inline">\(x\)</span>.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -592,7 +874,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The proof is similar to <a href="#thm-submodular">Theorem&nbsp;<span>6.4</span></a>.</p>
 <p>Consider <span class="math inline">\(x^+, x^- \in \ALPHABET X\)</span> such that <span class="math inline">\(x^+ \ge x^-\)</span>. Since <span class="math inline">\(f\)</span> is supermodular, for any <span class="math inline">\(y \ge π(x^-)\)</span>, we have <span class="math display">\[\begin{equation}\label{eq:2}
@@ -612,7 +894,7 @@ Proof
 <p>Let <span class="math inline">\(π^*_t(s) = \max\{ a^* \in \arg \min_{a \in \ALPHABET A} Q_t(s,a) \}\)</span>. Then, <span class="math inline">\(π^*(s)\)</span> is weakly increasing in <span class="math inline">\(s\)</span>.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -621,7 +903,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Conditions (C1) and (C2) imply that the value function <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Therefore, condition (C3) implies that <span class="math inline">\(Q_t(s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>. Therefore, the arg min is weakly increasing in <span class="math inline">\(x\)</span></p>
 </div>
@@ -637,7 +919,7 @@ Proof
 <p>The condition (C3) of the previous theorem holds.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -646,7 +928,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider <span class="math inline">\(s^+, s^- \in \ALPHABET S\)</span> and <span class="math inline">\(a^+, a^- \in \ALPHABET A\)</span> such that <span class="math inline">\(s^+ &gt; s^-\)</span> and <span class="math inline">\(a^+ &gt; a^-\)</span>. Define</p>
 <p><span class="math display">\[\begin{align*}
@@ -668,7 +950,7 @@ Proof
 <p>Let <span class="math inline">\(π^*_t(s) = \min\{ a^* \in \arg \min_{a \in \ALPHABET S} Q_t(s,a) \}\)</span>. Then, <span class="math inline">\(π^*(s)\)</span> is weakly decreasing in <span class="math inline">\(s\)</span>.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -677,7 +959,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Conditions (C1) and (C2) imply that the value function <span class="math inline">\(V_{t+1}(s)\)</span> is weakly increasing. Therefore, condition (C4) implies that <span class="math inline">\(Q_t(s,a)\)</span> is supermodular in <span class="math inline">\((s,a)\)</span>. Therefore, the arg min is decreasing in <span class="math inline">\(s\)</span></p>
 </div>
@@ -693,7 +975,7 @@ Proof
 <p>The condition (C4) of the previous theorem holds.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -702,7 +984,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider <span class="math inline">\(s^+, s^- \in \ALPHABET S\)</span> and <span class="math inline">\(a^+, a^- \in \ALPHABET A\)</span> such that <span class="math inline">\(s^+ &gt; s^-\)</span> and <span class="math inline">\(a^+ &gt; a^-\)</span>. Define</p>
 <p><span class="math display">\[\begin{align*}
@@ -741,17 +1023,33 @@ Proof
 </section>
 <section id="example-a-machine-replacement-model" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="example-a-machine-replacement-model"><span class="header-section-number">6.8</span> Example: A machine replacement model</h2>
-<p>In this section, we use <a href="#thm-increasing-policy">Theorem&nbsp;<span>6.6</span></a> to establish the structure of the optimal policy in a model of machine replacement.</p>
-<p>Consider a manufacturing process, where the machine used for manufacturing deteriorates over time. Let <span class="math inline">\(\ALPHABET S = \{0, 1, \dots \}\)</span> represent the condition of the machine. The higher the value of <span class="math inline">\(s\)</span>, the worse the condition of the equipment. Note that, for simplicity, we have assumed that the state space is countable.</p>
-<p>At each decision epoch, the decision maker can choose actions from the set <span class="math inline">\(\ALPHABET A = \{0,1\}\)</span>. Action <span class="math inline">\(0\)</span> corresponds to operating the equipment as is for an additional period, while action 1 corresponds to scrapping the equipment and replacing it with a new and identical piece of equipment. We assume that there is a PMF <span class="math inline">\(μ\)</span> on <span class="math inline">\(\ALPHABET S\)</span> such that <span class="math display">\[ P_{sz}(0) = \begin{cases}
+<p>Let’s revisit the machine replacement problem presented at the beginning of this section. For simplicity, we’ll assume that <span class="math inline">\(n = ∞\)</span>, i.e., the state space is countable. In this case, the transition matrices are given by <span class="math display">\[ P_{sz}(0) = \begin{cases}
   0, &amp; z &lt; s \\
   μ_{z - s}, &amp; z \ge s
 \end{cases}
 \quad\text{and}\quad
 P_sz(1) = μ_z.
-\]</span> The transition matrix <span class="math inline">\(P(0)\)</span> states that the equipment detiorates from <span class="math inline">\(s\)</span> to <span class="math inline">\(s + k\)</span>, with probability <span class="math inline">\(μ_k\)</span> for all states <span class="math inline">\(s\)</span>.</p>
-<p>We assume that running the machine in state&nbsp;<span class="math inline">\(s\)</span> costs <span class="math inline">\(h(s)\)</span>, where <span class="math inline">\(h(\cdot)\)</span> is a weakly increasing function. Replacing the machine costs a constant amount~<span class="math inline">\(K\)</span>.</p>
-<p>We now verify the conditions (C1)–(C4) for the model.</p>
+\]</span> where <span class="math inline">\(μ\)</span> is the PMF of <span class="math inline">\(W\)</span>.</p>
+<div id="prp-machine-replacement" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.1 </strong></span>For the machine replacement problem, there exist a series of thresholds <span class="math inline">\(\{s^*_t\}_{t = 1}^T\)</span> such that the optimal policy at time <span class="math inline">\(t\)</span> is a threshold policy with threshold <span class="math inline">\(s_t\)</span>, i.e., <span class="math display">\[
+  π_t(s) = \begin{cases}
+  0 &amp; \text{if $s &lt; s_t^*$} \\
+  1 &amp; \text{otherwise}
+\end{cases}\]</span></p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We prove the result by verifying conditions (C1)–(C4) to establish that the optimal policy is monotone.</p>
 <p>C1. For <span class="math inline">\(a = 0\)</span>, <span class="math inline">\(c(s,0) = h(s)\)</span>, which is weakly increasing by assumption. For <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(c(s,1) = K\)</span>, which is trivially weakly increasing.</p>
 <p>C2. For <span class="math inline">\(a = 0\)</span>, <span class="math inline">\(P(0)\)</span> is stochastically monotone (because the CDF of <span class="math inline">\(P(\cdot | s, 0)\)</span> lies above the CDF of <span class="math inline">\(P(\cdot | s+1, 0)\)</span>). For <span class="math inline">\(a = 1\)</span>, all rows of <span class="math inline">\(P(1)\)</span> are the same; therefore <span class="math inline">\(P(1)\)</span> is stochastically monotone.</p>
 <p>Since (C1) and (C2) are satisfied, by <a href="#thm-monotone-value">Theorem&nbsp;<span>6.3</span></a>, we can assert that the value function is weakly increasing.</p>
@@ -761,6 +1059,9 @@ P_sz(1) = μ_z.
 = 1 - M_{s' - s},\]</span> where <span class="math inline">\(M\)</span> is the CMF of <span class="math inline">\(μ\)</span>, and <span class="math display">\[H(s'|s,1) = 1 - \sum_{z \le s'} μ_z = 1 - M_{s'},\]</span></p>
 <p>Therefore, <span class="math inline">\(H(s'|s,1) - H(s'|s,0) = M_{s'-s} - M_{s'}\)</span>. For any fixed <span class="math inline">\(s'\)</span>, <span class="math inline">\(H(s'|s,1) - H(s'|s,0)\)</span> is weakly decreasing in <span class="math inline">\(s\)</span>. There <span class="math inline">\(H(s'|s,a)\)</span> is submodular in <span class="math inline">\((s,a)\)</span>.</p>
 <p>Since (C1)–(C4) are satisfied, the optimal policy is weakly increasing in~<span class="math inline">\(s\)</span>. Since there are only two actions, it means that for every time, there exists a state <span class="math inline">\(s^*_t\)</span> with the property that if <span class="math inline">\(s\)</span> exceeds <span class="math inline">\(s^*_t\)</span>, the optimal decision is to replace the machine; and if <span class="math inline">\(s \le s^*_t\)</span>, then the optimal decision is to operate the machine for another period.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="exercises" class="level2 unnumbered">
@@ -818,7 +1119,7 @@ P_sz(1) = μ_z.
 <li>We say that the transition probability matrix <span class="math inline">\(P(a)\)</span> is even if for all <span class="math inline">\(s, s' \in \ALPHABET S\)</span>, <span class="math inline">\(P(s'|s,a) = P(-s'|-s,a)\)</span>. Prove the following result.</li>
 </ol>
 <div id="prp-even-value" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6.1 </strong></span>Suppose the MDP satisfies the following properties:</p>
+<p><span class="theorem-title"><strong>Proposition 6.2 </strong></span>Suppose the MDP satisfies the following properties:</p>
 <p>(A1) For every <span class="math inline">\(t\)</span> and <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(c_t(s,a)\)</span> is even function of <span class="math inline">\(s\)</span>.</p>
 <p>(A2) For every <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math inline">\(P(a)\)</span> is even.</p>
 <p>Then, for all <span class="math inline">\(t\)</span>, <span class="math inline">\(V_t\)</span> and <span class="math inline">\(π_t\)</span> are even functions.</p>
@@ -839,7 +1140,7 @@ P_sz(1) = μ_z.
 <p>Now given any probability transition matrix <span class="math inline">\(P\)</span> on <span class="math inline">\(\ALPHABET S\)</span>, we can define a probability transition matrix <span class="math inline">\(\tilde P\)</span> on <span class="math inline">\(\ALPHABET X_{\ge 0}\)</span> as follows: for any <span class="math inline">\(s \in \ALPHABET S\)</span>, <span class="math inline">\(\tilde P_s = \mathcal F P_s\)</span>, where <span class="math inline">\(P_s\)</span> denotes the <span class="math inline">\(s\)</span>-th row of <span class="math inline">\(P\)</span>. For ease of notation, we use <span class="math inline">\(\tilde P = \mathcal F P\)</span> to denote this relationship.</p>
 <p>Now prove the following:</p>
 <div id="prp-folded-monotonicity" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6.2 </strong></span>Given the MDP <span class="math inline">\((\ALPHABET S, \ALPHABET A, P, \{c_t\})\)</span>, define the <em>folded</em> MDP as <span class="math inline">\((\ALPHABET S_{\ge 0}, \ALPHABET A, \tilde P, \{c_t\})\)</span>, where <span class="math inline">\(\tilde P(a) = \mathcal F P(a)\)</span> for all <span class="math inline">\(a \in \ALPHABET A\)</span>. Let <span class="math inline">\(\tilde Q_t \colon \ALPHABET S_{\ge 0} \times \ALPHABET A \to \reals\)</span>, <span class="math inline">\(\tilde V_t \colon \ALPHABET S_{\ge 0} \to \reals\)</span> and <span class="math inline">\(\tilde π_t^* \colon \ALPHABET S_{\ge 0} \to \ALPHABET A\)</span> denote the action-value function, value function and the policy of the folded MDP. Then, if the original MDP satisfies conditions (A1) and (A2) then, for any <span class="math inline">\(s \in \ALPHABET S\)</span> and <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math display">\[ Q_t(s,a) = \tilde Q_t(|s|, a),
+<p><span class="theorem-title"><strong>Proposition 6.3 </strong></span>Given the MDP <span class="math inline">\((\ALPHABET S, \ALPHABET A, P, \{c_t\})\)</span>, define the <em>folded</em> MDP as <span class="math inline">\((\ALPHABET S_{\ge 0}, \ALPHABET A, \tilde P, \{c_t\})\)</span>, where <span class="math inline">\(\tilde P(a) = \mathcal F P(a)\)</span> for all <span class="math inline">\(a \in \ALPHABET A\)</span>. Let <span class="math inline">\(\tilde Q_t \colon \ALPHABET S_{\ge 0} \times \ALPHABET A \to \reals\)</span>, <span class="math inline">\(\tilde V_t \colon \ALPHABET S_{\ge 0} \to \reals\)</span> and <span class="math inline">\(\tilde π_t^* \colon \ALPHABET S_{\ge 0} \to \ALPHABET A\)</span> denote the action-value function, value function and the policy of the folded MDP. Then, if the original MDP satisfies conditions (A1) and (A2) then, for any <span class="math inline">\(s \in \ALPHABET S\)</span> and <span class="math inline">\(a \in \ALPHABET A\)</span>, <span class="math display">\[ Q_t(s,a) = \tilde Q_t(|s|, a),
 \quad
   V_t(s) = \tilde V_t(|s|),
 \quad
@@ -891,6 +1192,16 @@ P_sz(1) = μ_z.
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"T = 20\nn = 10\nc = 2\nK = 20\nh = function(s) { return c*s }\n\nPw = {\n  const n = 10\n  \n  var points = new Array(n+1)\n  var cumulative = 0\n  var probability = 0\n\n  for(var k = 0; k <= n; k++) {\n    probability = binomial(n,k,p)\n    cumulative += probability\n    points[k] = { probability: probability, cumulative: cumulative }\n  }\n\n  return points\n}\n\nbinomial = {\n  // From https://stackoverflow.com/a/37715980/193149\n  const logf = [0, 0, 0.6931471805599453, 1.791759469228055, 3.1780538303479458, 4.787491742782046, 6.579251212010101, 8.525161361065415, 10.60460290274525, 12.801827480081469, 15.104412573075516, 17.502307845873887, 19.987214495661885, 22.552163853123425, 25.19122118273868, 27.89927138384089, 30.671860106080672, 33.50507345013689, 36.39544520803305, 39.339884187199495, 42.335616460753485, 45.38013889847691, 48.47118135183523, 51.60667556776438, 54.78472939811232, 58.00360522298052, 61.261701761002, 64.55753862700634, 67.88974313718154, 71.25703896716801, 74.65823634883016, 78.0922235533153, 81.55795945611504, 85.05446701758152, 88.58082754219768, 92.1361756036871, 95.7196945421432, 99.33061245478743, 102.96819861451381, 106.63176026064346, 110.32063971475739, 114.0342117814617, 117.77188139974507, 121.53308151543864, 125.3172711493569, 129.12393363912722, 132.95257503561632, 136.80272263732635, 140.67392364823425, 144.5657439463449, 148.47776695177302, 152.40959258449735, 156.3608363030788, 160.3311282166309, 164.32011226319517, 168.32744544842765,  172.3527971391628, 176.39584840699735, 180.45629141754378, 184.53382886144948, 188.6281734236716, 192.7390472878449, 196.86618167289, 201.00931639928152, 205.1681994826412, 209.34258675253685, 213.53224149456327, 217.73693411395422, 221.95644181913033, 226.1905483237276, 230.43904356577696, 234.70172344281826, 238.97838956183432, 243.2688490029827, 247.57291409618688, 251.8904022097232, 256.22113555000954, 260.5649409718632, 264.9216497985528, 269.2910976510198, 273.6731242856937, 278.0675734403661, 282.4742926876304, 286.893133295427, 291.3239500942703, 295.76660135076065, 300.22094864701415, 304.6868567656687, 309.1641935801469, 313.65282994987905, 318.1526396202093, 322.66349912672615, 327.1852877037752, 331.7178871969285, 336.26118197919845, 340.815058870799, 345.37940706226686, 349.95411804077025, 354.5390855194408, 359.1342053695754, 363.73937555556347]\n\n  return function(n, k, p) {\n      return Math.exp(logf[n] - logf[n-k] - logf[k]) * p**k * (1-p)**(n-k)\n  }\n}\n\nDP = {\n  var DP = new Array()\n  var idx = 0\n\n  var V = new Array(n+1)\n  var Q0 = new Array(n+1)\n  var Q1 = new Array(n+1)\n\n  var a = 0\n  var val = 0\n\n  // Initialize the terminal value function\n  for (var s = 0; s <= n; s++) {\n    V[1+s] = 0\n  }\n\n  // Dynamic Programming\n  for (var t = T; t >= 1; t--) {\n    //Q0[s] = h[s] + E[ V(s+W) ]\n    //Q1[s] = K + E[ V(W) ]\n    for (var s = 0; s <= n; s++) {\n      Q0[1+s] = h(s)\n      Q1[1+s] = K\n      for (var w=0; w <= n; w++) {\n        var s_next = Math.min(s+w, n)\n        Q0[1+s] += V[ 1 + s_next ]*Pw[w].probability \n        Q1[1+s] += V[ 1 + w ]*Pw[w].probability \n      }\n    }\n\n    for (var s = 0; s <= n; s++) {\n      if (Q0[1+s] <= Q1[1+s]) {\n         a = 0\n         val = Q0[1+s]\n      } else {\n         a = 1\n         val = Q1[1+s]\n      }\n      DP[idx++] = { time: t, state: s, value: val, action: a }\n      V[1+s] = val\n    }\n  }\n\n  return DP;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof p = Inputs.range([0.1, 0.95], {label: \"p\", step: 0.1})\ntime = 1\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nvalue_plot = Plot.plot({\n  grid: true,\n  marks: [\n    // Axes\n    Plot.ruleX([0]),\n    // Plot.ruleY([0]),\n    // Data\n    Plot.line(DP.filter(d => d.time == time), {x:\"state\", y:\"value\", curve:\"step-after\"})\n  ]\n})\n\naction_plot = Plot.plot({\n  grid: true,\n  y : {ticks: 1 },\n  marks: [\n    // Axes\n    Plot.ruleX([0]),\n    Plot.ruleY([0]),\n    // Data\n    Plot.ruleX(DP.filter(d => d.time == time), {x: \"state\", y: \"action\", strokeWidth: 2}),\n    Plot.dot(DP.filter(d => d.time == time), {x: \"state\", y: \"action\", fill: \"currentColor\", r: 4})\n  ]\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('p')"}]}
+</script>
+<script type="module">
+window._ojs.paths.runtimeToDoc = "../../mdps";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

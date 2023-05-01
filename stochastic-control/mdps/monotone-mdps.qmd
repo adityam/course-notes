@@ -9,12 +9,145 @@ execute:
   echo: false
 ---
 
-<div class="alert alert-secondary">
-<h4 class="alert-secondary">Summary</h4>
+:::{.callout-note icon=false appearance="simple"}
+# <i class="bi bi-journal-text text-primary"></i> Summary
 In many applications, it is useful to know if the value function and the optimal policy is weakly increasing (or weakly decreasing) in state. Sufficient conditions are presented under which such monotonicity properties hold. These properties are useful because they makes it easy to search and implement the optimal policy.
-</div>
+:::
 
-<!-- Maybe start with an example -->
+Consider a manufacturing process, where the machine used for manufacturing deteriorates over time. Let $\ALPHABET S = \{0, 1, \dots n \}$ represent the condition of the machine. The higher the value of $s$, the worse the condition of the equipment. 
+
+A decision maker observes the state of the machine and has two options: continue operating the machine or replace it with a a new and identical piece of equipment. Operating the machine is state $s$ costs $h(s)$, where $h(⋅)$ is a weakly increasing function; replace the machine costs a constant amount $K$. 
+
+When the machine is operated, it's state deteriorates according to 
+$$
+  S_{t+1} = \min( S_t + W_t , n)
+$$
+where $\{W_t\}_{t \ge 1}$ is an i.i.d.\ process with PMF $μ$.
+
+We model the above model as an MDP with state space $\ALPHABET S$ and action space $\ALPHABET A = \{0, 1\}$ where $0$ means operating the machine and $1$ means replacing the machine. 
+
+We compute the optimal policy for this model when $W \sim \text{Binom}(n,p)$ when $n = 10$, $T = 20$, $h(s) = 2s$, and $K=20$ for different values of $p$.
+
+```{ojs}
+T = 20
+n = 10
+c = 2
+K = 20
+h = function(s) { return c*s }
+
+Pw = {
+  const n = 10
+  
+  var points = new Array(n+1)
+  var cumulative = 0
+  var probability = 0
+
+  for(var k = 0; k <= n; k++) {
+    probability = binomial(n,k,p)
+    cumulative += probability
+    points[k] = { probability: probability, cumulative: cumulative }
+  }
+
+  return points
+}
+
+binomial = {
+  // From https://stackoverflow.com/a/37715980/193149
+  const logf = [0, 0, 0.6931471805599453, 1.791759469228055, 3.1780538303479458, 4.787491742782046, 6.579251212010101, 8.525161361065415, 10.60460290274525, 12.801827480081469, 15.104412573075516, 17.502307845873887, 19.987214495661885, 22.552163853123425, 25.19122118273868, 27.89927138384089, 30.671860106080672, 33.50507345013689, 36.39544520803305, 39.339884187199495, 42.335616460753485, 45.38013889847691, 48.47118135183523, 51.60667556776438, 54.78472939811232, 58.00360522298052, 61.261701761002, 64.55753862700634, 67.88974313718154, 71.25703896716801, 74.65823634883016, 78.0922235533153, 81.55795945611504, 85.05446701758152, 88.58082754219768, 92.1361756036871, 95.7196945421432, 99.33061245478743, 102.96819861451381, 106.63176026064346, 110.32063971475739, 114.0342117814617, 117.77188139974507, 121.53308151543864, 125.3172711493569, 129.12393363912722, 132.95257503561632, 136.80272263732635, 140.67392364823425, 144.5657439463449, 148.47776695177302, 152.40959258449735, 156.3608363030788, 160.3311282166309, 164.32011226319517, 168.32744544842765,  172.3527971391628, 176.39584840699735, 180.45629141754378, 184.53382886144948, 188.6281734236716, 192.7390472878449, 196.86618167289, 201.00931639928152, 205.1681994826412, 209.34258675253685, 213.53224149456327, 217.73693411395422, 221.95644181913033, 226.1905483237276, 230.43904356577696, 234.70172344281826, 238.97838956183432, 243.2688490029827, 247.57291409618688, 251.8904022097232, 256.22113555000954, 260.5649409718632, 264.9216497985528, 269.2910976510198, 273.6731242856937, 278.0675734403661, 282.4742926876304, 286.893133295427, 291.3239500942703, 295.76660135076065, 300.22094864701415, 304.6868567656687, 309.1641935801469, 313.65282994987905, 318.1526396202093, 322.66349912672615, 327.1852877037752, 331.7178871969285, 336.26118197919845, 340.815058870799, 345.37940706226686, 349.95411804077025, 354.5390855194408, 359.1342053695754, 363.73937555556347]
+
+  return function(n, k, p) {
+      return Math.exp(logf[n] - logf[n-k] - logf[k]) * p**k * (1-p)**(n-k)
+  }
+}
+
+DP = {
+  var DP = new Array()
+  var idx = 0
+
+  var V = new Array(n+1)
+  var Q0 = new Array(n+1)
+  var Q1 = new Array(n+1)
+
+  var a = 0
+  var val = 0
+
+  // Initialize the terminal value function
+  for (var s = 0; s <= n; s++) {
+    V[1+s] = 0
+  }
+
+  // Dynamic Programming
+  for (var t = T; t >= 1; t--) {
+    //Q0[s] = h[s] + E[ V(s+W) ]
+    //Q1[s] = K + E[ V(W) ]
+    for (var s = 0; s <= n; s++) {
+      Q0[1+s] = h(s)
+      Q1[1+s] = K
+      for (var w=0; w <= n; w++) {
+        var s_next = Math.min(s+w, n)
+        Q0[1+s] += V[ 1 + s_next ]*Pw[w].probability 
+        Q1[1+s] += V[ 1 + w ]*Pw[w].probability 
+      }
+    }
+
+    for (var s = 0; s <= n; s++) {
+      if (Q0[1+s] <= Q1[1+s]) {
+         a = 0
+         val = Q0[1+s]
+      } else {
+         a = 1
+         val = Q1[1+s]
+      }
+      DP[idx++] = { time: t, state: s, value: val, action: a }
+      V[1+s] = val
+    }
+  }
+
+  return DP;
+}
+```
+```{ojs}
+viewof p = Inputs.range([0.1, 0.95], {label: "p", step: 0.1})
+time = 1
+```
+
+```{ojs}
+//| layout-ncol: 2
+//| label: fig-machine-replacement
+//| fig-cap: Solution of the machine repair problem
+//| fig-subcap:
+//|     - "Value function"
+//|     - "Optimal policy"
+
+value_plot = Plot.plot({
+  grid: true,
+  marks: [
+    // Axes
+    Plot.ruleX([0]),
+    // Plot.ruleY([0]),
+    // Data
+    Plot.line(DP.filter(d => d.time == time), {x:"state", y:"value", curve:"step-after"})
+  ]
+})
+
+action_plot = Plot.plot({
+  grid: true,
+  y : {ticks: 1 },
+  marks: [
+    // Axes
+    Plot.ruleX([0]),
+    Plot.ruleY([0]),
+    // Data
+    Plot.ruleX(DP.filter(d => d.time == time), {x: "state", y: "action", strokeWidth: 2}),
+    Plot.dot(DP.filter(d => d.time == time), {x: "state", y: "action", fill: "currentColor", r: 4})
+  ]
+})
+```
+
+:::{.callout-caution icon=false}
+# <i class="bi bi-patch-question text-warning"></i> Qualitative property of optimal policy
+In the machine replacement problem shown in @fig-machine-replacement, the optimal policy satisfies a qualitative property: _the optimal policy is monotone_, that is if $s < s'$ then $π_t(s) < π_t(s')$. Intuitively, it makes sense. But how can we establish that this is the case for other choices of problem parameters as well?
+:::
 
 ## Stochastic dominance
 
@@ -370,21 +503,7 @@ computing $Q_t(s,a)$ and $V_t(s)$, proceed as follows:
 
 ## Example: A machine replacement model
 
-In this section, we use @thm-increasing-policy to establish the structure of
-the optimal policy in a model of machine replacement. 
-
-Consider a manufacturing process, where the machine used for manufacturing
-deteriorates over time. Let $\ALPHABET S = \{0, 1, \dots \}$ represent the
-condition of the machine. The higher the value of $s$, the worse the condition
-of the equipment. Note that, for simplicity, we have assumed that the state
-space is countable. 
-
-At each decision epoch, the decision maker can choose
-actions from the set $\ALPHABET A = \{0,1\}$. Action $0$ corresponds to
-operating the equipment as is for an additional period, while action 1
-corresponds to scrapping the equipment and replacing it with a new and
-identical piece of equipment. We assume that there is a PMF $μ$ on $\ALPHABET
-S$ such that 
+Let's revisit the machine replacement problem presented at the beginning of this section. For simplicity, we'll assume that $n = ∞$, i.e., the state space is countable. In this case, the transition matrices are given by
 $$ P_{sz}(0) = \begin{cases}
   0, & z < s \\
   μ_{z - s}, & z \ge s
@@ -392,14 +511,21 @@ $$ P_{sz}(0) = \begin{cases}
 \quad\text{and}\quad
  P_sz(1) = μ_z.
 $$
-The transition matrix $P(0)$ states that the equipment detiorates from $s$ to
-$s + k$, with probability $μ_k$ for all states $s$. 
+where $μ$ is the PMF of $W$.
 
-We assume that running the machine in state $s$ costs $h(s)$, where $h(\cdot)$
-is a weakly increasing function. Replacing the machine costs a constant
-amount~$K$. 
+::: {#prp-machine-replacement}
+For the machine replacement problem, there exist a series of thresholds $\{s^*_t\}_{t = 1}^T$ such that the optimal policy at time $t$ is a threshold policy with threshold $s_t$, i.e.,
+$$
+  π_t(s) = \begin{cases}
+  0 & \text{if $s < s_t^*$} \\
+  1 & \text{otherwise}
+\end{cases}$$
+:::
 
-We now verify the conditions (C1)--(C4) for the model. 
+:::{.callout-note collapse="true"}
+#### Proof
+
+We prove the result by verifying conditions (C1)--(C4) to establish that the optimal policy is monotone.
 
 C1. For $a = 0$, $c(s,0) = h(s)$, which is weakly increasing by assumption.
 For $a = 1$, $c(s,1) = K$, which is trivially weakly increasing.
@@ -430,6 +556,7 @@ in~$s$. Since there are only two actions, it means that for every time, there
 exists a state $s^*_t$ with the property that if $s$ exceeds $s^*_t$, the
 optimal decision is to replace the machine; and if $s \le s^*_t$, then the
 optimal decision is to operate the machine for another period. 
+:::
 
 ---
 

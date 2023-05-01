@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-04-28">
+<meta name="dcterms.date" content="2023-05-01">
 <meta name="keywords" content="MDPs, Dynamic programming, Optimal gambling, Kelly strategy">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
@@ -196,20 +196,11 @@ window.MathJax = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Course Notes</span>
-    </a>
-  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../stochastic-control/index.html">
  <span class="menu-text">Stochastic Control</span></a>
@@ -419,7 +410,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 28, 2023</p>
+      <p class="date">May 1, 2023</p>
     </div>
   </div>
   
@@ -439,11 +430,18 @@ window.MathJax = {
 </figure>
 </div>
 </div>
-<div class="alert alert-secondary">
-<h4 class="alert-secondary anchored">
-Summary
-</h4>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="bi bi-journal-text text-primary"></i> Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This stylized model of optimal gambling was introduced by <span class="citation" data-cites="Kelly1956">Kelly (<a href="../references.html#ref-Kelly1956" role="doc-biblioref">1956</a>)</span> to highlight a relationship between channel capacity (which had been proposed recently by Shannon), and gambling. Our motivation for studying this model is to use it as an illustrative example to show that sometimes it is possible to identify the optimal strategy and value function of MDPs in closed form.</p>
+</div>
 </div>
 <p>Imagine a gambler who goes to a casino with an initial fortune of <span class="math inline">\(s_1\)</span> dollars and places bets over time and must leave after <span class="math inline">\(T\)</span> bets. Let <span class="math inline">\(S_t\)</span> denote the gambler’s fortune after <span class="math inline">\(t\)</span> bets. In this example, time denotes the number of times that the gambler has bet.</p>
 <p>At time <span class="math inline">\(t\)</span>, the gambler may place a bet for any amount <span class="math inline">\(A_t\)</span> less than or equal to his current fortune <span class="math inline">\(S_t\)</span>. If he wins the bet (denoted by the event <span class="math inline">\(W_t = 1\)</span>), the casino gives him the amount that he had bet. If he loses the bet (denoted by the event <span class="math inline">\(W_t = -1\)</span>), he pays the casino the amount that he had bet. Thus, the dynamics can be written as</p>
@@ -699,7 +697,7 @@ Remark
 <div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">The constant <span class="math inline">\(C\)</span> defined in <a href="#thm-optimal-gambling-structure">Theorem&nbsp;<span>4.1</span></a> is equal to the capacity of a binary symmetric channel! In fact, the above model was introduced by <span class="citation" data-cites="Kelly1956">Kelly (<a href="../references.html#ref-Kelly1956" role="doc-biblioref">1956</a>)</span> to show a gambling interpretation of information rates.</span></div></div>
 <p>We prove the two cases separately.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -708,7 +706,7 @@ Proof when <span class="math inline">\(p \le 0.5\)</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(p = \PR(W_t = 1)\)</span> and <span class="math inline">\(q = \PR(W_t = -1)\)</span>. Then <span class="math inline">\(p \le 0.5\)</span> implies that <span class="math inline">\(p \le 1 - p = q\)</span>.</p>
 <p>We proceed by backward induction. For <span class="math inline">\(t = T\)</span>, we have that <span class="math inline">\(V_T(s) = \log s\)</span>. This forms the basis of induction. Now assume that for <span class="math inline">\(t+1\)</span>, <span class="math inline">\(V_{t+1}(s) = \log s\)</span>. Now consider</p>
@@ -733,7 +731,7 @@ Proof when <span class="math inline">\(p \le 0.5\)</span>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -742,7 +740,7 @@ Proof when <span class="math inline">\(p &gt; 0.5\)</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As in the previous case, let <span class="math inline">\(p = \PR(W_t = 1)\)</span> and <span class="math inline">\(q = \PR(W_t = -1)\)</span>. Then <span class="math inline">\(p &gt; 0.5\)</span> implies that <span class="math inline">\(p &gt; 1 - p = q\)</span>.</p>
 <p>We proceed by backward induction. For <span class="math inline">\(t = T\)</span>, we have that <span class="math inline">\(V_T(s) = \log s\)</span>. This forms the basis of induction. Now assume that for <span class="math inline">\(t+1\)</span>, <span class="math inline">\(V_{t+1}(s) = \log s + (T -t - 1)C\)</span>. Now consider</p>
@@ -788,7 +786,7 @@ Proof when <span class="math inline">\(p &gt; 0.5\)</span>
 </ul>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -797,7 +795,7 @@ Proof of monotonicity in <span class="math inline">\(s\)</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We proceed by backward induction. <span class="math inline">\(V_T(s) = r_T(s)\)</span> which is monotone increasing in <span class="math inline">\(s\)</span>. Assume that <span class="math inline">\(V_{t+1}(s)\)</span> is increasing in <span class="math inline">\(s\)</span>. Now, consider <span class="math inline">\(V_t(s)\)</span>. Consider <span class="math inline">\(s_1, s_2 \in \reals_{\ge 0}\)</span> such that <span class="math inline">\(s_1 \le s_2\)</span>. Then for any <span class="math inline">\(a \le s_1\)</span>, we have that</p>
 <p><span class="math display">\[ \begin{align*}
@@ -817,7 +815,7 @@ Proof of monotonicity in <span class="math inline">\(s\)</span>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -826,7 +824,7 @@ Proof of monotonicity in <span class="math inline">\(t\)</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a simple consequence of the following:</p>
 <p><span class="math display">\[V_t(s) = \max_{a \in [0, s]} Q_t(s,a) \ge Q_t(s,0) = V_{t+1}(s).\]</span></p>

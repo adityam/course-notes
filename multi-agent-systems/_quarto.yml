@@ -12,12 +12,14 @@ book:
   date: today
   description: "ECSE 508 (Multi-agent systems)"
   site-url: "https://adityam.github.io/course-notes/"
+
   navbar:
     background: dark
+    title: false
     pinned: false
     left:
-    - href: ../index.html
-      text: Home
+      # - href: ../index.html
+      #   text: Home
     - href: ../stochastic-control/index.html
       text: Stochastic Control
     - href: ../multi-agent-systems/index.html

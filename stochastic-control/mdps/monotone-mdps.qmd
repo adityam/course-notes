@@ -121,6 +121,7 @@ time = 1
 
 value_plot = Plot.plot({
   grid: true,
+  y: {domain: [120,380]},
   marks: [
     // Axes
     Plot.ruleX([0]),

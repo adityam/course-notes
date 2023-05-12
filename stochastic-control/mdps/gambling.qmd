@@ -1,6 +1,5 @@
 ---
 title: Optimal gambling
-date: last-modified
 keywords:
    - MDPs
    - Dynamic programming

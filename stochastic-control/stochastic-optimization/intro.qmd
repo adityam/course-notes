@@ -1,6 +1,5 @@
 ---
 title: Introduction
-date: last-modified
 keywords:
    - stochastic optimization
    - principle of irrelevant information

@@ -9,7 +9,6 @@ book:
       url: "https://cim.mcgill.ca/~adityam"
       affiliation: McGill University
       affiliation-url: "https://www.mcgill.ca/ece"
-  date: today
   description: "ECES 506 (Stochastic Control and Decision Theory)"
   site-url: "https://adityam.github.io/course-notes/"
 
@@ -82,6 +81,8 @@ format:
       #    citation-location: margin
     filters:
       - ../_extensions/schochastics/nutshell/nutshell.lua
+    published-title: Updated
+    date: last-modified
 
 
 

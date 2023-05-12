@@ -135,6 +135,6 @@ This result is established by showing the following properties:
 
 ## Notes {-}
 
-These [chapter on SVD] in @Hopcroft2012 contains a nice intuitive explanation of SVD.
+The [chapter on SVD] in @Hopcroft2012 contains a nice intuitive explanation of SVD.
 
 [chapter on SVD]: https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf

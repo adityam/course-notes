@@ -52,7 +52,7 @@ $$ r_t(s, a) = 0
    r_T(s) = \log s.
 $$
 
-[^1]: See the notes on [risk sensitive utility] for a discussion on the choice of the utility function.
+[^1]: See the notes on [risk sensitive utility] for a discussion on the choice of the utility function but one way to think of the reward is as follows. Suppose we put $S_1$ dollars in a bank and accrue continuously compounded interest of $R$ per unit time, we will get $S_1 e^{RT}$ dollars after $T$ time steps. Thus, we may view $\log(S_T/S_1)$ to be the effective (random) interest rate.
 
 <!--FIXME-->
 [risk sensitive utility]: ../../risk-sensitive/risk-sensitive-utility

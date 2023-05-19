@@ -1,6 +1,6 @@
 /*-- scss:rules --*/
 
-.theorem:not(.exercise) {
+.theorem:not(.exercise):not(.example) {
     display: block;
     padding-top: 1em;
     padding-left: 0.5em;

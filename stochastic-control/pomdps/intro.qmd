@@ -574,20 +574,22 @@ minimum of PWLC functions is PWLC. Hence, the result holds due to principle of
 induction.
 :::
 
-Remark
+:::{.callout-tip icon=false}
+# Remark
 
-:   Since the value function is PWLC, we can identify a finite index set
-    $I_t$, and a set of vectors $\{ A^i_t \}_{i \in I_t}$ such that
-    $$
-        V_t(b) = \min_{i \in I_t} \langle A^i_t, b \rangle.
-    $$
-    @Smallwood1973 presented a "one-pass" algorithm to recursively compute $I_t$ and 
-    $\{ A^i_t \}_{i \in I_t}$ which allows us to exactly compute the value
-    function. Various efficient refinements of these algorithms have been
-    presented in the literature, e.π., the linear-support algorithm
-    [@Cheng1988], the witness algorithm [@Cassandra1994], incremental pruning
-    [@Zhang1996; @Cassandra1997], duality based approach [@Zhang2009], and
-    others. See [https://pomdp.org/](http://pomdp.org) for an accessible introduction to these algorithms. 
+Since the value function is PWLC, we can identify a finite index set
+$I_t$, and a set of vectors $\{ A^i_t \}_{i \in I_t}$ such that
+$$
+    V_t(b) = \min_{i \in I_t} \langle A^i_t, b \rangle.
+$$
+@Smallwood1973 presented a "one-pass" algorithm to recursively compute $I_t$ and 
+$\{ A^i_t \}_{i \in I_t}$ which allows us to exactly compute the value
+function. Various efficient refinements of these algorithms have been
+presented in the literature, e.π., the linear-support algorithm
+[@Cheng1988], the witness algorithm [@Cassandra1994], incremental pruning
+[@Zhang1996; @Cassandra1997], duality based approach [@Zhang2009], and
+others. See [https://pomdp.org/](http://pomdp.org) for an accessible introduction to these algorithms. 
+:::
 
 ## Exercises {-}
 

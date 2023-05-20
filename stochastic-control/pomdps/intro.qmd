@@ -645,6 +645,20 @@ t-τ)$ is an information state.
 
 ## Notes {-}
 
-The discussion in this section is taken from @Subramanian2022.
+The discussion in this section is taken from @Subramanian2022. o
+Information state may be viewed as a generalization of the
+traditional notion of state @Nerode1958, which is defined as a
+statistic (i.e., a function of the observations) sufficient for input-output
+mapping. In contrast, we define an information state as a statistic sufficient
+for performance evaluation (and, therefore, for dynamic programming). Such a
+definition is hinted in @Witsenhausen1976. The notion of information
+state is also related to sufficient statistics for optimal control defined in
+@Striebel1965 for systems with state space models. 
 
-
+As far as we are aware, the informal definition of information state was first
+proposed by @Kwakernaak1965 for adaptive control systems. Formal
+definitions for linear control systems were given by @Bohlin1970 for
+discrete time systems and by @DavisVaraiya1972 for continuous time
+systems. @KumarVaraiya1986 define an information state as a compression of
+past history which satisfies property (P2a) but do not formally show that
+such an information state always leads to a dynamic programming decomposition.

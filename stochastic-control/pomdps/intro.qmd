@@ -4,6 +4,10 @@ keywords:
    - POMDPs
    - Dynamic programming
    - Information state
+format:
+  html:
+    include-in-header: 
+     - ../../static/html/geogebra.html
 ---
 
 So far, we have considered a setup where the decision maker perfectly observes
@@ -507,25 +511,15 @@ A key property of the belief-state based value functions is the following.
 The belief-state based value functions are piecewise linear and concave.
 :::
 
-
-:::{.callout-note collapse="true"}
-#### Proof {-}
-As usual, we prove the result using backward induction. For any $a_T$,
-$$ Q_T(b_T, a_T) = \sum_{s_T \in \ALPHABET S} c_T(s_T, a_T) b_T(s_T) $$
-is linear in $b_T$. Therefore, 
-$$ V_T(b_T) = \min_{a_T \in \ALPHABET A} Q_T(b_T, a_T) $$
-is the minimum of a finite number of linear functions. Hence $V_T(b_T)$ is
-piecewise linear and concave. 
-
   <figure>
   <div style="width:800px;height:600px;display:block" id="applet_container"></div>
-  <figcaption>An illustration of a piece-wise linear and concave function.
+  <figcaption>An illustration of a piecewise linear and concave function.
   Move the points around to see how the shape of the function changes.</figcaption>
   </figure>
 
   <script type="text/javascript">
       var params = {
-        filename: "/stochastic-control/geogebra/pomdp/PWLC.ggb",
+        filename: "../www/geogebra/pomdp-pwlc.ggb",
         enableShiftDragZoom: false,
         width: 800,
         height: 600,
@@ -537,6 +531,16 @@ piecewise linear and concave.
           applet.inject('applet_container');
       }
   </script>
+
+
+:::{.callout-note collapse="true"}
+#### Proof {-}
+As usual, we prove the result using backward induction. For any $a_T$,
+$$ Q_T(b_T, a_T) = \sum_{s_T \in \ALPHABET S} c_T(s_T, a_T) b_T(s_T) $$
+is linear in $b_T$. Therefore, 
+$$ V_T(b_T) = \min_{a_T \in \ALPHABET A} Q_T(b_T, a_T) $$
+is the minimum of a finite number of linear functions. Hence $V_T(b_T)$ is
+piecewise linear and concave. 
 
 Now assume that $V_{t+1}(b_{t+1})$ is piecewise linear and concave (PWLC). Any
 PWLC function can be represented as a minimum of a finite number of

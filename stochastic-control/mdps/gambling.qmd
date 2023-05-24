@@ -12,7 +12,7 @@ execute:
 ::: {.column-body}
 ![Image credit: http://commons.wikimedia.org/wiki/File:Gambling-ca-1800.jpg][gambling] 
 
-[gambling]: ../banners/gambling.jpg "How to gamble if you
+[gambling]: ../images/banners/gambling.jpg "How to gamble if you
 must" 
 :::
 
@@ -46,9 +46,7 @@ his betting strategy.
 The gambler's utility is $\log S_T$, the logarithm of his final fortune.[^1] Thus,
 the reward function may be written as
 
-$$ r_t(s, a) = 0 
-   \quad \text{and} \quad
-   r_T(s) = \log s.
+$$ r_t(s, a) = 0 \quad \text{and} \quad r_T(s) = \log s.
 $$
 
 [^1]: See the notes on [risk sensitive utility] for a discussion on the choice of the utility function but one way to think of the reward is as follows. Suppose we put $S_1$ dollars in a bank and accrue continuously compounded interest of $R$ per unit time, we will get $S_1 e^{RT}$ dollars after $T$ time steps. Thus, we may view $\log(S_T/S_1)$ to be the effective (random) interest rate.

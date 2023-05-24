@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-19">
+<meta name="dcterms.date" content="2023-05-20">
 <meta name="keywords" content="POMDPs, Dynamic programming, Information state">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
@@ -120,6 +120,9 @@ window.MathJax = {
 };
 </script>
 <script async="" data-id="101261731" src="//static.getclicky.com/js"></script>
+<script type="text/javascript" src="https://www.geogebra.org/apps/deployggb.js">
+</script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -363,7 +366,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 19, 2023</p>
+      <p class="date">May 20, 2023</p>
     </div>
   </div>
   
@@ -798,6 +801,28 @@ h_t, A_t = a_t ]  \\
 <div id="thm-belief-PWLC" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 13.4 </strong></span>The belief-state based value functions are piecewise linear and concave.</p>
 </div>
+<figure class="figure">
+<div id="applet_container" style="width:800px;height:600px;display:block">
+
+</div>
+<figcaption class="figure-caption">
+An illustration of a piecewise linear and concave function. Move the points around to see how the shape of the function changes.
+</figcaption>
+</figure>
+<script type="text/javascript">
+      var params = {
+        filename: "../www/geogebra/pomdp-pwlc.ggb",
+        enableShiftDragZoom: false,
+        width: 800,
+        height: 600,
+      }
+
+      var applet = new GGBApplet(params, true);
+
+      window.onload = function() {
+          applet.inject('applet_container');
+      }
+  </script>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -811,28 +836,6 @@ Proof
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As usual, we prove the result using backward induction. For any <span class="math inline">\(a_T\)</span>, <span class="math display">\[ Q_T(b_T, a_T) = \sum_{s_T \in \ALPHABET S} c_T(s_T, a_T) b_T(s_T) \]</span> is linear in <span class="math inline">\(b_T\)</span>. Therefore, <span class="math display">\[ V_T(b_T) = \min_{a_T \in \ALPHABET A} Q_T(b_T, a_T) \]</span> is the minimum of a finite number of linear functions. Hence <span class="math inline">\(V_T(b_T)\)</span> is piecewise linear and concave.</p>
-<figure class="figure">
-<div id="applet_container" style="width:800px;height:600px;display:block">
-
-</div>
-<figcaption class="figure-caption">
-An illustration of a piece-wise linear and concave function. Move the points around to see how the shape of the function changes.
-</figcaption>
-</figure>
-<script type="text/javascript">
-      var params = {
-        filename: "/stochastic-control/geogebra/pomdp/PWLC.ggb",
-        enableShiftDragZoom: false,
-        width: 800,
-        height: 600,
-      }
-
-      var applet = new GGBApplet(params, true);
-
-      window.onload = function() {
-          applet.inject('applet_container');
-      }
-  </script>
 <p>Now assume that <span class="math inline">\(V_{t+1}(b_{t+1})\)</span> is piecewise linear and concave (PWLC). Any PWLC function can be represented as a minimum of a finite number of hyperplanes. Therefore, we can find a finite set of vectors <span class="math inline">\(\{ A_i \}_{i \in I}\)</span> indexed by finite set <span class="math inline">\(I\)</span> such that <span class="math display">\[
   V_{t+1}(b) = \min_{i \in I} \langle A_i, b \rangle.
 \]</span></p>

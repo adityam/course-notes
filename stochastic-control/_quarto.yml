@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: ../docs/stochastic-control
+  resources: 'www/geogebra/*.ggb'
 
 book:
   title: Course Notes

@@ -85,7 +85,7 @@ We start by deriving a recursive formula to compute the performance of a
 generic history dependent strategy $π = (π_1, \dots, π_T)$. 
 
 
-### Performance of history-dependent strategies {-{
+### Performance of history-dependent strategies {-}
 
 Let $H_t = (Y_{1:t}, A_{1:t-1})$ denote all the information available to the
 decision maker at time $t$. Thus, given any history dependent strategy $π$, we
@@ -649,7 +649,7 @@ t-τ)$ is an information state.
 
 ## Notes {-}
 
-The discussion in this section is taken from @Subramanian2022. o
+The discussion in this section is taken from @Subramanian2022.
 Information state may be viewed as a generalization of the
 traditional notion of state @Nerode1958, which is defined as a
 statistic (i.e., a function of the observations) sufficient for input-output

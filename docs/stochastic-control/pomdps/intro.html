@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-20">
+<meta name="dcterms.date" content="2023-05-24">
 <meta name="keywords" content="POMDPs, Dynamic programming, Information state">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
@@ -338,7 +338,7 @@ window.MathJax = {
   <ul>
   <li><a href="#history-dependent-dynamic-program" id="toc-history-dependent-dynamic-program" class="nav-link active" data-scroll-target="#history-dependent-dynamic-program"><span class="toc-section-number">13.1</span>  History dependent dynamic program</a>
   <ul class="collapse">
-  <li><a href="#performance-of-history-dependent-strategies--" id="toc-performance-of-history-dependent-strategies--" class="nav-link" data-scroll-target="#performance-of-history-dependent-strategies--"><span class="toc-section-number">13.1.1</span>  Performance of history-dependent strategies {-{</a></li>
+  <li><a href="#performance-of-history-dependent-strategies" id="toc-performance-of-history-dependent-strategies" class="nav-link" data-scroll-target="#performance-of-history-dependent-strategies">Performance of history-dependent strategies</a></li>
   <li><a href="#history-dependent-dynamic-programming-decomposition" id="toc-history-dependent-dynamic-programming-decomposition" class="nav-link" data-scroll-target="#history-dependent-dynamic-programming-decomposition">History-dependent dynamic programming decomposition</a></li>
   </ul></li>
   <li><a href="#the-notion-of-an-information-state" id="toc-the-notion-of-an-information-state" class="nav-link" data-scroll-target="#the-notion-of-an-information-state"><span class="toc-section-number">13.2</span>  The notion of an information state</a></li>
@@ -366,7 +366,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 20, 2023</p>
+      <p class="date">May 24, 2023</p>
     </div>
   </div>
   
@@ -409,8 +409,8 @@ window.MathJax = {
 <section id="history-dependent-dynamic-program" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="history-dependent-dynamic-program"><span class="header-section-number">13.1</span> History dependent dynamic program</h2>
 <p>Our first step to develop an efficient dynamic programming decomposition is to simply ignore efficiency and develop <em>a</em> dynamic programming decomposition. We start by deriving a recursive formula to compute the performance of a generic history dependent strategy <span class="math inline">\(π = (π_1, \dots, π_T)\)</span>.</p>
-<section id="performance-of-history-dependent-strategies--" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="performance-of-history-dependent-strategies--"><span class="header-section-number">13.1.1</span> Performance of history-dependent strategies {-{</h3>
+<section id="performance-of-history-dependent-strategies" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="performance-of-history-dependent-strategies">Performance of history-dependent strategies</h3>
 <p>Let <span class="math inline">\(H_t = (Y_{1:t}, A_{1:t-1})\)</span> denote all the information available to the decision maker at time&nbsp;<span class="math inline">\(t\)</span>. Thus, given any history dependent strategy <span class="math inline">\(π\)</span>, we can write <span class="math inline">\(A_t = π_t(H_t)\)</span>. Define <em>the cost-to-go functions</em> as follows: <span class="math display">\[
   J_t(h_t; π) = \EXP^π\biggl[ \sum_{s=t}^T c_s(S_s, A_s) \biggm| H_t = h_t
   \biggr].
@@ -899,7 +899,7 @@ Remark
 </section>
 <section id="notes" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
-<p>The discussion in this section is taken from <span class="citation" data-cites="Subramanian2022">Subramanian et al. (<a href="../references.html#ref-Subramanian2022" role="doc-biblioref">2022</a>)</span>. o Information state may be viewed as a generalization of the traditional notion of state <span class="citation" data-cites="Nerode1958">Nerode (<a href="../references.html#ref-Nerode1958" role="doc-biblioref">1958</a>)</span>, which is defined as a statistic (i.e., a function of the observations) sufficient for input-output mapping. In contrast, we define an information state as a statistic sufficient for performance evaluation (and, therefore, for dynamic programming). Such a definition is hinted in <span class="citation" data-cites="Witsenhausen1976">Witsenhausen (<a href="../references.html#ref-Witsenhausen1976" role="doc-biblioref">1976</a>)</span>. The notion of information state is also related to sufficient statistics for optimal control defined in <span class="citation" data-cites="Striebel1965">Striebel (<a href="../references.html#ref-Striebel1965" role="doc-biblioref">1965</a>)</span> for systems with state space models.</p>
+<p>The discussion in this section is taken from <span class="citation" data-cites="Subramanian2022">Subramanian et al. (<a href="../references.html#ref-Subramanian2022" role="doc-biblioref">2022</a>)</span>. Information state may be viewed as a generalization of the traditional notion of state <span class="citation" data-cites="Nerode1958">Nerode (<a href="../references.html#ref-Nerode1958" role="doc-biblioref">1958</a>)</span>, which is defined as a statistic (i.e., a function of the observations) sufficient for input-output mapping. In contrast, we define an information state as a statistic sufficient for performance evaluation (and, therefore, for dynamic programming). Such a definition is hinted in <span class="citation" data-cites="Witsenhausen1976">Witsenhausen (<a href="../references.html#ref-Witsenhausen1976" role="doc-biblioref">1976</a>)</span>. The notion of information state is also related to sufficient statistics for optimal control defined in <span class="citation" data-cites="Striebel1965">Striebel (<a href="../references.html#ref-Striebel1965" role="doc-biblioref">1965</a>)</span> for systems with state space models.</p>
 <p>As far as we are aware, the informal definition of information state was first proposed by <span class="citation" data-cites="Kwakernaak1965">Kwakernaak (<a href="../references.html#ref-Kwakernaak1965" role="doc-biblioref">1965</a>)</span> for adaptive control systems. Formal definitions for linear control systems were given by <span class="citation" data-cites="Bohlin1970">Bohlin (<a href="../references.html#ref-Bohlin1970" role="doc-biblioref">1970</a>)</span> for discrete time systems and by <span class="citation" data-cites="DavisVaraiya1972">Davis and Varaiya (<a href="../references.html#ref-DavisVaraiya1972" role="doc-biblioref">1972</a>)</span> for continuous time systems. <span class="citation" data-cites="KumarVaraiya1986">Kumar and Varaiya (<a href="../references.html#ref-KumarVaraiya1986" role="doc-biblioref">1986</a>)</span> define an information state as a compression of past history which satisfies property (P2a) but do not formally show that such an information state always leads to a dynamic programming decomposition.</p>
 
 

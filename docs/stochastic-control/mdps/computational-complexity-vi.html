@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-26">
+<meta name="dcterms.date" content="2023-05-25">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
-<title>Course Notes - 9&nbsp; MDP algorithms</title>
+<title>Course Notes - 12&nbsp; Computational complexity of value interation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../mdps/inventory-management-revisited.html" rel="next">
-<link href="../mdps/inf-horizon.html" rel="prev">
+<link href="../mdps/linear-programming.html" rel="next">
+<link href="../mdps/mobile-edge-computing.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -150,7 +150,7 @@ window.MathJax = {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MDP algorithms</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Computational complexity of value interation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -233,7 +233,7 @@ window.MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mdps/mdp-algorithms.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MDP algorithms</span></a>
+  <a href="../mdps/mdp-algorithms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MDP algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,7 +248,7 @@ window.MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mdps/computational-complexity-vi.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Computational complexity of value interation</span></a>
+  <a href="../mdps/computational-complexity-vi.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Computational complexity of value interation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -342,14 +342,10 @@ window.MathJax = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#value-iteration-algorithm" id="toc-value-iteration-algorithm" class="nav-link active" data-scroll-target="#value-iteration-algorithm"><span class="toc-section-number">9.1</span>  Value Iteration Algorithm</a></li>
-  <li><a href="#policy-iteration-algorithm" id="toc-policy-iteration-algorithm" class="nav-link" data-scroll-target="#policy-iteration-algorithm"><span class="toc-section-number">9.2</span>  Policy Iteration Algorithm</a>
-  <ul class="collapse">
-  <li><a href="#policy-iteration-as-newton-raphson-algoritm" id="toc-policy-iteration-as-newton-raphson-algoritm" class="nav-link" data-scroll-target="#policy-iteration-as-newton-raphson-algoritm"><span class="toc-section-number">9.2.1</span>  Policy iteration as Newton-Raphson algoritm</a></li>
-  </ul></li>
-  <li><a href="#optimistic-policy-iteration" id="toc-optimistic-policy-iteration" class="nav-link" data-scroll-target="#optimistic-policy-iteration"><span class="toc-section-number">9.3</span>  Optimistic Policy Iteration</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#span-norm-contraction" id="toc-span-norm-contraction" class="nav-link active" data-scroll-target="#span-norm-contraction"><span class="toc-section-number">12.1</span>  Span norm contraction</a></li>
+  <li><a href="#computational-complexity-of-value-iteration" id="toc-computational-complexity-of-value-iteration" class="nav-link" data-scroll-target="#computational-complexity-of-value-iteration"><span class="toc-section-number">12.2</span>  Computational complexity of value iteration</a></li>
+  <li><a href="#the-bound-may-be-exact" id="toc-the-bound-may-be-exact" class="nav-link" data-scroll-target="#the-bound-may-be-exact"><span class="toc-section-number">12.3</span>  The bound may be exact</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul>
 </nav>
     </div>
@@ -358,7 +354,7 @@ window.MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MDP algorithms</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Computational complexity of value interation</span></h1>
 </div>
 
 
@@ -369,7 +365,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 26, 2023</p>
+      <p class="date">May 25, 2023</p>
     </div>
   </div>
   
@@ -379,8 +375,8 @@ window.MathJax = {
 
 </header>
 
-<section id="value-iteration-algorithm" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="value-iteration-algorithm"><span class="header-section-number">9.1</span> Value Iteration Algorithm</h2>
+<p>How many computations are needed to run the value or policy iteration algorithm to obtain a policy that in within <span class="math inline">\(ε\)</span> of the optimal? In this section, we provide an answer for this question for the value iteration algorithm.</p>
+<p>Conisder an MDP with a finite state space <span class="math inline">\(\ALPHABET S = \{1, \dots, n \}\)</span> with a finite non-empty set of actions <span class="math inline">\(\ALPHABET A(s)\)</span> available at each <span class="math inline">\(s \in \ALPHABET S\)</span>. Each action set consists of <span class="math inline">\(M_s\)</span> actions with a total number of <span class="math inline">\(M = \sum_{s=1}^n M_s\)</span> actions. This number can be interpreted as the total number of state-action pairs. Let <span class="math inline">\(γ \in (0, 1)\)</span> be the discount factor. We present the value iteration algorithm from the <a href="inf-horizon.html">notes on discounted MDP</a> to achieve a pre-specified accuracy <span class="math inline">\(ε\)</span>.</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -391,20 +387,34 @@ window.MathJax = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>For given MDP, discount factor <span class="math inline">\(γ \in (0,1)\)</span>, and constant <span class="math inline">\(ε &gt; 0\)</span></p>
 <ol type="1">
 <li>Start with any <span class="math inline">\(V_0 \in \reals^n\)</span>.</li>
-<li>Recursively compute <span class="math inline">\(V_{k+1} = \mathcal B V_k = \mathcal B_{π_k} V_k.\)</span></li>
-<li>Define <span class="math display">\[ \begin{align*}
-   \underline δ_k &amp;= \frac{γ}{1-γ} \min_s \{ V_k(s) - V_{k-1}(s) \}, \\
-   \bar δ_k &amp;=       \frac{γ}{1-γ} \max_s \{ V_k(s) - V_{k-1}(s) \}.
-\end{align*} \]</span></li>
-</ol>
-<p>Then, for all <span class="math inline">\(k\)</span></p>
-<ol type="1">
-<li><span class="math inline">\(V_k + \underline δ_k \ONES \le V^* \le V_k + \bar δ_k \ONES\)</span>.</li>
-<li><span class="math inline">\((\underline δ_k - \bar δ_k) \ONES \le V_{π_k} - V^* \le (\bar δ_k - \underline δ_k) \ONES.\)</span></li>
+<li>Recursively compute <span class="math inline">\(V_{k} = \mathcal B V_{k-1} = \mathcal B_{π_{k-1}} V_{k-1}.\)</span></li>
+<li>Define <span class="math display">\[ Δ_k = \max\{ V_k(s) - V_{k-1}(s) \} - \min \{ V_k(s) - V_{k-1}(s) \}. \]</span></li>
+<li>If <span class="math inline">\(Δ_k &gt; \frac{1 - γ}{γ} ε\)</span>, continue to step 2. Else carry out one more step of value update and choose the policy <span class="math inline">\(π_k\)</span>.</li>
 </ol>
 </div>
+</div>
+<p>As established in the <a href="inf-horizon.html">notes on discounted MDP</a>, the algorithm stops in a finite number of iterations and the resulting policy is <span class="math inline">\(ε\)</span>-optimal. engine</p>
+<section id="span-norm-contraction" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="span-norm-contraction"><span class="header-section-number">12.1</span> Span norm contraction</h2>
+<p>Let <span class="math inline">\(\SPAN(v) = \max(v) - \min(v)\)</span> denotes the span semi-norm. We start by stating some basic properties of span semi-norm.</p>
+<ol type="1">
+<li><span class="math inline">\(\SPAN(v) \ge 0\)</span> for all <span class="math inline">\(v \in \reals^n\)</span></li>
+<li><span class="math inline">\(\SPAN(v + w) \le \SPAN(v) + \SPAN(w)\)</span> for all <span class="math inline">\(v, w \in \reals^n\)</span>.</li>
+<li><span class="math inline">\(\SPAN(m v) \le |m| \SPAN(v)\)</span> for all <span class="math inline">\(v \in \reals^n\)</span> and <span class="math inline">\(m \in \reals\)</span>.</li>
+<li><span class="math inline">\(\SPAN(v + m \mathbf{1}) = \SPAN(v)\)</span> for all <span class="math inline">\(m \in \reals\)</span>.</li>
+<li><span class="math inline">\(\SPAN(v) = \SPAN(-v)\)</span>.</li>
+<li><span class="math inline">\(\SPAN(v) \le 2\|v\|\)</span>.</li>
+</ol>
+<p>Properties 1–3 imply that <span class="math inline">\(\SPAN(v)\)</span> is a semi-norm. However, it is not a norm because of property&nbsp;4; that is, <span class="math inline">\(\SPAN(v) = 0\)</span> does not imply that <span class="math inline">\(v = 0\)</span>. If <span class="math inline">\(\SPAN(v) = 0\)</span>, then <span class="math inline">\(v = m \mathbf{1}\)</span> for some scalar <span class="math inline">\(m\)</span>.</p>
+<p>A basic result for our analysis is the following:</p>
+<div id="prp-span-matrix" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 12.1 </strong></span>Let <span class="math inline">\(v \in \reals^n\)</span> and <span class="math inline">\(P\)</span> be any matrix of compatible dimensions. Then, <span class="math display">\[ \SPAN(P v) \le β_P \SPAN(v), \]</span> where <span class="math display">\[\begin{equation} \label{eq:span-matrix}
+  β_P = 1 - \min_{s, s' \in \ALPHABET S}
+  \sum_{z \in \ALPHABET S} \min\{ P_{sz}, P_{s'z} \}.
+\end{equation}\]</span> Furhermore, <span class="math inline">\(β_P \in [0, 1]\)</span> and there exists a <span class="math inline">\(v \in \reals^n\)</span> such that <span class="math inline">\(\SPAN(Pv) = β_P \SPAN(v)\)</span>.</p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -418,40 +428,74 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By construction, <span class="math display">\[ \begin{align*}
-   \mathcal B V_k - V_k &amp;= \mathcal B V_k - \mathcal B V_{k-1} \\
-   &amp; \le \mathcal B_{π_{k-1}} V_k - \mathcal B_{π_{k-1}} V_{k-1}\\
-   &amp; \le γ P_{π_{k-1}}[ V_k - V_{k-1} ] \\
-   &amp;= (1-γ) \bar δ_k \ONES.
-\end{align*} \]</span> Thus, by <a href="inf-horizon.html#prp-Bellman-bounds">Proposition&nbsp;<span>8.5</span></a>, we have <span class="math display">\[\begin{equation} \label{eq:VI-1}
-  V^* \le V_k + \bar δ_k \ONES.
-\end{equation}\]</span> Note that <span class="math inline">\(\mathcal B V_k = \mathcal B_{π_k} V_k\)</span>. So, we have also show that <span class="math inline">\(\mathcal B_{π_k} V_k - V_k \le (1-γ) \bar δ_k \ONES\)</span>. Thus, again by <a href="inf-horizon.html#prp-Bellman-bounds">Proposition&nbsp;<span>8.5</span></a>, we have <span class="math display">\[\begin{equation}\label{eq:VI-2}
-  V_{π_k} \le V_k + \bar δ_k \ONES.
-\end{equation}\]</span></p>
-<p>By a similar argument, we can show <span class="math display">\[\begin{equation}\label{eq:VI-3}
-  V^* \ge V_k + \underline δ_k \ONES
-\quad\text{and}\quad
-V_{π_k} \ge V_k + \underline δ_k \ONES.
-\end{equation}\]</span></p>
-<p>Eq.&nbsp;\eqref{eq:VI-1} and \eqref{eq:VI-3} imply the first relationship of the result. To establish the second relationship, note that the triangle inequality <span class="math display">\[ \max\{ V_{π_k} - V^* \} \le
-   \max\{ V_{π_k} - V_k \} + \max\{ V_{k} - V^* \}
-   \le (\bar δ_k - \underline δ_k) \ONES.
-\]</span> Similarly, <span class="math display">\[
-  \max\{ V^* - V_{π_k} \} \le
-   \max \{ V^* - V_k \} + \max\{ V_k - V_{π_k} \}
-   \le (\bar δ_k - \underline δ_k) \ONES.
-\]</span> Combining the above two equation, we get the second relationship of the result.&nbsp;</p>
+<p>Note that for any <span class="math inline">\(v \in \reals^n\)</span> <span class="math display">\[\begin{align*}
+\SPAN(Pv) &amp;= \max_{s \in \ALPHABET S} \sum_{z \in \ALPHABET S} P_{sz} v_z
+- \min_{s' \in \ALPHABET S} \sum_{z \in \ALPHABET S} P_{s'z} v_z \\
+&amp;= \max_{s, s' \in \ALPHABET S}
+  \sum_{z \in \ALPHABET S} P_{sz} v_z - \sum_{z \in \ALPHABET S} P_{s'z} v_z
+\end{align*}\]</span> Let <span class="math inline">\(B(z; s,s') = \min\{ P_{sz}, P_{s'z} \}\)</span>. Then consider <span class="math display">\[\begin{align*}
+  \sum_{z \in \ALPHABET S} P_{sz} v_z - \sum_{z \in \ALPHABET S} P_{s'z} v_z
+  &amp;=
+  \sum_{z \in \ALPHABET S} [ P_{sz} - B(z; s,s') ] v_z -
+  \sum_{z \in \ALPHABET S} [ P_{s'z} - B(z; s,s') ] v_z \\
+  &amp;\le
+  \sum_{z \in \ALPHABET S} [ P_{sz} - B(z; s,s') ] \max(v) -
+  \sum_{z \in \ALPHABET S} [ P_{s'z} - B(z; s,s') ] \min(v)
+  \\
+  &amp;= \biggl[ 1 - \sum_{z \in \ALPHABET S} B(z; s, s') \biggr] \SPAN(v).
+\end{align*}\]</span> Hence, <span class="math display">\[ \SPAN(Pv) \le \max_{s, s' \in \ALPHABET S} \biggl[
+  1 - \sum_{z \in \ALPHABET S} B(z; s, ) \biggr] \SPAN(v). \]</span></p>
+<p>Now we show that there exists a <span class="math inline">\(v\)</span> such that&nbsp;\eqref{eq:span-matrix} holds with equality. If <span class="math inline">\(β_P = 0\)</span>, then <span class="math inline">\(P\)</span> has equal rows, so that&nbsp;<span class="math inline">\(\SPAN(Pv) = 0 = 0 \cdot \SPAN(v)\)</span> for all <span class="math inline">\(v \in \reals^n\)</span>. Suppose <span class="math inline">\(β_P &gt; 0\)</span>. Using the identity <span class="math inline">\([ a - b]^{+} = a - \min(a,b)\)</span>, we can write <span class="math display">\[
+β_P = \max_{s,s' \in \ALPHABET S}
+\sum_{z \in \ALPHABET  S} \bigl[ P_{sz} - P_{s'z} \bigr]^{+}.
+\]</span> Let <span class="math inline">\(s^*\)</span> and <span class="math inline">\(s'^*\)</span> be such that <span class="math display">\[
+  β_P = \sum_{z \in \ALPHABET S}  
+\sum_{z \in \ALPHABET  S} \bigl[ P_{s^*z} - P_{s'^*z} \bigr]^{+}.
+\]</span> Define <span class="math inline">\(v\)</span> by <span class="math display">\[
+  v_z = \IND\{ P_{s^*z} &gt; P_{s'^*z} \}.
+\]</span> Then, note that <span class="math inline">\(\SPAN(v) = 1\)</span> and <span class="math display">\[\begin{align*}
+  \SPAN(Pv) &amp;\ge
+  \sum_{z \in \ALPHABET S} P_{s^* z} v_z -
+  \sum_{z \in \ALPHABET S} P_{s'^* z} v_z \\
+  &amp;=
+  \sum_{z \in \ALPHABET  S} \bigl[ P_{s^*z} - P_{s'^*z} \bigr]^{+}
+  \\
+  &amp;= β_P \SPAN(v).
+\end{align*}\]</span> Combining with&nbsp;\eqref{eq:span-matrix}, we get <span class="math inline">\(\SPAN(Pv) = β_P \SPAN(v)\)</span>.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="policy-iteration-algorithm" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="policy-iteration-algorithm"><span class="header-section-number">9.2</span> Policy Iteration Algorithm</h2>
-<div id="lem-policy-improvement" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 9.1 (Policy improvement) </strong></span>Suppose <span class="math inline">\(V_π\)</span> is the fixed point of <span class="math inline">\(\mathcal B_π\)</span> and <span class="math display">\[\mathcal B_{μ} V_π = \mathcal B V_π. \]</span> Then, <span class="math display">\[V_{μ}(s) \le V_π(s), \quad \forall s \in \ALPHABET S. \]</span> Moreover, if <span class="math inline">\(π\)</span> is not optimal, then at least one inequality is strict.</p>
+<p><a href="#prp-span-matrix">Proposition&nbsp;<span>12.1</span></a> illustrates the “averaging” property of a transition matrix. By multiplying a vector by a transition matrix, the resulting vector has components which are more nearly equal. When <span class="math inline">\(P\)</span> is a square matrix, the quantity <span class="math inline">\(β_P\)</span> is called the <strong>ergodicity coefficient</strong>, which is often written in an alternative form by using the relation <span class="math inline">\(|a - b| = (a + b) - 2 \min(a,b)\)</span>: <span class="math display">\[
+  β_P = \frac12
+  \max_{s,s' \in \ALPHABET S} \sum_{z \in \ALPHABET S}
+  \bigl| P_{sz} - P_{s'z} \bigr|. \]</span> The ergodicity coefficient is an upper bound on the second largest eigenvalue of <span class="math inline">\(P\)</span>. <span class="math inline">\(β_P\)</span> equals <span class="math inline">\(0\)</span> if all rows of <span class="math inline">\(P\)</span> are equal and equals <span class="math inline">\(1\)</span> if at least two rows of <span class="math inline">\(P_d\)</span> are orthogonal. From a different perspective, <span class="math inline">\(β_P &lt; 1\)</span> if for each pair of states there exists at least one state which they both can reach with positive probability in one step.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that <span class="math display">\[\begin{equation}\label{eq:ergodicity-bound}
+β_P \le 1 - \sum_{z \in \ALPHABET S} \min_{s \in \ALPHABET S} P_{sz}
+=: β_P'
+\end{equation}\]</span> which is easier to compute.</p>
+</div>
+</div>
+<p>Define the contraction factor <span class="math display">\[\begin{equation}\label{eq:contraction}
+  β = \max_{\substack{ s,s' \in \ALPHABET S \\ a \in \ALPHABET A(s), w \in
+  \ALPHABET A(s')}}
+  \biggl[ 1 - \sum_{z \in \ALPHABET S}
+    \min\{ P(z | s,a), P(z | s', w) \biggr].
+\end{equation}\]</span> Note that <span class="math inline">\(β \in [0, 1]\)</span>.</p>
+<div id="thm-span-contraction" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.1 </strong></span>For any <span class="math inline">\(V_1, V_2 \in \reals^n\)</span>, <span class="math display">\[ \SPAN(\mathcal B V_1 - \mathcal B V_2) \le γ β\, \SPAN(V_1 - V_2). \]</span></p>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -460,110 +504,129 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[ V_π = \mathcal B_π V_π \ge \mathcal B V_π = \mathcal B_{μ} V_π.\]</span> Thus, <span class="math display">\[ V_π \ge V_{μ}. \]</span></p>
-<p>Finally, suppose <span class="math inline">\(V_μ = V_π\)</span>. Then, <span class="math display">\[ V_μ = \mathcal B_μ V_μ = \mathcal B_μ V_π = \mathcal B V_π = \mathcal B
-V_μ. \]</span> Thus, <span class="math inline">\(V_μ\)</span> (and <span class="math inline">\(V_π\)</span>) is the unique fixed point of <span class="math inline">\(\mathcal B\)</span>. Hence <span class="math inline">\(μ\)</span> and <span class="math inline">\(π\)</span> are optimal.</p>
+<p>Let <span class="math inline">\(π_i\)</span> be such that <span class="math inline">\(\mathcal B V_i = \mathcal B_{π_i}V_i\)</span>. Let <span class="math display">\[\begin{align*}
+  s^* &amp;= \arg \max_{s \in \ALPHABET S}(\mathcal B V_1(s) - \mathcal B V_2(s)),
+  \\
+  s_* &amp;= \arg \min_{s \in \ALPHABET S}(\mathcal B V_1(s) - \mathcal B V_2(s)),
+\end{align*}\]</span> Then, <span class="math display">\[
+  \mathcal B V_1(s^*) - \mathcal B V_2(s^*) \le
+  \mathcal B_{π_2} V_1(s^*) - \mathcal B_{π_2} V_2(s^*)
+  = γ P_{π_2}(V_1 - V_2)(s^*)
+\]</span> and <span class="math display">\[
+  \mathcal B V_1(s_*) - \mathcal B V_2(s_*) \ge
+  \mathcal B_{π_1} V_1(s^*) - \mathcal B_{π_1} V_2(s^*)
+  = γ P_{π_1}(V_1 - V_2)(s^*).
+\]</span> Therefore, <span class="math display">\[\begin{align*}
+  \SPAN(\mathcal B V_1 - \mathcal B V_2) &amp;\le
+  γ P_{π_2}(V_1 - V_2)(s^*) - γ P_{π_1}(V_1 - V_2)(s_*) \\
+  &amp;\le \max_{s \in \ALPHABET S} γ P_{π_2} (V_1 - V_2)(s) -
+  \min_{s \in \ALPHABET S} γ P_{π_1}(V_1 - V_2)(s)
+  \\
+  &amp;\le \SPAN(γ\, \ROWS(P_{π_2}, P_{π_1})(V_1 - V_2).
+\end{align*}\]</span> By applying <a href="#prp-span-matrix">Proposition&nbsp;<span>12.1</span></a>, we get <span class="math display">\[ \SPAN(\mathcal B V_1 - \mathcal B V_2) \le γβ_{\bar P} \SPAN(V_1 - V_2), \]</span> where <span class="math inline">\(β_{\bar P}\)</span> is given by&nbsp;\eqref{eq:span-matrix} with <span class="math inline">\(\bar P = \ROWS(P_{π_2}, P_{π_1})\)</span>. The result follows by noting that <span class="math inline">\(β_{\bar P}\)</span> is at most <span class="math inline">\(β\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
+</section>
+<section id="computational-complexity-of-value-iteration" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="computational-complexity-of-value-iteration"><span class="header-section-number">12.2</span> Computational complexity of value iteration</h2>
+<p>Note that <span class="math inline">\(β \in [0, 1]\)</span>. We will first rule out the case <span class="math inline">\(β = 0\)</span>. If <span class="math inline">\(β = 0\)</span>, then <span class="math inline">\(P(z | s, a) = P(z | s', w)\)</span> for all <span class="math inline">\(s, s', z \in \ALPHABET S\)</span> and <span class="math inline">\(a \in \ALPHABET A(s)\)</span> and <span class="math inline">\(w \in \ALPHABET A(s')\)</span>, which implies that all deterministic policies have the same transition probabilities. Therefore, a deterministic policy <span class="math inline">\(π\)</span> is optimal if and only if it minimize the one-step cost. Thus, the case with <span class="math inline">\(β = 0\)</span> is trivial. So, in the rest of the analysis, we assume that <span class="math inline">\(β \in (0, 1)\)</span>.</p>
+<div id="thm-VI-computational" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.2 </strong></span>Start with an abritrary <span class="math inline">\(V_0\)</span>. If <span class="math inline">\(Δ_1 = 0\)</span>, then we obtain an optimal policy in iteration 1. Otherwise, for any <span class="math inline">\(ε &gt; 0\)</span>, value iteration finds an <span class="math inline">\(ε\)</span>-optimal policy in no more than <span class="math inline">\(K^*(γ)\)</span> iterations, where <span class="math display">\[\begin{equation}\label{eq:K*}
+  K^*(γ) =  \left\lceil
+  \frac{ \log \frac{(1-γ) ε β}{Δ_1} } {\log(γβ)}
+  \right\rceil.
+\end{equation}\]</span> In addition, each iteration uses at most <span class="math inline">\(O(nM)\)</span> operations.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-<i class="bi bi-cpu text-important"></i> Policy Iteration Algorithm
+Proof
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Start with an arbitrary policy <span class="math inline">\(π_0\)</span>. Compute <span class="math inline">\(V_0 = \mathcal B_{π_0} V_0\)</span>.</p></li>
-<li><p>Recursively compute a policy <span class="math inline">\(π_k\)</span> such that <span class="math display">\[\mathcal B V_{k-1} = \mathcal B_{π_k} V_{k-1}\]</span> and compute the performance of the policy using <span class="math display">\[ V_k = \mathcal B_{π_k} V_k.\]</span></p></li>
-<li><p>Stop if <span class="math inline">\(V_k = V_{k-1}\)</span> (or <span class="math inline">\(π_k = π_{k-1}\)</span>).</p></li>
-</ol>
+<p>If follows from the definition of Bellman operator that each iteration uses at most <span class="math inline">\(O(nM)\)</span> iterations (to compute the <span class="math inline">\(Q\)</span> function, for each state-action pair, we need to compute a sum over <span class="math inline">\(n\)</span> terms).</p>
+<p>From <a href="#thm-span-contraction">Theorem&nbsp;<span>12.1</span></a>, we get that <span class="math inline">\(Δ_k \le (γβ)^{k-1} Δ_1\)</span>. Therefore, the minimum number of iterations required to achieve <span class="math inline">\(Δ_k \le \frac{1-γ}{γ}ε\)</span> is given <span class="math inline">\(K^*(γ)\)</span>.&nbsp;<span class="math inline">\(\Box\)</span></p>
 </div>
 </div>
-<p>The policy improvement lemma (<a href="#lem-policy-improvement">Lemma&nbsp;<span>9.1</span></a>) implies that <span class="math inline">\(V_{k-1} \ge V_k\)</span>. Since the state and action spaces are finite, there are only a finite number of policies. The value function improves at each step. So the process must converge in finite number of iterations. At convergence, <span class="math inline">\(V_k = V_{k-1}\)</span> and the policy improvement lemma implies that the corresponding policies <span class="math inline">\(π_k\)</span> or <span class="math inline">\(π_{k-1}\)</span> are optimal.</p>
-<section id="policy-iteration-as-newton-raphson-algoritm" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="policy-iteration-as-newton-raphson-algoritm"><span class="header-section-number">9.2.1</span> Policy iteration as Newton-Raphson algoritm</h3>
-<!-- Taken from Pg 58 of Whittle, Optimal Control: Basics and Beyond -->
-<p>Recall that the main idea behind Newton-Raphson is as follows. Suppose we want to solve a fixed point equation <span class="math inline">\(V = \mathcal B V\)</span> and we have an approximate solution <span class="math inline">\(V_k\)</span>. Then we can search for an improved soluiton <span class="math inline">\(V_{k+1} = V_k + Δ_k\)</span> by setting <span class="math display">\[\begin{equation} \label{eq:NR}
-V_k + Δ_k = \mathcal{B}( V_k + Δ_k ),
-\end{equation} \]</span> expanding the right-hand side as far as first-order terms in <span class="math inline">\(Δ_k\)</span> and solving the consequent linear equation for <span class="math inline">\(Δ_k\)</span>.</p>
-<p>Now, let’s try to apply this idea to find the fixed point of the Bellman equation. Suppose we have identified a guess <span class="math inline">\(V_k\)</span> and <span class="math inline">\(\mathcal B V_k = \mathcal B_{π_{k+1}} V_k\)</span>. Because the choice of control action <span class="math inline">\(a\)</span> is optimization out in <span class="math inline">\(\mathcal B\)</span>, the varation of <span class="math inline">\(a\)</span> induced by the variation <span class="math inline">\(Δ_k\)</span> of <span class="math inline">\(V_k\)</span> has no first-order effect on the value of <span class="math inline">\(\mathcal B(V_k + Δ_k)\)</span>. Therefore, <span class="math display">\[
-  \mathcal{B}(V_k + Δ_k) = \mathcal B_{π_{k+1}}(V_k + Δ_k) + o(Δ_k).
-\]</span> It follows that the linearized version of&nbsp;\eqref{eq:NR} is just <span class="math display">\[
-  V_{k+1} = \mathcal B_{π_{k+1}} V_{k+1}.
-\]</span> That is, <span class="math inline">\(V_{k+1}\)</span> is just the value function for the policy <span class="math inline">\(π_{k+1}\)</span>, where <span class="math inline">\(π_{k+1}\)</span> was deduced from the value function <span class="math inline">\(V_k\)</span> exactly by the policy improvement procedure. Therefore, we can conclude the following.</p>
-<div id="thm-PI-NR" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 9.1 </strong></span>The policy improvement algorithm is equivalent to the application of Newton-Raphson algorithm to the fixed point equation <span class="math inline">\(V = \mathcal B V\)</span> of dynamic programming.</p>
 </div>
-<p>The equivalence between policy iteration and Newton-Raphson partily explains why policy iteration approaches converge in few iterations.</p>
-</section>
-</section>
-<section id="optimistic-policy-iteration" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="optimistic-policy-iteration"><span class="header-section-number">9.3</span> Optimistic Policy Iteration</h2>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-<i class="bi bi-cpu text-important"></i> Optimistic Policy Iteration Algorithm
+Remark
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Fix a sequence of integers <span class="math inline">\(\{\ell_k\}_{k \in \integers_{\ge 0}}\)</span>.</p></li>
-<li><p>Start with an initial guess <span class="math inline">\(V_0 \in \reals^n\)</span>.</p></li>
-<li><p>For <span class="math inline">\(k=0, 1, 2, \dots\)</span>, recursively compute a policy <span class="math inline">\(π_k\)</span> such that <span class="math display">\[ \mathcal B_{π_k} V_k = \mathcal B V_k \]</span> and then update the value function <span class="math display">\[ V_{k+1} = \mathcal B_{π_k}^{\ell_k} V_k. \]</span></p></li>
-</ol>
+<p>Note that finding the value of <span class="math inline">\(β\)</span> requires computing the sum in&nbsp;\eqref{eq:contraction} for all couples <span class="math inline">\(\{ (s,a), (s',b) \}\)</span> of state action pairs such that <span class="math inline">\((s,a) \neq (s',b)\)</span>. The total number of such pairs are <span class="math inline">\(M(M-1)/2 = O(M^2)\)</span>. Therefore, the number of arithematic operators in&nbsp;\eqref{eq:contraction}, which are additions, is <span class="math inline">\(n\)</span> for each couple. Therefore, computation of <span class="math inline">\(β\)</span> requires <span class="math inline">\(O(nM^2)\)</span> operations, which can be significantly larger than the complexity of computing an <span class="math inline">\(ε\)</span>-optimal policy which is given by <a href="#thm-VI-computational">Theorem&nbsp;<span>12.2</span></a>! Based on \eqref{eq:ergodicity-bound} we can replace <span class="math inline">\(β\)</span> by in&nbsp;\eqref{eq:K*} by <span class="math display">\[
+  β' = 1 - \sum_{z \in \ALPHABET S} \min_{s \in \ALPHABET S, a \in \ALPHABET A}
+       P(z | s,a)
+\]</span> which requies <span class="math inline">\(O(nM)\)</span> operations.</p>
 </div>
-</div>
-<p>Note that if <span class="math inline">\(\ell_k = 1\)</span>, the optimistic policy iteration is equivalent to value iteration and if <span class="math inline">\(\ell_k = \infty\)</span>, then optimistic policy iteration is equal to policy iteration.</p>
-<p>In the remainder of this section, we state the modifications of the main results to establish the convergence bounds for optimistic policy iteration.</p>
-<div id="prp-multi-step-PI" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 9.1 </strong></span>For any <span class="math inline">\(V \in \reals^n\)</span> and <span class="math inline">\(m \ONES \in \reals_{\ge 0}\)</span></p>
-<ul>
-<li>If <span class="math inline">\(V + m \ONES \ge \mathcal B V = \mathcal B_π V\)</span>, then for any <span class="math inline">\(\ell \in \integers_{&gt; 0}\)</span>, <span class="math display">\[ \mathcal B V + \frac{γ}{1 - γ} m \ONES \ge \mathcal B_π^\ell V \]</span> and <span class="math display">\[ \mathcal B_π^\ell V + γ^\ell m \ONES \ge \mathcal B( \mathcal B_π^\ell V). \]</span></li>
-</ul>
-</div>
-<p>The proof is left as an exercise.</p>
-<div id="prp-PI-optimistic-bound" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 9.2 </strong></span>Let <span class="math inline">\(\{(V_k, π_k)\}_{k \ge 0}\)</span> be generated as per the optimistic policy iteration algorithm. Define <span class="math display">\[ \alpha_k = \begin{cases}
-  1, &amp; \text{if } k = 0 \\
-  γ^{\ell_0 + \ell_1 + \dots + \ell_{k-1}}, &amp; \text{if } k &gt; 0.
-\end{cases}\]</span> Suppose there exists an <span class="math inline">\(m \in \reals\)</span> such that <span class="math display">\[ \| V_0 - \mathcal B V_0 \| \le m. \]</span> Then, for all <span class="math inline">\(k \ge 0\)</span>, <span class="math display">\[ \mathcal B V_{k+1} - \alpha_{k+1} m \le V_{k+1} \le
-\mathcal B V_k + \frac{γ}{1-γ} \alpha_k m.
-\]</span> Moreover, <span class="math display">\[ V_{k} - \frac{(k+1) γ^k}{1-γ} m \le
-    V^* \le
-    V_k + \frac{\alpha_k}{1 - γ} m \le
-    V_k + \frac{γ^k}{1 - γ} m. \]</span></p>
 </div>
 </section>
-<section id="exercises" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exr-VI-bounds" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.1 </strong></span>Show that the error bound for value iteration is monotone with the number of iterations, i.e, <span class="math display">\[ V_k + \underline δ_k \ONES \le V_{k+1} + \underline δ_{k+1} \ONES
-\le V^*
-\le V_{k+1} + \bar δ_{k+1} \ONES \le V_k + \bar δ_k \ONES. \]</span></p>
+<section id="the-bound-may-be-exact" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="the-bound-may-be-exact"><span class="header-section-number">12.3</span> The bound may be exact</h2>
+<p>We now present an example (due to <span class="citation" data-cites="Feinberg2020">Feinberg and He (<a href="../references.html#ref-Feinberg2020" role="doc-biblioref">2020</a>)</span>) to show that the bound in <a href="#thm-VI-computational">Theorem&nbsp;<span>12.2</span></a> may be exact. Consider an MDP with <span class="math inline">\(\ALPHABET S = \{1, 2, 3\}\)</span>, <span class="math inline">\(\ALPHABET A = \{1,2 \}\)</span>, with <span class="math inline">\(\ALPHABET A(1) = \{1, 2\}\)</span> and <span class="math inline">\(\ALPHABET A(2) = \ALPHABET A(3) = \{1\}\)</span>. The per-step transitions are <span class="math display">\[
+  P(1) = \MATRIX{0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 },
+  \quad\text{and}\quad
+  P(2) = \MATRIX{0 &amp; 1 &amp; 0 \\ * &amp; * &amp; * \\ * &amp; * &amp; *},
+\]</span> where <span class="math inline">\(*\)</span> indicates that the corresponding action is infeasible. The <em>reward</em> matrix is <span class="math display">\[
+  r = \MATRIX{1 &amp; 0 \\ 1 &amp; * \\ -1 &amp; *}.
+\]</span></p>
+<p>Suppose we start with an initial <span class="math inline">\(V_0 = \VEC(1, 2, -2)\)</span>. Then elementary calculations show that <span class="math display">\[
+  V_k = \MATRIX{ γ^k \\ γ^k \\ -γ^k} +
+  \MATRIX{ \sum_{\ell = {\color{red} 1}}^{k} γ^\ell \\
+           \sum_{\ell = 0}^{k} γ^\ell \\
+           \sum_{\ell = 0}^{k} γ^\ell }.
+\]</span> Thus, <span class="math display">\[
+  V_k - V_{k-1} = \MATRIX{
+  2 γ^k - γ^{k-1} \\
+  2 γ^k - γ^{k-1} \\
+  - 2 γ^k + γ^{k-1} }.
+\]</span> Hence, <span class="math display">\[
+\SPAN(V_k - V_{k-1}) = 2γ^{k-1} |2γ - 1| = γ^{k-1} \SPAN(V_1 - V_0).
+\]</span></p>
+<p>Thus, for this model, the expression \eqref{eq:K*} is exact.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<!-- TODO: Add the example of policy improvement for the harvesting example
-from Page 61 of Whittle, Optimal Control: Basics and Beyond -->
+<div class="callout-caption-container flex-fill">
+Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The exact number of iterations need not be monotone in <span class="math inline">\(γ\)</span>! In the above example, let <span class="math inline">\(ε = 0.02\)</span>, then <span class="math display">\[
+  K^*(0.24) = 3, \quad
+  K^*(0.47) = 4, \quad
+  K^*(0.48) = 3.
+\]</span></p>
+<p>Thus, the number of iterations is not monotone in <span class="math inline">\(γ\)</span>.</p>
+</div>
+</div>
 </section>
-<section id="references" class="level1 unnumbered">
-<h1 class="unnumbered">References</h1>
-<p>The techniques for value iteration and policy improvement were formalized by <span class="citation" data-cites="Howard1960">Howard (<a href="../references.html#ref-Howard1960" role="doc-biblioref">1960</a>)</span>. The equivalence of policy improvement and the Newton-Raphson algorithm was demonstrated in the LQ case by <span class="citation" data-cites="Whittle1988a">Whittle and Komarova (<a href="../references.html#ref-Whittle1988a" role="doc-biblioref">1988</a>)</span>, for which it holds in a tighter sense.</p>
+<section id="notes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
+<p>The discussion on span semi-norm and <a href="#thm-span-contraction">Theorem&nbsp;<span>12.1</span></a> is from <span class="citation" data-cites="Puterman2014">Puterman (<a href="../references.html#ref-Puterman2014" role="doc-biblioref">2014</a>)</span>. <a href="#thm-VI-computational">Theorem&nbsp;<span>12.2</span></a> is from <span class="citation" data-cites="Feinberg2020">Feinberg and He (<a href="../references.html#ref-Feinberg2020" role="doc-biblioref">2020</a>)</span>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-Howard1960" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Howard, R.A.</span> 1960. <em>Dynamic programming and markov processes</em>. The M.I.T. Press.
+<div id="ref-Feinberg2020" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Feinberg, E.A. and He, G.</span> 2020. Complexity bounds for approximately solving discounted <span>MDPs</span> by value iterations. <em>Operations Research Letters</em>. DOI: <a href="https://doi.org/10.1016/j.orl.2020.07.001">10.1016/j.orl.2020.07.001</a>.
 </div>
-<div id="ref-Whittle1988a" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Whittle, P. and Komarova, N.</span> 1988. Policy improvement and the newton-raphson algorithm. <em>Probability in the Engineering and Informational Sciences</em> <em>2</em>, 2, 249–255. DOI: <a href="https://doi.org/10.1017/s0269964800000760">10.1017/s0269964800000760</a>.
+<div id="ref-Puterman2014" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Puterman, M.L.</span> 2014. <em>Markov decision processes: Discrete stochastic dynamic programming</em>. John Wiley &amp; Sons. DOI: <a href="https://doi.org/10.1002/9780470316887">10.1002/9780470316887</a>.
 </div>
 </div>
 </section>
@@ -704,13 +767,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../mdps/inf-horizon.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Infinite horizon MDPs</span></span>
+      <a href="../mdps/mobile-edge-computing.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Service Migration in Mobile edge computing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../mdps/inventory-management-revisited.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inventory management (revisted)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../mdps/linear-programming.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Linear programming formulation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

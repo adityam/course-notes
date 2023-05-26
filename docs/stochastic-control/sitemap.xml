@@ -2,70 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adityam.github.io/course-notes/stochastic-optimization/intro.html</loc>
-    <lastmod>2023-05-25T05:50:35.517Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.187Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/stochastic-optimization/newsvendor.html</loc>
-    <lastmod>2023-05-25T05:50:35.524Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.194Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/intro.html</loc>
-    <lastmod>2023-05-25T05:50:35.524Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.194Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/gambling.html</loc>
-    <lastmod>2023-05-25T05:50:35.527Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.200Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inventory-management.html</loc>
-    <lastmod>2023-05-25T05:50:35.527Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.200Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/monotone-mdps.html</loc>
-    <lastmod>2023-05-25T05:50:35.537Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.210Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/power-delay-tradeoff.html</loc>
-    <lastmod>2023-05-25T05:50:35.537Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.217Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inf-horizon.html</loc>
-    <lastmod>2023-05-25T05:50:35.541Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.220Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/mdp-algorithms.html</loc>
-    <lastmod>2023-05-25T05:50:35.541Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.224Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inventory-management-revisited.html</loc>
-    <lastmod>2023-05-25T05:50:35.541Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.224Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/mobile-edge-computing.html</loc>
-    <lastmod>2023-05-25T05:50:35.544Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/mdps/computational-complexity-vi.html</loc>
+    <lastmod>2023-05-26T18:13:33.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/mdps/linear-programming.html</loc>
+    <lastmod>2023-05-26T18:13:33.230Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/lipschitz-mdps.html</loc>
-    <lastmod>2023-05-25T05:50:35.547Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.234Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/pomdps/intro.html</loc>
-    <lastmod>2023-05-25T05:50:35.554Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.237Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/linear-algebra/svd.html</loc>
-    <lastmod>2023-05-25T05:50:35.554Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.240Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/linear-algebra/rkhs.html</loc>
-    <lastmod>2023-05-25T05:50:35.557Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.244Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/references.html</loc>
-    <lastmod>2023-05-25T05:50:35.557Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.250Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/assignments/01.html</loc>
-    <lastmod>2023-05-25T05:50:35.561Z</lastmod>
+    <lastmod>2023-05-26T18:13:33.250Z</lastmod>
   </url>
 </urlset>

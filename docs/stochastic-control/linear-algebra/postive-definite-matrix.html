@@ -6,11 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-12">
-<meta name="keywords" content="MDPs, Dynamic programming">
+<meta name="dcterms.date" content="2023-05-26">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
-<title>Course Notes - 3&nbsp; Finite horizon MDPs</title>
+<title>Course Notes - 17&nbsp; Positive definite matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +22,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -33,8 +51,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../mdps/gambling.html" rel="next">
-<link href="../stochastic-optimization/newsvendor.html" rel="prev">
+<link href="../linear-algebra/svd.html" rel="next">
+<link href="../probability/sub-gaussian.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,6 +120,7 @@ window.MathJax = {
 </script>
 <script async="" data-id="101261731" src="//static.getclicky.com/js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -131,7 +150,7 @@ window.MathJax = {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Positive definite matrices</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -184,7 +203,7 @@ window.MathJax = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mdps/intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></a>
+  <a href="../mdps/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -296,7 +315,7 @@ window.MathJax = {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../linear-algebra/postive-definite-matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Positive definite matrices</span></a>
+  <a href="../linear-algebra/postive-definite-matrix.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Positive definite matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -336,14 +355,27 @@ window.MathJax = {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#definite-and-basic-properties" id="toc-definite-and-basic-properties" class="nav-link active" data-scroll-target="#definite-and-basic-properties"><span class="toc-section-number">17.1</span>  Definite and basic properties</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
+  <li><a href="#remarks-on-positive-definite-matrices" id="toc-remarks-on-positive-definite-matrices" class="nav-link" data-scroll-target="#remarks-on-positive-definite-matrices"><span class="toc-section-number">17.2</span>  Remarks on positive definite matrices</a></li>
+  <li><a href="#a-useful-relationship." id="toc-a-useful-relationship." class="nav-link" data-scroll-target="#a-useful-relationship."><span class="toc-section-number">17.3</span>  A useful relationship.</a></li>
+  <li><a href="#determinant-bounds" id="toc-determinant-bounds" class="nav-link" data-scroll-target="#determinant-bounds"><span class="toc-section-number">17.4</span>  Determinant bounds</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite horizon MDPs</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Positive definite matrices</span></h1>
 </div>
 
 
@@ -354,7 +386,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 12, 2023</p>
+      <p class="date">May 26, 2023</p>
     </div>
   </div>
   
@@ -364,8 +396,93 @@ window.MathJax = {
 
 </header>
 
+<section id="definite-and-basic-properties" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="definite-and-basic-properties"><span class="header-section-number">17.1</span> Definite and basic properties</h2>
+<div id="def-positive-definite" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17.1 </strong></span>A <span class="math inline">\(n \times n\)</span> symmetric matrix <span class="math inline">\(M\)</span> is called</p>
+<ul>
+<li><p><em>positive definite</em> (written as <span class="math inline">\(M &gt; 0\)</span>) if for all <span class="math inline">\(x \in \reals^n\)</span>, <span class="math inline">\(x \neq 0\)</span>, we have <span class="math display">\[x^\TRANS M x &gt; 0.\]</span></p></li>
+<li><p><em>positive semi definite</em> (written as <span class="math inline">\(M \ge 0\)</span>) if for all <span class="math inline">\(x \in \reals^n\)</span>, <span class="math inline">\(x \neq 0\)</span>, we have <span class="math display">\[x^\TRANS M x \ge 0.\]</span></p></li>
+</ul>
+</div>
+<section id="examples" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="examples">Examples</h3>
+<ul>
+<li><p><span class="math inline">\(\MATRIX{ x_1 &amp; x_2 } \MATRIX{ 3 &amp; 0 \\ 0 &amp; 2 } \MATRIX{ x_1 \\ x_2 } = 3 x_1^2 + 2 x_2^2\)</span>.</p>
+<p>Thus, <span class="math inline">\(\MATRIX{ 3 &amp; 0 \\ 0 &amp; 2 } &gt; 0\)</span>.</p></li>
+<li><p><span class="math inline">\(\MATRIX{ x_1 &amp; x_2 } \MATRIX{ 0 &amp; 0 \\ 0 &amp; 2 } \MATRIX{ x_1 \\ x_2 } = 2 x_2^2\)</span>.</p>
+<p>Thus, <span class="math inline">\(\MATRIX{ 0 &amp; 0 \\ 0 &amp; 2 } \ge 0\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="remarks-on-positive-definite-matrices" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="remarks-on-positive-definite-matrices"><span class="header-section-number">17.2</span> Remarks on positive definite matrices</h2>
+<ol type="1">
+<li><p>By making particular choices of <span class="math inline">\(x\)</span> in the definition of positive definite matrix, we have that for a positive definite matrix <span class="math inline">\(M\)</span>,</p>
+<ul>
+<li><span class="math inline">\(M_{ii} &gt; 0\)</span> for all <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(M_{ij} &lt; \sqrt{M_{ii} M_{jj}}\)</span> for all <span class="math inline">\(i \neq j\)</span>.</li>
+</ul>
+<p>However, satisfying these inequalities is not sufficient for positive definiteness.</p></li>
+<li><p>A symmetric matrix is positive definite (respt. postive semi-definite) if and only if all of its eigenvalues are positive (respt. non-negative).</p></li>
+<li><p>Therefore, a sufficient condition for a symmetric matrix to be positive definite is that all diagonal elements are positive and the matrix is diagonally dominant, i.e., <span class="math inline">\(M_{ii} &gt; \sum_{j \neq i} | M_{ij}|\)</span> for all {-} <span class="math inline">\(i\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M\)</span> is symmetric positive definite, then so is <span class="math inline">\(M^{-1}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M\)</span> is symmetric positive definite, then <span class="math inline">\(M\)</span> has a unique symmetric positive definite square root <span class="math inline">\(R\)</span> (i.e., <span class="math inline">\(RR = M\)</span>).</p></li>
+<li><p>If <span class="math inline">\(M\)</span> is symmetric positive definite, then <span class="math inline">\(M\)</span> has a unique Cholesky factorization <span class="math inline">\(M = T^\TRANS T\)</span>, where <span class="math inline">\(T\)</span> is upper triangular with positive diagonal elements.</p></li>
+<li><p>The set of positive semi-definite matrices forms a convex cone.</p></li>
+<li><p>Positive definiteness introduces a partial order on the convex cone of positive semi-definite matrices. In particular, we say that for two positive semi-definite matrices <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> of the same dimension, <span class="math inline">\(M \succeq N\)</span> if <span class="math inline">\(M - N\)</span> is positive semi-definite. For this reason, often <span class="math inline">\(M \succ 0\)</span> and <span class="math inline">\(M \succeq 0\)</span> is used a short-hand to denote that <span class="math inline">\(M\)</span> is positive definite and positive semi-definite.</p></li>
+<li><p>Let <span class="math inline">\(M\)</span> is a symmetric square matrix. Let <span class="math display">\[ λ_1(M) \ge λ_2(M) \ge \dots \ge λ_n(M) \]</span> denote the ordered (real) eigenvalues of <span class="math inline">\(M\)</span>. Then <span class="math display">\[ λ_1(M)I \succeq M \succeq λ_n(M)I. \]</span></p></li>
+<li><p>If <span class="math inline">\(M \succeq N\)</span>, then <span class="math display">\[ λ_k(M) \ge λ_k(N), \quad k \in \{1, \dots, n\}. \]</span></p></li>
+<li><p>If <span class="math inline">\(M \succeq N \succ 0\)</span>, then <span class="math display">\[ N^{-1} \succeq M^{-1} \succ 0. \]</span></p></li>
+<li><p>If <span class="math inline">\(M \succeq N\)</span> are <span class="math inline">\(n × n\)</span> matrices and <span class="math inline">\(T\)</span> is a <span class="math inline">\(m × n\)</span> matrix, then <span class="math display">\[ T^\TRANS M T \succeq T^\TRANS N T. \]</span></p></li>
+<li><p>If <span class="math inline">\(M, N\)</span> are <span class="math inline">\(n×\)</span> positive semi-definite matrices, then <span class="math display">\[ \sum_{i=1}^k λ_i(M) λ_{n-i+1}(N) \le
+  \sum_{i=1}^k λ_i(MN) \le
+  \sum_{i=1}^k λ_i(M)λ_i(N),
+  \quad k \in \{1, \dots, n\}.
+   \]</span> Note that this property does not require <span class="math inline">\(M - N\)</span> to be positive or negative semi-definite.</p></li>
+<li><p>If <span class="math inline">\(M \succ 0\)</span> and <span class="math inline">\(T\)</span> are square matrices of the same size, then <span class="math display">\[ TMT + M^{-1} \succeq 2T. \]</span></p></li>
+</ol>
+</section>
+<section id="a-useful-relationship." class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="a-useful-relationship."><span class="header-section-number">17.3</span> A useful relationship.</h2>
+<p>Symmetric block matrices of the form</p>
+<p><span class="math display">\[ C = \MATRIX{ A &amp; X \\ X^\TRANS &amp; B } \]</span></p>
+<p>often appear in applications. If <span class="math inline">\(A\)</span> is non-singular, we can write</p>
+<p><span class="math display">\[
+\MATRIX{A &amp; X \\ X^\TRANS &amp; B } =
+\MATRIX{I &amp; 0 \\ X^\TRANS A^{-1} &amp; I}
+\MATRIX{A &amp; 0 \\ 0 &amp; B - X^\TRANS A^{-1} X }
+\MATRIX{I &amp; A^{-1} X \\ 0 &amp; I }
+\]</span> which shows that <span class="math inline">\(C\)</span> is congruent to a block diagonal matrix, which is positive definite when its diagonal blocks are postive definite. Therefore, <span class="math inline">\(C\)</span> is positive definite if and only if both <span class="math inline">\(A\)</span> and <span class="math inline">\(B - X^\TRANS A^{-1} X\)</span> are positive definite. The matrix <span class="math inline">\(B = X^\TRANS A^{-1} X\)</span> is called the Shur complement of <span class="math inline">\(A\)</span> in <span class="math inline">\(C\)</span>.</p>
+</section>
+<section id="determinant-bounds" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="determinant-bounds"><span class="header-section-number">17.4</span> Determinant bounds</h2>
+<div id="prp-fischer-inequality" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 17.1 (Fischer’s inequality) </strong></span>Suppose <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> are positive semidefinite matrix and <span class="math display">\[ M = \MATRIX{A &amp; B \\ B^\TRANS &amp; C}. \]</span> Then <span class="math display">\[ \det(M) \le \det(A) \det(C). \]</span></p>
+</div>
+<p>Recursive application of Fischer’s inequality gives the Hadamard’s inequality for a symmetric positive definite matrix: <span class="math display">\[ \det(A) \le A_{11} A_{22} \cdots A_{nn}, \]</span> with equality if and only if <span class="math inline">\(A\)</span> is diagonal.</p>
+<div id="prp-PD-ratio" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 17.2 </strong></span>If <span class="math inline">\(M \succ N \succ 0\)</span> are <span class="math inline">\(n × n\)</span> matrices and <span class="math inline">\(T\)</span> is a <span class="math inline">\(m × n\)</span> matrix, then <span class="math display">\[ \sup_{ T \neq 0} \frac{ \| T^\TRANS M T \| }{ \| T^\TRANS N T \|}
+   \le \frac{ \det(M) }{ \det(N) }, \]</span> where for any matrix <span class="math inline">\(M\)</span>, <span class="math display">\[
+  \| M \| = \sup_{x \neq 0} \frac{ \| M x \|_2 }{ \|x\|_2 }
+\]</span> is the <span class="math inline">\(2\)</span>-norm of the matrix.</p>
+</div>
+<p><a href="#prp-PD-ratio">Proposition&nbsp;<span>17.2</span></a> is taken from <span class="citation" data-cites="Abbasi-Yadkori2011">(<a href="../references.html#ref-Abbasi-Yadkori2011" role="doc-biblioref"><strong>Abbasi-Yadkori2011?</strong></a>)</span>.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<p>The properties of positive definite matrices are stated in any book on the theory of matrices. See for example <span class="citation" data-cites="Marshall2011">Marshall et al. (<a href="../references.html#ref-Marshall2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>Historically, a matrix used as a test matrix for testing positive definiteness was the Wilson matrix <span class="math display">\[ W = \MATRIX{5 &amp; 7 &amp; 6 &amp; 5 \\ 7 &amp; 10 &amp; 8 &amp; 7 \\ 6 &amp; 8 &amp; 10 &amp; 9 \\ 5 &amp; 7 &amp; 9
+&amp; 10}. \]</span> For a nice overview of Wilson matrix, see this <a href="https://blogs.mathworks.com/cleve/2018/08/20/reviving-wilsons-matrix/">blog post</a>.</p>
+<hr>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Marshall2011" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Marshall, A.W., Olkin, I., and Arnold, B.C.</span> 2011. <em>Inequalities: Theory of majorization and its applications</em>. Springer New York. DOI: <a href="https://doi.org/10.1007/978-0-387-68276-1">10.1007/978-0-387-68276-1</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -503,13 +620,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stochastic-optimization/newsvendor.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The newsvendor problem</span></span>
+      <a href="../probability/sub-gaussian.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sub-Gaussian random variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../mdps/gambling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimal gambling</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../linear-algebra/svd.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

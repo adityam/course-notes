@@ -2,78 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adityam.github.io/course-notes/stochastic-optimization/intro.html</loc>
-    <lastmod>2023-05-26T18:13:33.187Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.429Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/stochastic-optimization/newsvendor.html</loc>
-    <lastmod>2023-05-26T18:13:33.194Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.435Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/intro.html</loc>
-    <lastmod>2023-05-26T18:13:33.194Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.439Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/gambling.html</loc>
-    <lastmod>2023-05-26T18:13:33.200Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.442Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inventory-management.html</loc>
-    <lastmod>2023-05-26T18:13:33.200Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/monotone-mdps.html</loc>
-    <lastmod>2023-05-26T18:13:33.210Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.449Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/power-delay-tradeoff.html</loc>
-    <lastmod>2023-05-26T18:13:33.217Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.449Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inf-horizon.html</loc>
-    <lastmod>2023-05-26T18:13:33.220Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.452Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/mdp-algorithms.html</loc>
-    <lastmod>2023-05-26T18:13:33.224Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.452Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/inventory-management-revisited.html</loc>
-    <lastmod>2023-05-26T18:13:33.224Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.452Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/mobile-edge-computing.html</loc>
-    <lastmod>2023-05-26T18:13:33.227Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.455Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/computational-complexity-vi.html</loc>
-    <lastmod>2023-05-26T18:13:33.227Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.455Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/linear-programming.html</loc>
-    <lastmod>2023-05-26T18:13:33.230Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.459Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/mdps/lipschitz-mdps.html</loc>
-    <lastmod>2023-05-26T18:13:33.234Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.459Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/pomdps/intro.html</loc>
-    <lastmod>2023-05-26T18:13:33.237Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.465Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/probability/sub-gaussian.html</loc>
+    <lastmod>2023-05-28T05:00:50.465Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adityam.github.io/course-notes/linear-algebra/postive-definite-matrix.html</loc>
+    <lastmod>2023-05-28T05:00:50.465Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/linear-algebra/svd.html</loc>
-    <lastmod>2023-05-26T18:13:33.240Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.469Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/linear-algebra/rkhs.html</loc>
-    <lastmod>2023-05-26T18:13:33.244Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.469Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/references.html</loc>
-    <lastmod>2023-05-26T18:13:33.250Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.469Z</lastmod>
   </url>
   <url>
     <loc>https://adityam.github.io/course-notes/assignments/01.html</loc>
-    <lastmod>2023-05-26T18:13:33.250Z</lastmod>
+    <lastmod>2023-05-28T05:00:50.469Z</lastmod>
   </url>
 </urlset>

@@ -1,9 +1,11 @@
 ---
-title: "Theory: Reward Shaping"
+title: "Reward Shaping"
 tags:
   - reward shaping
 ---
 
+:::{.callout-note icon=false appearance="simple"}
+# <i class="bi bi-journal-text text-primary"></i> Summary
 What are the conditions under which two MDPs which have the same dynamics but
 different cost functions have the same optimal policy? This is an important
 question in reinforcement learning (where one often _shapes_ the reward
@@ -11,6 +13,7 @@ function to speed up learning) and inverse reinforcement learning (where one
 learns the reward function from the behavior of an expert). The following
 result provides a complete answer to this question. These results are
 typically established for inifinte horizon models. However, in my opinion, it is conceptually simpler to start with the finite horizon model. 
+:::
 
 Let $M^1$ and $M^2$ denote two MDPs on the same state space $\ALPHABET S$ and
 action space $\ALPHABET A$. Both MDPs have the same dynamics $P = (P_1, \dots,

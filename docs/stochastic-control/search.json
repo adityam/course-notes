@@ -219,21 +219,21 @@
   {
     "objectID": "mdps/reward-shaping.html",
     "href": "mdps/reward-shaping.html",
-    "title": "9  Theory: Reward Shaping",
+    "title": "9  Reward Shaping",
     "section": "",
     "text": "Notes\nThe idea of reward shaping was proposed by Skinner (1938) to synthesize complex behavior by guiding animals to perform simple functions (see :Skinner’s Box Experiment). The formal description of reward shaping comes from Porteus (1975), who established a result similar to Ng et al. (1999), and called it the transformation method. Porteus (1975) also describes transformations of the dynamics which preserve the optimal policy.\nCorollary 9.2 was also re-established by Ng et al. (1999), who aslo provided a partial converse. The results of Porteus (1975) and Ng et al. (1999) were restricted to time-homogeneous potential functions. The generalization to time-varying potential functions was presented in Devlin and Kudenko (2012).\nThe partial converse of Corollary 9.1 established by Ng et al. (1999) states that the shaping presented in Theorem 9.1 is the only additive cost transformation that that preserves the set of optimal policy. However, this converse was derived under the assumption that the transition dynamics are complete (see Ng et al. (1999)). A similar converse under a weaker set of assumptions on the transition dynamics is established in Jenner et al. (2022).\nFor a discussion on practical considerations in using reward shaping in reinforcement learning, see Grzes and Kudenko (2009) and Devlin (2014). As a counter-point, Wiewiora (2003) shows that the advantages of reward shaping can also be achieved by simply adding the potential function to the \\(Q\\)-function initialization."
   },
   {
     "objectID": "mdps/reward-shaping.html#generalization-to-discounted-models",
     "href": "mdps/reward-shaping.html#generalization-to-discounted-models",
-    "title": "9  Theory: Reward Shaping",
+    "title": "9  Reward Shaping",
     "section": "9.1 Generalization to discounted models",
     "text": "9.1 Generalization to discounted models\nNow consider a finite horizon discounted cost problem, where the performance of a policy \\(π\\) is given by \\[\nJ(π) = \\EXP\\Bigl[ \\sum_{t=1}^{T-1} γ^{t-1} c_t(S_t, A_t) + γ^T c_T(S_T)\n       \\Bigr].\n\\] As argued in the introduction to discounted models, the dynamic prgram for this case is given by\n\\[ V_{T}(s) = c_T(s) \\] and for \\(t \\in \\{T-1, \\dots, 1\\}\\): \\[ \\begin{align*}\n  Q_t(s,a) &= c(s,a) + γ \\EXP[ V_{t+1}(S_{t+1}) | S_t = s, A_t = a ], \\\\\n  V_t(s) &= \\min_{a \\in \\ALPHABET A} Q_t(s,a).\n\\end{align*} \\]\nFor such models, we have the following.\n\nCorollary 9.2 For discounted cost models, the results of Theorem 9.1 and Corollary 9.1 continue to hold if condition 2 is replaced by\n\nFor \\(t \\in \\{1, \\dots, T-1\\}\\),\n\\[ c^2_t(s,a,s_{+}) = c^1_t(s,a,s_{+}) + γ Φ_{t+1}(s_{+}) - Φ_t(s). \\]\n\n\n\n\n\n\n\n\nInfinite horizon models\n\n\n\nIf the cost function is time homogeneous, Corollary 9.2 extends naturally to infinite horizon models with a time-homogeneous potential function. A remarkable feature is that if the potential function is chosen as the value function, i.e., \\(Φ(s) = V(s)\\), then the value function of the modified cost \\(\\tilde c(s,a,s_{+})\\) is zero!"
   },
   {
     "objectID": "mdps/reward-shaping.html#examples",
     "href": "mdps/reward-shaping.html#examples",
-    "title": "9  Theory: Reward Shaping",
+    "title": "9  Reward Shaping",
     "section": "9.2 Examples",
     "text": "9.2 Examples\nAs an example of reward shaping, see the notes on inventory management. Also see the notes on martingale approach to stochastic control for an iteresting relationship between reward shaping and martingales."
   },

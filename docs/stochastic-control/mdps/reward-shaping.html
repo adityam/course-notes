@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-12">
+<meta name="dcterms.date" content="2023-05-31">
 <meta name="description" content="ECES 506 (Stochastic Control and Decision Theory)">
 
-<title>Course Notes - 20&nbsp; Singular value decomposition</title>
+<title>Course Notes - 9&nbsp; Theory: Reward Shaping</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../linear-algebra/rkhs.html" rel="next">
-<link href="../linear-algebra/postive-definite-matrix.html" rel="prev">
+<link href="../mdps/inf-horizon.html" rel="next">
+<link href="../mdps/power-delay-tradeoff.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -124,7 +124,7 @@ window.MathJax = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -150,7 +150,7 @@ window.MathJax = {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Theory: Reward Shaping</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -228,7 +228,7 @@ window.MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mdps/reward-shaping.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Theory: Reward Shaping</span></a>
+  <a href="../mdps/reward-shaping.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Theory: Reward Shaping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -325,7 +325,7 @@ window.MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../linear-algebra/svd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></a>
+  <a href="../linear-algebra/svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -364,23 +364,18 @@ window.MathJax = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#singular-values" id="toc-singular-values" class="nav-link active" data-scroll-target="#singular-values"><span class="toc-section-number">20.1</span>  Singular values</a>
-  <ul class="collapse">
-  <li><a href="#properties-of-singular-values" id="toc-properties-of-singular-values" class="nav-link" data-scroll-target="#properties-of-singular-values">Properties of singular values</a></li>
-  </ul></li>
-  <li><a href="#best-rank-k-approximations" id="toc-best-rank-k-approximations" class="nav-link" data-scroll-target="#best-rank-k-approximations"><span class="toc-section-number">21</span>  Best rank-<span class="math inline">\(k\)</span> approximations</a>
-  <ul class="collapse">
+  <li><a href="#generalization-to-discounted-models" id="toc-generalization-to-discounted-models" class="nav-link active" data-scroll-target="#generalization-to-discounted-models"><span class="toc-section-number">9.1</span>  Generalization to discounted models</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="toc-section-number">9.2</span>  Examples</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Singular value decomposition</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Theory: Reward Shaping</span></h1>
 </div>
 
 
@@ -391,7 +386,7 @@ window.MathJax = {
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 12, 2023</p>
+      <p class="date">May 31, 2023</p>
     </div>
   </div>
   
@@ -401,107 +396,174 @@ window.MathJax = {
 
 </header>
 
+<p>What are the conditions under which two MDPs which have the same dynamics but different cost functions have the same optimal policy? This is an important question in reinforcement learning (where one often <em>shapes</em> the reward function to speed up learning) and inverse reinforcement learning (where one learns the reward function from the behavior of an expert). The following result provides a complete answer to this question. These results are typically established for inifinte horizon models. However, in my opinion, it is conceptually simpler to start with the finite horizon model.</p>
+<div class="page-columns page-full"><p>Let <span class="math inline">\(M^1\)</span> and <span class="math inline">\(M^2\)</span> denote two MDPs on the same state space <span class="math inline">\(\ALPHABET S\)</span> and action space <span class="math inline">\(\ALPHABET A\)</span>. Both MDPs have the same dynamics <span class="math inline">\(P = (P_1, \dots, P_T)\)</span>, but different cost functions <span class="math inline">\(c^1 = (c^1_1, \dots, c^1_T)\)</span> and <span class="math inline">\(c^2 = (c^2_1, \dots, c^2_T)\)</span>. We assume that for <span class="math inline">\(t \in \{1, \dots, T-1\}\)</span>, the per-step cost is a function of the current state, current action, and next state (see <a href="../mdp-functional#cost-depends-on-next-state">cost depending on next state</a>)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and for <span class="math inline">\(t = T\)</span>, the per-step cost function is just a function of the current state.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;We choose the cost to depend on the next state only for convenience of analysis. The result of <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a> can be established for models where the cost depends only on the per-step cost by replacing property&nbsp;2 in <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a> by <span class="math display">\[ c^2_t(s,a) = c^1_t(s,a) + \sum_{s' \in \ALPHABET S} P_t(s'|s,a) Φ_{t+1}(s') -
+Φ_t(s).\]</span></p></li></div></div>
+<div id="thm-reward-shaping" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 9.1 </strong></span>Suppose the cost functions in MDPs <span class="math inline">\(M^1\)</span> and <span class="math inline">\(M^2\)</span> are related as follows:</p>
+<ol type="1">
+<li><p>For <span class="math inline">\(t = T\)</span>, <span class="math display">\[ c^2_T(s) = c^1_T(s) - Φ_T(s).  \]</span></p></li>
+<li><p>For <span class="math inline">\(t \in \{1, \dots, T-1\}\)</span>, <span class="math display">\[ c^2_t(s,a,s_{+}) = c^1_t(s,a,s_{+}) +  Φ_{t+1}(s_{+}) - Φ_t(s). \]</span></p></li>
+</ol>
+<p>Then, for any policy <span class="math inline">\(π\)</span>, <span class="math display">\[\begin{equation}\label{eq:result}
+    Q^{\pi,2}_t(s,a) = Q^{\pi,1}_t(s,a) - Φ_t(s)
+    \quad\text{and}\quad
+    V^{\pi,2}_t(s) = V^{\pi,1}_t(s) - Φ_t(s).
+\end{equation}\]</span></p>
+</div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Eigendecomposition of a matrix
+Sign of potential function
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A symmetric <span class="math inline">\(n × n\)</span> matrix has real eigenvlaues. When the eigenvalues are distinct, then the eigenvectors are linearly independent. Let <span class="math inline">\(λ_1, \dots, λ_n\)</span> denote the eigenvalues and let <span class="math inline">\(v_1, \dots, v_n\)</span> be the corresponding eigenvectors. Define <span class="math inline">\(V = [ v_1, \dots, v_n ]\)</span> and <span class="math inline">\(D = \diag(λ_1, \dots, λ_n)\)</span>. Then, <span class="math display">\[
-  A = V D V^{-1}.
-\]</span></p>
+<p>The sign of the potential function is irrelevant. So, we could also have written <span class="math display">\[ c^2_t(s,a,s_{+}) = c^1_t(s,a,s_{+}) +  Φ_t(s) - Φ_{t+1}(s_{+}) \]</span> and argued that <span class="math display">\[  V^{\pi,2}_t(s) = V^{\pi,1}_t(s) + Φ_t(s).\]</span></p>
 </div>
 </div>
-<p>If we choose the eigenvectors to be orthonormal, then <span class="math inline">\(V^\TRANS V = I\)</span>, so we can alternatively write the eigendecomposition of <span class="math inline">\(A\)</span> as <span class="math display">\[
-  A = V D V^\TRANS.
-\]</span></p>
-<p>The <strong>singular value decomposition (SVD)</strong> is a generalization of this where <span class="math inline">\(A\)</span> is a <span class="math inline">\(n × d\)</span> matrix.</p>
-<section id="singular-values" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="singular-values"><span class="header-section-number">20.1</span> Singular values</h2>
-<p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(n × d\)</span> matrix. Then, the matrix <span class="math inline">\(A^\TRANS A\)</span> is a symmetric <span class="math inline">\(d × d\)</span> matrix, so its eigenvalues are real. Moreover, <span class="math inline">\(A^\TRANS A\)</span> is positive semi-definite, so the eigen values are non-negative. Let <span class="math inline">\(\{ λ_1, \dots, λ_d \}\)</span> denote the eigenvalues of <span class="math inline">\(A^\TRANS A\)</span>, with repetitions. Order then so that <span class="math inline">\(λ_1 \ge λ_2 \ge \dots \ge λ_d \ge 0\)</span>. Let <span class="math inline">\(σ_i = \sqrt{λ_i}\)</span>, so that <span class="math inline">\(σ_1 \ge σ_2 \ge \dots σ_d \ge 0\)</span>. These numbers are called the <strong>singular values</strong> of <span class="math inline">\(A\)</span>.</p>
-<section id="properties-of-singular-values" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="properties-of-singular-values">Properties of singular values</h3>
-<ol type="1">
-<li><p>The number of non-zero singular values of <span class="math inline">\(A\)</span> equals to the rank of <span class="math inline">\(A\)</span>. In particular, if <span class="math inline">\(A\)</span> is <span class="math inline">\(n × d\)</span> where <span class="math inline">\(n &lt; d\)</span>, then <span class="math inline">\(A\)</span> has at most <span class="math inline">\(n\)</span> nonzero singular values.</p></li>
-<li><p>It can be shown that</p>
-<p><span class="math display">\[ σ_1 = \max_{\|x\| = 1}  \| A x \| . \]</span></p>
-<p>Let <span class="math inline">\(v_1\)</span> denote the arg-max of the above optimization. <span class="math inline">\(v_1\)</span> is called the first singular vector of <span class="math inline">\(A\)</span>. Then,</p>
-<p><span class="math display">\[ σ_2 = \max_{ x \perp v_1, \|x \| = 1}  \| A x\|. \]</span></p>
-<p>Let <span class="math inline">\(v_2\)</span> denote the arg-max of the above optimization. <span class="math inline">\(v_2\)</span> is called the second singular vector of <span class="math inline">\(A\)</span>, and so on.</p></li>
-<li><p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(n × d\)</span> matrix and <span class="math inline">\(v_1, \dots, v_r\)</span> be the singular vectors, where <span class="math inline">\(r = \text{rank}(A)\)</span>. Then for any <span class="math inline">\(k \in \{1, \dots, r\}\)</span>, let <span class="math inline">\(V_k\)</span> be the subspace spanned by <span class="math inline">\(\{v_1, \dots, v_k\}\)</span>. Then, <span class="math inline">\(V_k\)</span> is the best <span class="math inline">\(k\)</span>-dimensional subspace for <span class="math inline">\(A\)</span>.</p></li>
-<li><p>For any matrix <span class="math inline">\(A\)</span>, <span class="math display">\[ \sum_{i =1}^r σ_i^2(A) = \| A \|_{F}^2
-   := \sum_{j,k} a_{jk}^2. \]</span></p></li>
-<li><p>Any vector <span class="math inline">\(v\)</span> can be written as a linear combination of <span class="math inline">\(v_1, \dots, v_r\)</span> and a vector perpendicular to <span class="math inline">\(V_r\)</span> (defined above). Now, <span class="math inline">\(Av\)</span> can be written as the same linear combination of <span class="math inline">\(Av_1, Av_2, \dots, Av_r\)</span>. So, <span class="math inline">\(Av_1, \dots, Av_r\)</span> form a fundamental set of vectors associated with <span class="math inline">\(A\)</span>. We normalize them to length one by <span class="math display">\[ u_i = \frac{1}{σ_i(A)} A v_i. \]</span> The vectors <span class="math inline">\(u_1, \dots, u_r\)</span> are called the <em>left singular vectors</em> of <span class="math inline">\(A\)</span>. The <span class="math inline">\(v_i\)</span> are called the <em>right singular vectors</em>.</p></li>
-<li><p>Both the left and the right singular vectors are orthogonal.</p></li>
-</ol>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We prove the result by backward induction. First note that <span class="math display">\[
+  V^{\pi,2}_T(s) = c^2_T(s) = c^1_T(s) - Φ_T(s) = V^{\pi,1}_T(s) - Φ_T(s).
+\]</span> This forms the basis of induction. Now suppose that \eqref{eq:result} holds for time <span class="math inline">\(t+1\)</span>. Now consider <span class="math display">\[\begin{align*}
+Q^{\pi,2}_t(s,a) &amp;= \EXP[ c^2_t(s,a,S_{t+1}) + V^{\pi,2}_{t+1}(S_{t+1}) \mid S_t
+= s, a ]
+\\
+&amp;\stackrel{(a)}= \EXP[ c^1_t(s,a,S_{t+1}) - Φ_t(s) + Φ_{t+1}(S_{t+1}) \\
+&amp;\qquad + V^{\pi,1}_{t+1}(S_{t+1}) - Φ_{t+1}(S_{t+1}) \mid S_t = s, A_t = a ] \\
+&amp;= \EXP[ c^1_t(s,a,S_{t+1}) - Φ_t(s) + V^1_{t+1}(S_{t+1}) \mid
+S_t = s, A_t = a] \\
+&amp;= Q^{\pi,1}_t(s,a) - Φ_t(s),
+\end{align*}\]</span> where <span class="math inline">\((a)\)</span> follows from property 2 and the induction hypothesis.</p>
+<p>Now, <span class="math display">\[ \begin{align*}
+  V^{\pi,2}_t(s) &amp;= Q^{\pi,2}_t(s,\pi(s)) \\
+  &amp;= Q^{\pi,1}_t(s,\pi(s) - Φ_t(s) \\
+  &amp;= V^{\pi,1}_t(s) - Φ_t(s).
+\end{align*}\]</span></p>
+<p>This proves the induction step.</p>
+</div>
+</div>
+</div>
+<p>By almost an analogous argument, we can show that the optimal value functions also satisfy a similar relationship.</p>
+<div id="cor-reward-shaping" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 9.1 </strong></span>Under conditions of <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a>, <span class="math display">\[\begin{equation}\label{eq:result-opt}
+      Q^{2}_t(s,a) = Q^{1}_t(s,a) - Φ_t(s)
+      \quad\text{and}\quad
+      V^{2}_t(s) = V^{1}_t(s) - Φ_t(s).
+  \end{equation}\]</span></p>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Singular value decomposition
+Advantage function
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For any matrix <span class="math inline">\(A\)</span>, <span class="math display">\[ A = \sum_{i=1}^r σ_i u_i v_i^\TRANS \]</span> where <span class="math inline">\(u_i\)</span> and <span class="math inline">\(v_i\)</span> are the left and right singular vectors, and <span class="math inline">\(σ_i\)</span> are the singular values.</p>
-<p>Equivalently, in matrix notation: <span class="math display">\[ A = U D V^\TRANS \]</span> where the columns of <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> consist of the left and right singular vectors, respectively, and <span class="math inline">\(D\)</span> is a diagonal matrix whose diagonal entries are the singular values of <span class="math inline">\(A\)</span>.</p>
+<p>The advantage (or benefit) function given by <span class="math display">\[ B_t(s,a) := Q_t(s,a) - V_t(s) \]</span> measures the relative cost of choosing action <span class="math inline">\(a\)</span> over the optimal action. An implication of \eqref{eq:result-opt} is that reward shaping does not change the advantage function!</p>
 </div>
 </div>
-<p>If <span class="math inline">\(A\)</span> is a positive definite square matrix, then the SVD and the eigen-decomposition coincide.</p>
-</section>
-</section>
-<section id="best-rank-k-approximations" class="level1" data-number="21">
-<h1 data-number="21"><span class="header-section-number">21</span> Best rank-<span class="math inline">\(k\)</span> approximations</h1>
-<p>There are two important matrix norms, the Frobenius norm which is defined as <span class="math display">\[
-  \| A \|_{F} = \sqrt{ \sum_{i,j} a_{ij}^2 }
-\]</span> and the induced norm which is defined as <span class="math display">\[
-  \| A \|_2 = \max_{\|x \| = 1} \| A x \|.
-\]</span></p>
-<p>Note that the Frobenius norm is equal to the square root of the sum of squares of the singular values and the <span class="math inline">\(2\)</span>-norm is the largest singular value.</p>
-<p>Let <span class="math inline">\(A\)</span> be an <span class="math inline">\(n × d\)</span> matrix and think of <span class="math inline">\(A\)</span> as the <span class="math inline">\(n\)</span> points in <span class="math inline">\(d\)</span>-dimensional space. The Frobenius norm of <span class="math inline">\(A\)</span> is the square root of the sum of squared distance of the points to the origin. The induced norm is the square root of the sum of squared distances to the origin along the direction that maximizes this quantity.</p>
-<div id="prp-svd" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 21.1 (Best rank-<span class="math inline">\(k\)</span> approximation) </strong></span>Let <span class="math display">\[ A = \sum_{i = 1}^r σ_i u_i v_i^\TRANS \]</span> be the SVD of <span class="math inline">\(A\)</span>. For <span class="math inline">\(k \in \{1, \dots, r\}\)</span>, let <span class="math display">\[ A_k = \sum_{i=1}^k σ_i u_i v_i^\TRANS \]</span> be the sum truncated after <span class="math inline">\(k\)</span> terms.</p>
-<p>Then, <span class="math inline">\(A_k\)</span> is the best rank <span class="math inline">\(k\)</span> approximation to <span class="math inline">\(A\)</span>, when the error is measured in either the induced norm or the Frobenius norm.</p>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Proof outline
+Remark
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>This result is established by showing the following properties:</p>
-<ol type="1">
-<li><p>The rows of <span class="math inline">\(A_k\)</span> are the projections of the rows of <span class="math inline">\(A\)</span> onto the subspace <span class="math inline">\(V_k\)</span> spanned by the first <span class="math inline">\(k\)</span> right singular vectors of <span class="math inline">\(A\)</span>.</p></li>
-<li><p>For any matrix <span class="math inline">\(B\)</span> of rank at most <span class="math inline">\(k\)</span> <span class="math display">\[ \| A - A_k \|_{F} \le \|A - B \|_{F}. \]</span></p></li>
-<li><p><span class="math inline">\(\| A - A_k\|_2^2 = σ_{k+1}^2.\)</span></p></li>
-<li><p>For any matrix <span class="math inline">\(B\)</span> of rank at most <span class="math inline">\(k\)</span> <span class="math display">\[ \| A - A_k \|_{2} \le \|A - B \|_{2}. \]</span></p></li>
+<p>Another implication of <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a> and <a href="#cor-reward-shaping">Corollary&nbsp;<span>9.1</span></a> is that for any policy <span class="math inline">\(π\)</span>, <span class="math display">\[ V^{\pi,2}_t(s) - V^{2}_t(s) = V^{\pi,1}_t(s) - V^1_t(s). \]</span> Thus, reward shaping also preserves near-optimality; i.e., if a policy is approximately optimal in model <span class="math inline">\(M^1\)</span>, then it is approximately optimal in model <span class="math inline">\(M^2\)</span> as well.</p>
+</div>
+</div>
+<section id="generalization-to-discounted-models" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="generalization-to-discounted-models"><span class="header-section-number">9.1</span> Generalization to discounted models</h2>
+<p>Now consider a finite horizon discounted cost problem, where the performance of a policy <span class="math inline">\(π\)</span> is given by <span class="math display">\[
+J(π) = \EXP\Bigl[ \sum_{t=1}^{T-1} γ^{t-1} c_t(S_t, A_t) + γ^T c_T(S_T)
+       \Bigr].
+\]</span> As argued in <a href="intro.html#discounted-cost">the introduction to discounted models</a>, the dynamic prgram for this case is given by</p>
+<p><span class="math display">\[ V_{T}(s) = c_T(s) \]</span> and for <span class="math inline">\(t \in \{T-1, \dots, 1\}\)</span>: <span class="math display">\[ \begin{align*}
+  Q_t(s,a) &amp;= c(s,a) + γ \EXP[ V_{t+1}(S_{t+1}) | S_t = s, A_t = a ], \\
+  V_t(s) &amp;= \min_{a \in \ALPHABET A} Q_t(s,a).
+\end{align*} \]</span></p>
+<p>For such models, we have the following.</p>
+<div id="cor-reward-shaping-discounted" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 9.2 </strong></span>For discounted cost models, the results of <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a> and <a href="#cor-reward-shaping">Corollary&nbsp;<span>9.1</span></a> continue to hold if condition 2 is replaced by</p>
+<ol start="2" type="1">
+<li><p>For <span class="math inline">\(t \in \{1, \dots, T-1\}\)</span>,</p>
+<p><span class="math display">\[ c^2_t(s,a,s_{+}) = c^1_t(s,a,s_{+}) + γ Φ_{t+1}(s_{+}) - Φ_t(s). \]</span></p></li>
 </ol>
 </div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Infinite horizon models
 </div>
 </div>
-<section id="notes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
-<p>The <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf">chapter on SVD</a> in <span class="citation" data-cites="Hopcroft2012">Hopcroft and Kannan (<a href="../references.html#ref-Hopcroft2012" role="doc-biblioref">2012</a>)</span> contains a nice intuitive explanation of SVD.</p>
+<div class="callout-body-container callout-body">
+<p>If the cost function is time homogeneous, <a href="#cor-reward-shaping-discounted">Corollary&nbsp;<span>9.2</span></a> extends naturally to infinite horizon models with a time-homogeneous potential function. A remarkable feature is that if the potential function is chosen as the value function, i.e., <span class="math inline">\(Φ(s) = V(s)\)</span>, then the value function of the modified cost <span class="math inline">\(\tilde c(s,a,s_{+})\)</span> is zero!</p>
+</div>
+</div>
+</section>
+<section id="examples" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="examples"><span class="header-section-number">9.2</span> Examples</h2>
+<p>As an example of reward shaping, see the notes on <a href="../../inf-mdp/inventory-management">inventory management</a>. Also see the notes on <a href="../../inf-mdp/martingale-approach">martingale approach to stochastic control</a> for an iteresting relationship between reward shaping and martingales.</p>
+</section>
+<section id="notes" class="level1 unnumbered">
+<h1 class="unnumbered">Notes</h1>
+<p>The idea of <em>reward shaping</em> was proposed by <span class="citation" data-cites="Skinner1938">Skinner (<a href="../references.html#ref-Skinner1938" role="doc-biblioref">1938</a>)</span> to synthesize complex behavior by guiding animals to perform simple functions (see <a href="https://en.wikipedia.org/wiki/Operant_conditioning_chamber">:Skinner’s Box Experiment</a>). The formal description of reward shaping comes from <span class="citation" data-cites="Porteus1975">Porteus (<a href="../references.html#ref-Porteus1975" role="doc-biblioref">1975</a>)</span>, who established a result similar to <span class="citation" data-cites="Ng1999">Ng et al. (<a href="../references.html#ref-Ng1999" role="doc-biblioref">1999</a>)</span>, and called it the transformation method. <span class="citation" data-cites="Porteus1975">Porteus (<a href="../references.html#ref-Porteus1975" role="doc-biblioref">1975</a>)</span> also describes transformations of the dynamics which preserve the optimal policy.</p>
+<p><a href="#cor-reward-shaping-discounted">Corollary&nbsp;<span>9.2</span></a> was also re-established by <span class="citation" data-cites="Ng1999">Ng et al. (<a href="../references.html#ref-Ng1999" role="doc-biblioref">1999</a>)</span>, who aslo provided a partial converse. The results of <span class="citation" data-cites="Porteus1975">Porteus (<a href="../references.html#ref-Porteus1975" role="doc-biblioref">1975</a>)</span> and <span class="citation" data-cites="Ng1999">Ng et al. (<a href="../references.html#ref-Ng1999" role="doc-biblioref">1999</a>)</span> were restricted to time-homogeneous potential functions. The generalization to time-varying potential functions was presented in <span class="citation" data-cites="Devlin2012">Devlin and Kudenko (<a href="../references.html#ref-Devlin2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>The partial converse of <a href="#cor-reward-shaping">Corollary&nbsp;<span>9.1</span></a> established by <span class="citation" data-cites="Ng1999">Ng et al. (<a href="../references.html#ref-Ng1999" role="doc-biblioref">1999</a>)</span> states that the shaping presented in <a href="#thm-reward-shaping">Theorem&nbsp;<span>9.1</span></a> is the <em>only</em> additive cost transformation that that preserves the set of optimal policy. However, this converse was derived under the assumption that the transition dynamics are <em>complete</em> (see <span class="citation" data-cites="Ng1999">Ng et al. (<a href="../references.html#ref-Ng1999" role="doc-biblioref">1999</a>)</span>). A similar converse under a weaker set of assumptions on the transition dynamics is established in <span class="citation" data-cites="Jenner2022">Jenner et al. (<a href="../references.html#ref-Jenner2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>For a discussion on practical considerations in using reward shaping in reinforcement learning, see <span class="citation" data-cites="Grzes2009">Grzes and Kudenko (<a href="../references.html#ref-Grzes2009" role="doc-biblioref">2009</a>)</span> and <span class="citation" data-cites="Devlin2014">Devlin (<a href="../references.html#ref-Devlin2014" role="doc-biblioref">2014</a>)</span>. As a counter-point, <span class="citation" data-cites="Wiewiora2003">Wiewiora (<a href="../references.html#ref-Wiewiora2003" role="doc-biblioref">2003</a>)</span> shows that the advantages of reward shaping can also be achieved by simply adding the potential function to the <span class="math inline">\(Q\)</span>-function initialization.</p>
+<hr>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-Hopcroft2012" class="csl-entry" role="doc-biblioentry">
-<span class="smallcaps">Hopcroft, J. and Kannan, R.</span> 2012. Computer science theory for the information age. Available at: <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf">https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/hopcroft-kannan-feb2012.pdf</a>.
+<div id="ref-Devlin2014" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Devlin, S.</span> 2014. Potential based reward shaping tutorial. Available at: <a href="http://www-users.cs.york.ac.uk/~devlin/presentations/pbrs-tut.pdf">http://www-users.cs.york.ac.uk/~devlin/presentations/pbrs-tut.pdf</a>.
+</div>
+<div id="ref-Devlin2012" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Devlin, S. and Kudenko, D.</span> 2012. Dynamic potential-based reward shaping. <em>Proceedings of the 11th international conference on autonomous agents and multiagent systems</em>, International Foundation for Autonomous Agents; Multiagent Systems, 433–440.
+</div>
+<div id="ref-Grzes2009" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Grzes, M. and Kudenko, D.</span> 2009. Theoretical and empirical analysis of reward shaping in reinforcement learning. <em>International conference on machine learning and applications</em>, 337–344. DOI: <a href="https://doi.org/10.1109/ICMLA.2009.33">10.1109/ICMLA.2009.33</a>.
+</div>
+<div id="ref-Jenner2022" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Jenner, E., Hoof, H. van, and Gleave, A.</span> 2022. Calculus on MDPs: Potential shaping as a gradient. Available at: <a href="https://arxiv.org/abs/2208.09570v1">https://arxiv.org/abs/2208.09570v1</a>.
+</div>
+<div id="ref-Ng1999" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Ng, A.Y., Harada, D., and Russell, S.</span> 1999. Policy invariance under reward transformations: Theory and application to reward shaping. <em>ICML</em>, 278–287. Available at: <a href="http://aima.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf">http://aima.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf</a>.
+</div>
+<div id="ref-Porteus1975" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Porteus, E.L.</span> 1975. Bounds and transformations for discounted finite markov decision chains. <em>Operations Research</em> <em>23</em>, 4, 761–784. DOI: <a href="https://doi.org/10.1287/opre.23.4.761">10.1287/opre.23.4.761</a>.
+</div>
+<div id="ref-Skinner1938" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Skinner, B.F.</span> 1938. <em>Behavior of organisms</em>. Appleton-Century.
+</div>
+<div id="ref-Wiewiora2003" class="csl-entry" role="doc-biblioentry">
+<span class="smallcaps">Wiewiora, E.</span> 2003. Potential-based shaping and q-value initialization are equivalent. <em>Journal of Artificial Intelligence Research</em> <em>19</em>, 1, 205–208.
 </div>
 </div>
 </section>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -639,13 +701,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../linear-algebra/postive-definite-matrix.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Positive definite matrices</span></span>
+      <a href="../mdps/power-delay-tradeoff.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Power-delay tradeoff in wireless communication</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../linear-algebra/rkhs.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Reproducing Kernel Hilbert Space</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../mdps/inf-horizon.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Infinite horizon MDPs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

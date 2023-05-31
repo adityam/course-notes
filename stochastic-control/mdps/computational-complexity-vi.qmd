@@ -17,7 +17,7 @@ with a finite non-empty set of actions $\ALPHABET A(s)$ available at each $s
 \in \ALPHABET S$. Each action set consists of $M_s$ actions with a total
 number of $M = \sum_{s=1}^n M_s$ actions. This number can be interpreted as
 the total number of state-action pairs. Let $γ \in (0, 1)$ be the discount
-factor. We present the value iteration algorithm from the [notes on discounted MDP][discounted] to achieve a pre-specified accuracy $ε$.
+factor. We present the value iteration algorithm from the [notes on MDP algorithms][discounted] to achieve a pre-specified accuracy $ε$.
 
 :::{.callout-important icon="false"}
 # <i class="bi bi-cpu text-important"></i> Value Iteration Algorithm
@@ -33,9 +33,9 @@ For given MDP, discount factor $γ \in (0,1)$, and constant $ε > 0$
    
 :::  
 
-As established in the [notes on discounted MDP][discounted], the algorithm stops in a finite number of iterations and the resulting policy is $ε$-optimal. engine
+As established in the [notes on MDP algorithms][discounted], the algorithm stops in a finite number of iterations and the resulting policy is $ε$-optimal. engine
 
-[discounted]: inf-horizon.html
+[discounted]: mdp-algorithms.html#value-iteration-algorithm
 
 ## Span norm contraction
 

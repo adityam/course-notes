@@ -44,6 +44,7 @@ book:
         - mdps/inventory-management.qmd
         - mdps/monotone-mdps.qmd
         - mdps/power-delay-tradeoff.qmd
+        - mdps/reward-shaping.qmd
         - mdps/inf-horizon.qmd
         - mdps/mdp-algorithms.qmd
         - mdps/inventory-management-revisited.qmd
